@@ -1,23 +1,3 @@
-<?php 
-
-include('config/db_connect.php');
-// <!-- write a query for all books -->
-$sql = 'SELECT name, author, id FROM books';
-
-// <!-- make query and get result -->
-$result = mysqli_query($conn, $sql);
-
-// <!-- fetch the ressulting rows as an array -->
-$books = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-// free result from memory 
-mysqli_free_result($result); 
-
-// close connection 
-
-mysqli_close($conn);
-
-?>
 <!DOCTYPE html>
 <html>
 	
