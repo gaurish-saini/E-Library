@@ -63,6 +63,10 @@
                 <div id="admin" ></br></br></br>
                     <form>
                         <div class="input-field indigo-text text-darken-4 ">
+                            <input type="text" id="name">
+                            <label for="name">Enter Name*</label>
+                        </div>
+                        <div class="input-field indigo-text text-darken-4 ">
                             <input type="email" id="email">
                             <label for="email">Create Username*</label>
                         </div>
@@ -70,22 +74,26 @@
                             <input type="password" id="password">
                             <label for="password">Create Password*</label></br></br></br>
                             <div class="center border">
-                                <input type="submit" name="login" value="sign up" class="btn indigo-text tab-color z-depth-0">
+                                <input type="submit" name="signup" value="sign up" class="btn indigo-text tab-color z-depth-0">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div id="reader"></br></br></br>
-                    <form class="form-portal">
+                    <form>
+                        <div class="input-field indigo-text text-darken-4 ">
+                            <input type="text" id="name">
+                            <label for="name">Enter Name*</label>
+                        </div>
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="email" id="email">
-                            <label for="email">Username*</label>
+                            <label for="email">Create Username*</label>
                         </div>
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="password" id="password">
-                            <label for="password">Password*</label></br></br></br>
+                            <label for="password">Create Password*</label></br></br></br>
                             <div class="center border">
-                                <input type="submit" name="login" value="sign up" class="btn indigo-text tab-color z-depth-0">
+                                <input type="submit" name="signup" value="sign up" class="btn indigo-text tab-color z-depth-0">
                             </div>
                         </div>
                     </form>

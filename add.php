@@ -39,7 +39,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			// save to db and check
 			if(mysqli_query($conn, $sql)){
 				// success
-				header('Location: admin.php');
+				header('Location: index.php');
 			} else {
 				echo 'query error: '. mysqli_error($conn);
 			}

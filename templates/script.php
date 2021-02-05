@@ -7,9 +7,9 @@
     //   $('.materialboxed').materialbox();
     //   $('.parallax').parallax();
       $('.tabs').tabs();
+      $('.sidenav').sidenav();
+      $('.dropdown-trigger').dropdown();
+      $('.fixed-action-btn').floatingActionButton();
 
     });
-    $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
   </script>

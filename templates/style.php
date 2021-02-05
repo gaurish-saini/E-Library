@@ -21,6 +21,9 @@
     height: 300px;
     position: relative;
     }
+    .author{
+      padding: 0px;
+    }
 	  .brand{
 	  	background: #d32f2f !important;
 	  }
@@ -32,6 +35,10 @@
   		margin: 20px auto;
   		/* padding: 20px; */
   	} 
+    dropdown-icon{
+      background-color: white;
+      color: #d32f2f !important;
+    }
     
     .template{
       max-width: 50px;
