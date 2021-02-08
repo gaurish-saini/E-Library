@@ -3,8 +3,6 @@
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         
   <style type="text/css">
     .label-btn{
@@ -77,5 +75,33 @@
     .menu{
       padding: 20px;
     }
+    .fab-options{
+      list-style-type: none;
+      margin: 0;
+      position: absolute;
+      bottom: 30px;
+      right: 20px;
+      opacity: 0;
+    }
+    .fab: hover + .fab-options, .fab-options: hover{
+      opacity: 1;
+    }
+    .fab-options li{
+      display: flex;
+      justify-content: flex-end;
+      padding: 3px;
+    }
+
+    .FAB2 {
+ position: relative !important;
+    display: inline-block;
+    right: 24px !important;
+    right: 17px !important;
+    bottom: 0 !important;
+  padding: 0 0 0 25px !important;
+}
+.FAB2-li {
+  margin: 0 15px 0 0 !important;
+}
   </style>
 </head>

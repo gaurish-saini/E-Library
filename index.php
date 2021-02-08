@@ -55,35 +55,37 @@ mysqli_close($conn);
  		</ul>
      <!-- <h4 class="center grey-text">Enter a Tagline !</h4> -->
 <body class="grey lighten-4 ">
-	<div class="container grey lighten-4">
-		<div class="row center">
-
-			<?php foreach(array_reverse($books) as $books){ ?>
-			
-				<div class="col s4 md6">
-					<div class="card small">
-					 <div class="card-image ">
-						<img src="templates/uploads/img1.jpg">
-						<a class="card-title" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
-						<a class="btn-floating halfway-fab waves-effect waves-light brand "><i class="material-icons">edit</i></a>
-                     </div>
-						<div class="card-content left-align">
-						<h6><?php echo htmlspecialchars($books['author']); ?></h6>
-						<div class="card-action left-align">
-							<a class="brand-text" href="#" >READ ></a>
-                            <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-
-                            <ul id='dropdown1' class='dropdown-content brand-text'>
-                                <li><a class='brand-text' type="submit" action="index.php" name="alreadyread">Already Read</a></li>
-                                <li><a class='brand-text' type="submit" action="index.php">Add to Wishlist</a></li>
-                                <!-- <li><a class='brand-text'href="#!"></a></li> -->
-                            </ul>
-						</div></div>
-					</div>
-				</div>
-			
-			<?php } ?>
-
+	<div class="container grey lighten-4 col s12">
+		<div class="container">
+			<div class="row">
+				<?php foreach(array_reverse($books) as $books){ ?>				
+					<div class="col s4 md6">
+						<div class="card">
+							<div class="card-image ">
+								<img src="templates/uploads/img1.jpg">
+								<a class="card-title black-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
+								
+							</div>
+							<div class="card-content left-align">
+								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+								<!-- <div class="card-action left-align">
+										<a class="brand-text" href="#" >READ ></a>
+										<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+									</div> -->
+							</div>
+						</div>
+					</div>			   
+				<?php } ?>
+				<div class="fixed-action-btn">
+					    <a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
+    					<ul>
+							<li class="fixed-action-btn horizontal FAB2">
+								<li><a href="edit.php" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
+								<li><a href="add.php" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
+							</li>
+                        </ul>
+                </div>
+			</div>
 		</div>
 	</div>
 </body>

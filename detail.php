@@ -57,7 +57,7 @@ if(isset($_GET['id'])){
     </div>
     </nav>
 	
-    <div class="container left -align">
+    <div class="container center">
 		<?php if($books): ?>
             <div class="col s2 md6">	
                 <form class="grey lighten-4" >    

@@ -104,24 +104,21 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 				<form class="grey lighten-4 " action="add.php" method="POST">    
 					<label>Enter Book Name *</label>
 					<input type="text" name="name" value="<?php echo htmlspecialchars($name) ?>">
-					<div class="red-text"><?php echo $errors['name']; ?></div><br />
+					<div class="red-text"><?php echo $errors['name']; ?></div><br/>
 					<label>Enter Author Name *</label>
 					<input type="text" name="author" value="<?php echo htmlspecialchars($author) ?>">
-					<div class="red-text"><?php echo $errors['author']; ?></div><br />
+					<div class="red-text"><?php echo $errors['author']; ?></div><br/>
 					<label>Enter Book Id *</label>
 					<input type="text" name="id" value="<?php echo htmlspecialchars($id) ?>">
-					<div class="red-text"><?php echo $errors['id']; ?></div><br />
-					<label>Enter Description/About *</label><br /><br /><br />
+					<div class="red-text"><?php echo $errors['id']; ?></div><br/>
+					<label>Enter Description/About *</label><br/><br/><br/>
 					<textarea id="textarea" class="materialize-textarea" name="description" value="<?php echo htmlspecialchars($description) ?>"></textarea>
-					<div class="red-text"><?php echo $errors['description']; ?></div><br />
+					<div class="red-text"><?php echo $errors['description']; ?></div><br/>
 					<div class="grey lighten-4 center border" enctype="multipart/form-data" >
-						<!-- <a class="waves-effect waves-light btn" id="btn-file"><i class="material-icons right">upload</i>Upload Image<input type="file" img_name="fileToUpload" id="fileToUpload" ></a> -->
-						<!-- <input type="submit" value="Upload Image" name="submit"> -->
-						<span class="btn btn-file">
-						<i class="material-icons right">upload</i>
-								Upload Image<input type="file">
+						<span class="btn btn-file indigo">
+							<i class="material-icons right">upload</i>Upload Image<input type="file">
 						</span>
-				    </div><br /><br />
+				    </div><br/><br/>
 					<div class="center">
 						<input type="submit" name="save" value="save" class="btn brand z-depth-0">
 					</div>
