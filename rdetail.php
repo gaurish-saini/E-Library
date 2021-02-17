@@ -66,12 +66,6 @@ if(isset($_GET['id'])){
                 <label>About </label>
                 <h6><?php echo $books['description']; ?></h6>
                 </form>
-
-                <!-- DELETE FORM -->
-			   <form action="detail.php" method="POST">
-				<input type="hidden" name="id_to_delete" value="<?php echo $books['id']; ?>">
-			   	<input type="submit" name="delete" value="Delete" class="btn brand z-depth-0">
-			   </form>
             </div>
 		<?php else: ?>
 			<h5 class="container center">No such book exists.</h5>

@@ -10,15 +10,6 @@ $result = mysqli_query($conn, $sql);
 // <!-- fetch the ressulting rows as an array -->
 $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-if(isset($_POST['alreadyread'])){
-	if(mysqli_query($conn, $sql)){
-		// success
-		header('Location: alreadyread.php');
-	} else {
-		echo 'query error: '. mysqli_error($conn);
-	}
-}
-
 // free result from memory 
 mysqli_free_result($result); 
 
@@ -37,12 +28,12 @@ mysqli_close($conn);
 <?php include('templates/script.php'); ?>
 	<nav class=" white z-depth-0">
 	<div class="container">
-      			<a href="reader.php" class="brand-logo brand-text">E-Library</a>
+      			<a href="index.php" class="brand-logo brand-text">E-Library</a>
      			<a href="#" class="label-btn indigo-text z-depth-0 right">PROFILE</a>
 			</div>
 	</nav></br>
 
-	    <ul id="slide-out" class="sidenav">
+	<ul id="slide-out" class="sidenav">
 			<li>
 				<div class="user-view">
 				<!-- <div class="background">
@@ -57,43 +48,36 @@ mysqli_close($conn);
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
-				<li><a class="waves-effect grey-text" href="reader/ralreadyread.php">Already Read</a></li>
-				<li><a class="waves-effect grey-text" href="reader/rwishlist.php">Wishlist</a></li>
+				<li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
+				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
  		</ul>
-
      <!-- <h4 class="center grey-text">Enter a Tagline !</h4> -->
 <body class="grey lighten-4 ">
-	<div class="container grey lighten-4">
-		<div class="row center">
-
-			<?php foreach(array_reverse($books) as $books){ ?>
-			
-				<div class="col s4 md6">
-					<div class="card small">
-					<div class="card-image ">
-						<img src="templates/uploads/img1.jpg">
-						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
-                     </div>
-						<div class="card-content left-align">
-						<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+	<div class="container grey lighten-4 col s12">
+		<div class="container">
+			<div class="row">
+				<?php foreach(array_reverse($books) as $books){ ?>				
+					<div class="col s4 md6">
+						<div class="card">
+							<div class="card-image ">
+								<img src="templates/uploads/img1.jpg">
+								<a class="card-title white-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
+								
+							</div>
+							<div class="card-content left-align">
+								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+								<div class="card-action">
+										<a class="brand-text" href="#" >READ ></a>
+										<!-- <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a> -->
+									</div>
+							</div>
 						</div>
-						<div class="card-action left-align">
-							<a class="brand-text" href="#" >READ ></a>
-                            <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-
-                            <ul id='dropdown1' class='dropdown-content brand-text'>
-                                <li><a class='brand-text' type="submit" action="reader.php" name="alreadyread">Already Read</a></li>
-                                <li><a class='brand-text' type="submit" action="reader.php">Add to Wishlist</a></li>
-                                <!-- <li><a class='brand-text'href="#!"></a></li> -->
-                            </ul>
-						</div>
-					</div>
-				</div>
-			
-			<?php } ?>
-
+					</div>			   
+				<?php } ?>
+				
+			</div>
 		</div>
 	</div>
 </body>

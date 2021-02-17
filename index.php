@@ -52,6 +52,7 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
  		</ul>
      <!-- <h4 class="center grey-text">Enter a Tagline !</h4> -->
 <body class="grey lighten-4 ">
@@ -63,7 +64,7 @@ mysqli_close($conn);
 						<div class="card">
 							<div class="card-image ">
 								<img src="templates/uploads/img1.jpg">
-								<a class="card-title black-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
+								<a class="card-title white-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 								
 							</div>
 							<div class="card-content left-align">

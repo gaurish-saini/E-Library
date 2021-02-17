@@ -2,7 +2,7 @@
 
 include('config/db_connect.php');
 $name = $author = $id = $description = ''; 
-$image= array('img_name'=> '');
+$image= array("img_name" =>' ');
 $errors = array('name'=>'','author'=>'','id'=>'','description'=>'','img_name'=>'');
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES ['img_name']);

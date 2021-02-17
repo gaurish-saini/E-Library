@@ -93,15 +93,16 @@
     }
 
     .FAB2 {
- position: relative !important;
+    position: relative !important;
     display: inline-block;
     right: 24px !important;
     right: 17px !important;
     bottom: 0 !important;
-  padding: 0 0 0 25px !important;
-}
-.FAB2-li {
-  margin: 0 15px 0 0 !important;
-}
+    padding: 0 0 0 25px !important;
+    }
+    
+    .FAB2-li {
+    margin: 0 15px 0 0 !important;
+    }
   </style>
 </head>
