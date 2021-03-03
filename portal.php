@@ -1,42 +1,37 @@
 <?php 
 
 include('config/db_connect.php');
+
 $username = $password = $cpassword = ''; 
 $showAlert = false;  
 $showError = false;  
-$exists=false; 
+$exists = false; 
     
 if(isset($_POST['asignup'])) {
- if($_SERVER["REQUEST_METHOD"] == "POST") { 
-      
-    
-    
+ 
     $username = $_POST["username"];  
     $password = $_POST["password"];  
     $cpassword = $_POST["cpassword"]; 
             
     
     $sql = "Select * from users where username='$username'"; 
-    
     $result = mysqli_query($conn, $sql); 
     $num = mysqli_num_rows($result);  
-    
+
     // This sql query is use to check if 
     // the username is already present  
     // or not in our Database 
     if($num == 0) { 
-        if(($password == $cpassword) && $exists==false) { 
+        if(($password == $cpassword) && $exists==false) {
     
-           
             $sql = "INSERT INTO users(username,password,role) VALUES ('$username','$password','admin')"; 
     
             $result = mysqli_query($conn, $sql); 
     
             if ($result) { 
-                $showAlert = true;  
-            } 
-            if(mysqli_query($conn, $sql)){
-				// success
+                $showAlert = true;
+                session_start();
+                $_SESSION['username'] = $_POST['username'];
 				header('Location: index.php');
 			} else {
 				echo 'query error: '. mysqli_error($conn);
@@ -46,18 +41,15 @@ if(isset($_POST['asignup'])) {
             $showError = "Passwords do not match";  
         }       
     }// end if  
-    
-   if($num>0)  
+
+    if($num>0)  
    { 
       $exists="Username not available";  
    }  
     
 }//end if  
-}
+
 if(isset($_POST['rsignup'])) {
-    if($_SERVER["REQUEST_METHOD"] == "POST") { 
-         
-       
        
        $username = $_POST["username"];  
        $password = $_POST["password"];  
@@ -81,10 +73,9 @@ if(isset($_POST['rsignup'])) {
                $result = mysqli_query($conn, $sql); 
        
                if ($result) { 
-                   $showAlert = true;  
-               } 
-               if(mysqli_query($conn, $sql)){
-                   // success
+                   $showAlert = true;
+                   session_start();
+                   $_SESSION['username'] = $_POST['username'];
                    header('Location: reader.php');
                } else {
                    echo 'query error: '. mysqli_error($conn);
@@ -101,7 +92,7 @@ if(isset($_POST['rsignup'])) {
       }  
        
    }//end if  
-   }
+
 
 
    //LOGIN
@@ -224,6 +215,10 @@ if(isset($_POST['rlogin'])){
                     
                 </div> 
             </div>
+
+<!-- signup  -->
+
+
             <div class="col s6 md6 center">
                 <!-- tabs -->
                 <label style="color: #ee6e73;">New User? <label>Create a Account</label></label>
