@@ -50,8 +50,8 @@ mysqli_close($conn);
 			<li>
 				<div class="user-view">
 				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
-				<a href="#name"><span class="indigo-text name">Hello<?php echo $login_session; ?></span></a>
-				<a href="#email"><span class="indigo-text email"></span></a>
+				<a href="#name"><span class="indigo-text name">Hello</span></a>
+				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>
 				</div>
 			</li>
@@ -62,6 +62,7 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="manageadmin.php">Manage Admins</a></li>
             <li><div class="divider brand-text"></div></li></br>
 			<li><a href = "logout.php">Log Out</a></li>
 
@@ -81,10 +82,6 @@ mysqli_close($conn);
 							</div>
 							<div class="card-content left-align">
 								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
-								<!-- <div class="card-action left-align">
-										<a class="brand-text" href="#" >READ ></a>
-										<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-									</div> -->
 							</div>
 						</div>
 					</div>			   

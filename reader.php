@@ -1,6 +1,8 @@
 <?php 
 
+
 include('config/db_connect.php');
+include('session.php');
 // <!-- write a query for all books -->
 $sql = 'SELECT name, author, id FROM books';
 
@@ -40,8 +42,8 @@ mysqli_close($conn);
 					<img src=".jpg">
 				</div> -->
 				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
-				<a href="#name"><span class="indigo-text name">Gaurish</span></a>
-				<a href="#email"><span class="indigo-text email">gaurishprakhar@gmail.com</span></a>
+				<a href="#name"><span class="indigo-text name">Hello</span></a>
+				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>
 				</div>
 			</li>
@@ -52,6 +54,8 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><div class="divider brand-text"></div></li></br>
+			<li><a href = "logout.php">Log Out</a></li>
  		</ul>
      <!-- <h4 class="center grey-text">Enter a Tagline !</h4> -->
 <body class="grey lighten-4 ">
