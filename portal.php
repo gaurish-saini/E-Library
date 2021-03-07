@@ -90,7 +90,6 @@ if(isset($_POST['rlogin'])){
 	<?php include('templates/header.php'); ?>
     <?php include('templates/script.php'); ?>
 
-
 <section class="container grey lighten-4 " id="login-box"></section>
     <div class="container col s12 md12">
         <div class="row">  

@@ -1,65 +1,46 @@
 <?php 
 
 include('config/db_connect.php');
-session_start();
+include('session.php');
 
-$username = $password = $cpassword = ''; 
-$showAlert = false;  
-$showError = false;  
-$exists = false; 
-    
-if(isset($_POST['asignup'])) {
- 
-    $username = $_POST["username"];  
-    $password = $_POST["password"];  
-    $cpassword = $_POST["cpassword"]; 
-            
-    $sql = "Select * from users where username='$username'"; 
-    $result = mysqli_query($conn, $sql); 
-    $num = mysqli_num_rows($result);  
+$username = $password = $cpassword = '';     
+$errors = array('username'=>'','password'=>'','cpassword'=>'');
 
-    if($num == 0) { 
-        if(($password == $cpassword) && $exists==false) {
-    
-            $sql = "INSERT INTO users(username,password,role) VALUES ('$username','$password','admin')"; 
-    
-            $result = mysqli_query($conn, $sql); 
-    
-            if ($result) { 
-                $showAlert = true;
-                $_SESSION['login_user'] = $_POST['username'];
-                header('Location: logout.php');
-				// header('Location: portal.php');
+
+if(isset($_POST['asignup'])){
+		
+		// check username
+		if(empty($_POST['username'])){
+			$errors['username'] = 'A username is required';
+		} 
+		// check password
+		if(empty($_POST['password'])){
+			$errors['password'] = 'A password is required <br />';
+        } 
+        // password confirmation
+		if(empty($_POST['cpassword'])){
+			$errors['cpassword']= 'Password confirmation required <br />';
+        }
+        
+        if(array_filter($errors)){
+            // echo 'errors in the form';
+        }
+        else{
+            $name = mysqli_real_escape_string($conn, $_POST['username']);
+			$pw = mysqli_real_escape_string($conn, $_POST['password']);
+			$cpw = mysqli_real_escape_string($conn, $_POST['cpassword']);
+			// create sql
+			$sql = "INSERT INTO users(username,password,role) VALUES ('$name','$pw','admin')";
+
+			// save to db and check
+			if(mysqli_query($conn, $sql)){
+				// success
+				header('Location: index.php');
 			} else {
 				echo 'query error: '. mysqli_error($conn);
 			}
-        }  
-        else {  
-            $showError = "Passwords do not match";  
-        }       
-    }// end if  
-
-    if($num>0)  
-   { 
-      $exists="Username not available";  
-   }  
-}
-
-if($_SERVER['QUERY_STRING'] == 'noname'){
-    //unset($_SESSION['username']);
-    session_unset();
-  }
-
-// <!-- write a query for all books -->
-$sql = 'SELECT name, author, id FROM books';
-// <!-- make query and get result -->
-$result = mysqli_query($conn, $sql);
-// <!-- fetch the ressulting rows as an array -->
-$books = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// free result from memory 
-mysqli_free_result($result); 
-// close connection 
-mysqli_close($conn);
+		}
+    }
 
 ?>
 
