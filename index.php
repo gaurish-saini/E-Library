@@ -1,14 +1,17 @@
 <?php 
 
+
 include('config/db_connect.php');
-session_start();
+include('session.php');
+
+// session_start();
 
   if($_SERVER['QUERY_STRING'] == 'noname'){
     //unset($_SESSION['username']);
     session_unset();
   }
 
-  $name = $_SESSION['username'];
+// $name = $_SESSION[$user_check];
 
 
 // <!-- write a query for all books -->
@@ -47,7 +50,7 @@ mysqli_close($conn);
 			<li>
 				<div class="user-view">
 				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
-				<a href="#name"><span class="indigo-text name">Hello <?php echo htmlspecialchars($name); ?></span></a>
+				<a href="#name"><span class="indigo-text name">Hello<?php echo $login_session; ?></span></a>
 				<a href="#email"><span class="indigo-text email"></span></a>
 				<span class="indigo-text name">Dashboard</span>
 				</div>

@@ -1,6 +1,7 @@
 <?php 
 
 include('config/db_connect.php');
+session_start();
 
 $username = $password = $cpassword = ''; 
 $showAlert = false;  
@@ -98,13 +99,13 @@ if(isset($_POST['rsignup'])) {
    //LOGIN
 
 if(isset($_POST['alogin'])){
-//    session_start();
+   
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $myusername = $_POST["username"];
-      $mypassword = $_POST["password"]; 
+      $myusername = mysqli_real_escape_string($conn,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($conn,$_POST["password"]); 
       
       $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($conn,$sql);
@@ -116,8 +117,7 @@ if(isset($_POST['alogin'])){
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if($count == 1) {
-        //  session_register("myusername");
-        //  $_SESSION['login_user'] = $myusername;
+        $_SESSION['login_user'] = $myusername;
          
          header('location: index.php');
       }else {
@@ -198,7 +198,7 @@ if(isset($_POST['rlogin'])){
                     </form>
                 </div>
                 <div id="readersignin"></br></br></br>
-                   <form>
+                   <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
                         <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for="email">Username*</label>
@@ -221,15 +221,15 @@ if(isset($_POST['rlogin'])){
 
             <div class="col s6 md6 center">
                 <!-- tabs -->
-                <label style="color: #ee6e73;">New User? <label>Create a Account</label></label>
-                <ul class="tabs col s12 tab-color center">
+                <label style="color: #ee6e73;">New Reader? <label>Create a Account</label></label>
+                <!-- <ul class="tabs col s12 tab-color center">
                 <li class="tab col s6">
                     <a href="#admin" class="indigo-text text-darken-4">ADMIN</a>
                 </li>
                 <li class="tab col s6">
                     <a href="#reader" class="indigo-text text-darken-4">READER</a>
                 </li>
-                </ul>
+                </ul> 
                 <div id="admin" ></br></br></br>
                     <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
@@ -251,8 +251,8 @@ if(isset($_POST['rlogin'])){
                             </div>
                        
                     </form>
-                </div>
-                <div id="reader"></br></br></br>
+                </div> -->
+                <div id="reader">
                     <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">

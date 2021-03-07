@@ -1,8 +1,8 @@
 <?php
-   include('db_connect.php');
+   include('config/db_connect.php');
    session_start();
    
-   $user_check = $_SESSION['username'];
+   $user_check = $_SESSION['login_user'];
    
    $ses_sql = mysqli_query($conn,"select username from users where username = '$user_check' ");
    
@@ -10,8 +10,8 @@
    
    $login_session = $row['username'];
    
-   if(!isset($_SESSION['username'])){
+   if(!isset($_SESSION['login_user'])){
       header("location: portal.php");
-      die();
+      die();   
    }
 ?>
