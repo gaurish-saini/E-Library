@@ -2,16 +2,34 @@
 include('config/db_connect.php');
 include('session.php');
 
-//   check GET request id  parameter
+
+if(isset($_POST['remove'])){
+
+    $id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
+
+    $sql = "DELETE FROM has_book WHERE has_book.book_id = $id_to_delete";
+
+    if(mysqli_query($conn, $sql)){
+        header('Location: reader.php');
+    } else {
+        echo 'query error: '. mysqli_error($conn);
+    }
+
+}
 
 if(isset($_GET['id'])){
 		
     // escape sql chars
     $id = mysqli_real_escape_string($conn, $_GET["id"]);
-
     // make sql
+    $occupied = "INSERT INTO has_book(book_id) VALUES('$id')";
+    if(mysqli_query($conn, $occupied)){
+				// success
+			} else {
+				echo 'query error: '. mysqli_error($conn);
+			}
     $sql = "SELECT * FROM books WHERE id = $id";
-
+    
     // get the query result
     $result = mysqli_query($conn, $sql);
 
@@ -65,7 +83,7 @@ if(isset($_GET['id'])){
 	<div class="container grey lighten-4 col s12">
 		<div class="container">
 			<div class="row">
-				<?php foreach(array_reverse($books) as $books){ ?>				
+				<?php if($books): ?>				
 					<div class="col s4 md6">
 						<div class="card">
 							<div class="card-image ">
@@ -75,17 +93,20 @@ if(isset($_GET['id'])){
 							<div class="card-content left-align">
 								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
 								<div class="card-action">
-										<a class="brand-text" href="#" >READ ></a>
-										<!-- <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-										<ul id='dropdown1' class='dropdown-content brand-text'>
-											<li><a class='brand-text' type="submit" name="issue" href="yourbook.php?id=<?php echo $books['id'] ?>">issue</a></li>
-											<li><a class='brand-text' type="submit" name="wishlist">add to wishlist</a></li>
-										</ul> -->
-									</div>
+									<a class="brand-text" href="#" >READ ></a>
+                                    <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+                                    <ul id='dropdown1' class='dropdown-content brand-text' >
+                                    <li><a class='brand-text' name="id_to_delete" value="<?php echo $books['id']; ?>" type="submit" action="yourbook.php" method="POST">return</a></li>
+                                    </ul>
+								</div>
 							</div>
 						</div>
 					</div>			   
-				<?php } ?>
+				<?php else: ?>
+                <div>
+                    <h6>No book added yet !</h6>
+                </div>
+                <?php endif ?>
 			</div>
 		</div>
 	</div>

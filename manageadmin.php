@@ -94,17 +94,18 @@ if(isset($_POST['asignup'])){
                     <label style="color: #ee6e73;">Manage Admins<label></label></label>
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
-                            
                             <label for= "email">Create Username*</label>
+							<div class="red-text"><?php echo $errors['username']; ?></div><br/>
                         </div>
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="password" value="<?php echo htmlspecialchars($password) ?>" id="password" name="password">
-                            
                             <label for= "password">Create Password*</label>
+							<div class="red-text"><?php echo $errors['password']; ?></div><br/>
                         </div>
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="password" value="<?php echo htmlspecialchars($cpassword) ?>" id="cpassword" name="cpassword">
                             <label for= "password">Confirm Password*</label></br></br></br>
+							<div class="red-text"><?php echo $errors['cpassword']; ?></div><br/>
                         </div>
                             <div class="center border">
                                 <input type="submit" name="asignup" value="sign up" class="btn indigo-text tab-color z-depth-0">

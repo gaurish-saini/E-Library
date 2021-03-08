@@ -54,7 +54,7 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="reader/ralreadyread.php">Already Read</a></li>
 				<li><a class="waves-effect grey-text" href="reader/rwishlist.php">Wishlist</a></li>
 			</li>
-			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="yourbook.php">Your Books</a></li>
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a href = "logout.php">Log Out</a></li>
  		</ul>
