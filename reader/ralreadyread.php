@@ -71,7 +71,7 @@ mysqli_close($conn);
 			<?php foreach(array_reverse($books) as $books){ ?>
 			
 				<div class="col s4 md6">
-					<div class="card small">
+					<div class="card">
 					<div class="card-image ">
 						<img src="templates/uploads/img1.jpg">
 						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
@@ -85,7 +85,6 @@ mysqli_close($conn);
 
                             <ul id='dropdown1' class='dropdown-content brand-text'>
                                 <li><a class='brand-text' type="submit" action="reader.php" name="remove">remove</a></li>
-                                <!-- <li><a class='brand-text'href="#!"></a></li> -->
                             </ul>
 						</div>
 					</div>
@@ -96,7 +95,7 @@ mysqli_close($conn);
 		</div>
 	</div>
 </body>
-	<?php include('templates/footer.php'); ?>
+	<!-- <?php include('templates\footer.php'); ?> -->
 
 
 </html> 

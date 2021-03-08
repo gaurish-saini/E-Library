@@ -15,7 +15,6 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		if(empty($_POST['name'])){
 			$errors['name'] = 'A name is required';
 		} 
-
 		// check author
 		if(empty($_POST['author'])){
 			$errors['author'] = 'A author is required <br />';

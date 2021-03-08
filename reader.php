@@ -50,8 +50,8 @@ mysqli_close($conn);
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
-				<li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
-				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
+				<li><a class="waves-effect grey-text" href="reader/ralreadyread.php">Already Read</a></li>
+				<li><a class="waves-effect grey-text" href="reader/rwishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
 			<li><div class="divider brand-text"></div></li></br>
@@ -74,7 +74,11 @@ mysqli_close($conn);
 								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
 								<div class="card-action">
 										<a class="brand-text" href="#" >READ ></a>
-										<!-- <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a> -->
+										<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+										<ul id='dropdown1' class='dropdown-content brand-text'>
+											<li><a class='brand-text' type="submit" action="reader.php" name="issue">issue</a></li>
+											<li><a class='brand-text' type="submit" action="reader.php" name="add to wishlist">add to wishlist</a></li>
+										</ul>
 									</div>
 							</div>
 						</div>
