@@ -1,6 +1,8 @@
 <?php 
 
+
 include('C:\xampp\htdocs\eLibrary\templates\config\db_connect.php');
+include('..\session.php');
 // <!-- write a query for all books -->
 $sql = 'SELECT name, author, id FROM books';
 
@@ -38,7 +40,7 @@ mysqli_close($conn);
 <?php include('C:\xampp\htdocs\eLibrary\templates\script.php'); ?>
 	<nav class=" white z-depth-0">
 	<div class="container">
-      			<a href="index.php" class="brand-logo brand-text">E-Library</a>
+      			<a href="..\index.php" class="brand-logo brand-text">E-Library</a>
      			<a href="#" class="label-btn indigo-text z-depth-0 right">PROFILE</a>
 			</div>
 	</nav></br>
@@ -46,12 +48,9 @@ mysqli_close($conn);
 	    <ul id="slide-out" class="sidenav">
 			<li>
 				<div class="user-view">
-				<!-- <div class="background">
-					<img src=".jpg">
-				</div> -->
-				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
-				<a href="#name"><span class="indigo-text name">Gaurish</span></a>
-				<a href="#email"><span class="indigo-text email">gaurishprakhar@gmail.com</span></a>
+				<a href="#user"><img class="circle" src="../img/1611234086050.jpg"></a>
+				<a href="#name"><span class="indigo-text name">Hello</span></a>
+				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>
 				</div>
 			</li>
@@ -66,14 +65,15 @@ mysqli_close($conn);
 
          <body class="grey lighten-4 ">
 	<div class="container grey lighten-4">
-		<div class="row center">
+	<div class="container">
+	<div class="row">
 
 			<?php foreach(array_reverse($books) as $books){ ?>
 			
 				<div class="col s4 md6">
-					<div class="card small">
+					<div class="card ">
 					<div class="card-image ">
-						<img src="templates/uploads/img1.jpg">
+						<img src="..\templates\uploads\img1.jpg">
 						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
                      </div>
 						<div class="card-content left-align">
@@ -84,7 +84,7 @@ mysqli_close($conn);
                             <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
 
                             <ul id='dropdown1' class='dropdown-content brand-text'>
-                                <li><a class='brand-text' type="submit" action="reader.php" name="remove">remove</a></li>
+                                <li><a class='brand-text' type="submit" action="index.php" name="remove">remove</a></li>
                                 <!-- <li><a class='brand-text'href="#!"></a></li> -->
                             </ul>
 						</div>
@@ -92,11 +92,10 @@ mysqli_close($conn);
 				</div>
 			
 			<?php } ?>
-
-		</div>
+		
 	</div>
 </body>
-	<?php include('templates/footer.php'); ?>
+	<?php include('..\templates\footer.php'); ?>
 
 
 </html> 

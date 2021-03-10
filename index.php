@@ -61,7 +61,7 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
-			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="ayourbook.php">Your Books</a></li>
 			<li><a class="waves-effect brand-text" href="manageadmin.php">Manage Admins</a></li>
             <li><div class="divider brand-text"></div></li></br>
 			<li><a href = "logout.php">Log Out</a></li>
@@ -80,9 +80,18 @@ mysqli_close($conn);
 								<a class="card-title white-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 								
 							</div>
-							<div class="card-content left-align">
-								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+							<div class="card-content">
+							<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+								<div class="card-action">
+											<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+											<ul id='dropdown1' class='dropdown-content brand-text'>
+												<li><a class='brand-text' type="submit" name="issue" href="ayourbook.php?id=<?php echo $books['id'] ?>">Issue</a></li>
+												<li><a class='brand-text' type="submit" name="wishlist">Add to wishlist</a></li>
+											</ul>
+								</div>
 							</div>
+							
+
 						</div>
 					</div>			   
 				<?php } ?>

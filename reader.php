@@ -31,7 +31,7 @@ mysqli_close($conn);
 <?php include('templates/script.php'); ?>
 	<nav class=" white z-depth-0">
 	<div class="container">
-      			<a href="index.php" class="brand-logo brand-text">E-Library</a>
+      			<a href="reader.php" class="brand-logo brand-text">E-Library</a>
      			<a href="#" class="label-btn indigo-text z-depth-0 right">PROFILE</a>
 			</div>
 	</nav></br>
@@ -54,7 +54,7 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="reader/ralreadyread.php">Already Read</a></li>
 				<li><a class="waves-effect grey-text" href="reader/rwishlist.php">Wishlist</a></li>
 			</li>
-			<li><a class="waves-effect brand-text" href="yourbook.php">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="ryourbook.php">Your Books</a></li>
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a href = "logout.php">Log Out</a></li>
  		</ul>
@@ -79,7 +79,7 @@ mysqli_close($conn);
 											<li><a class='brand-text' type="submit" name="issue" href="yourbook.php?id=<?php echo $books['id'] ?>">issue</a></li>
 											<li><a class='brand-text' type="submit" name="wishlist">add to wishlist</a></li>
 										</ul>
-									</div>
+								</div>
 							</div>
 						</div>
 					</div>			   

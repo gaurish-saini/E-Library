@@ -7,6 +7,7 @@ $username = $password = $cpassword = '';
 $showAlert = false;  
 $showError = false;  
 $exists = false;   
+$errors = array('username'=>'','password'=>'');
 
 if(isset($_POST['rsignup'])) {
        
@@ -43,7 +44,19 @@ if(isset($_POST['rsignup'])) {
    //LOGIN
 
 if(isset($_POST['alogin'])){   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if(empty($_POST['username'])){
+			$errors['username'] = 'A username is required';
+		} 
+
+    if(empty($_POST['password'])){
+			$errors['password'] = 'A password is required';
+		} 
+     if(array_filter($errors)){
+            // echo 'errors in the form';
+        }
+    else{
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
 
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST["password"]); 
@@ -62,8 +75,20 @@ if(isset($_POST['alogin'])){
       }
    }
 }
-if(isset($_POST['rlogin'])){           
-       if($_SERVER["REQUEST_METHOD"] == "POST") {
+}
+if(isset($_POST['rlogin'])){      
+     if(empty($_POST['username'])){
+			$errors['username'] = 'A username is required';
+		} 
+
+    if(empty($_POST['password'])){
+			$errors['password'] = 'A password is required';
+		} 
+     if(array_filter($errors)){
+            // echo 'errors in the form';
+        }
+    else{
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
             $myusername = mysqli_real_escape_string($conn,$_POST['username']);
             $mypassword = mysqli_real_escape_string($conn,$_POST["password"]); 
           
@@ -80,7 +105,8 @@ if(isset($_POST['rlogin'])){
              $error = "Your Login Name or Password is invalid";
           }
        }
-    }
+    }     
+  }
 ?>
 
 <!DOCTYPE html>
@@ -110,11 +136,13 @@ if(isset($_POST['rlogin'])){
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for="email">Username*</label>
+                            <div class="red-text"><?php echo $errors['username']; ?></div><br/>
                             
                         </div>
                         <div class="input-field indigo-text text-darken-4 ">
                             <input type="password" value="<?php echo htmlspecialchars($password) ?>" id="password" name="password">
                             <label for="password">Password*</label></br></br></br>
+                            <div class="red-text"><?php echo $errors['password']; ?></div><br/>
                         </div>
                         <div class="center border">
                             <input type="submit" name="alogin" value="sign in" class="btn indigo-text tab-color z-depth-0">
@@ -127,10 +155,12 @@ if(isset($_POST['rlogin'])){
                         <div class="input-field indigo-text text-darken-4 ">
                         <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for="email">Username*</label>
+                            <div class="red-text"><?php echo $errors['username']; ?></div><br/>
                         </div>
                         <div class="input-field indigo-text text-darken-4 ">
                         <input type="password" value="<?php echo htmlspecialchars($password) ?>" id="password" name="password">
-                            <label for="password">Password*</label></br></br></br>
+                            <label for="password">Password*</label>
+                            <div class="red-text"><?php echo $errors['password']; ?></div><br/></br></br>
                         </div>   
                         <div class="center border">
                             <input type="submit" name="rlogin" value="sign in" class="btn indigo-text tab-color z-depth-0">
@@ -144,7 +174,7 @@ if(isset($_POST['rlogin'])){
 <!-- signup  -->
 
             <div class="col s6 md6 center">
-                <label style="color: #ee6e73;">New Reader? <label>Create a Account</label></label>
+                <label style="color: #ee6e73;">New Reader? <label>Create a Account</label></label></br></br></br>
                 <div id="reader">
                     <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">

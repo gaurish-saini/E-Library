@@ -99,9 +99,7 @@ if(isset($_GET['id'])){
                                     <form action="yourbook.php"  method="POST">
                                         <input type="hidden" name="id_to_delete" value="<?php echo $books['id'] ?>" >
 			   	                        <input type="submit" name="delete" value="Return" class="btn brand z-depth-0">
-                                    </form>
-                                        
-                                    
+                                    </form>                                   
                                     </ul>
 								</div>
 							</div>
