@@ -1,13 +1,8 @@
 <?php
 
 include('config/db_connect.php');
-$name = $author = $id = $description = ''; 
-$image= array("img_name" =>' ');
-$errors = array('name'=>'','author'=>'','id'=>'','description'=>'','img_name'=>'');
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES ['img_name']);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$name = $author = $image= $id = $description = ''; 
+$errors = array('name'=>'','author'=>'','id'=>'','description'=>'','image'=>'');
 	
     if(isset($_POST['save'])){
 		
@@ -24,69 +19,28 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			$errors['id']= 'A id is required <br />';
         }
         
+
         if(array_filter($errors)){
             // echo 'errors in the form';
         }
         else{
-            $name = mysqli_real_escape_string($conn, $_POST['name']);
-			$author = mysqli_real_escape_string($conn, $_POST['author']);
-			$id = mysqli_real_escape_string($conn, $_POST['id']);
-            $description = mysqli_real_escape_string($conn, $_POST['description']);
+            $name = mysqli_real_escape_string($conn, $_POST["name"]);
+			$author = mysqli_real_escape_string($conn, $_POST["author"]);
+			$image = mysqli_real_escape_string($conn, $_POST["image"]);
+			$id = mysqli_real_escape_string($conn, $_POST["id"]);
+            $description = mysqli_real_escape_string($conn, $_POST["description"]);
 			// create sql
-			$sql = "INSERT INTO books(name,author,id,description) VALUES('$name','$author','$id','$description')";
+			$sql = "INSERT INTO books(name,author,image,id,description) VALUES('$name','$author','$image','$id','$description')";
 
 			// save to db and check
 			if(mysqli_query($conn, $sql)){
-				// success
 				header('Location: index.php');
 			} else {
 				echo 'query error: '. mysqli_error($conn);
 			}
 		}
-		// Check if image file is a actual image or fake image
-		if(isset($_POST["file"])) {
-			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-			if($check !== false) {
-			  echo "File is an image - " . $check["mime"] . ".";
-			  $uploadOk = 1;
-			} else {
-			  echo "File is not an image.";
-			  $uploadOk = 0;
-			}
-		  }
-		  
-		  // Check if file already exists
-		  if (file_exists($target_file)) {
-			echo "Sorry, file already exists.";
-			$uploadOk = 0;
-		  }
-		  
-		  
-		  // Allow certain file formats
-		  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-		  && $imageFileType != "gif" ) {
-			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-			$uploadOk = 0;
-		  }
-		  
-		  // Check if $uploadOk is set to 0 by an error
-		  if ($uploadOk == 0) {
-			echo "Sorry, your file was not uploaded.";
-		  // if everything is ok, try to upload file
-		  } else {
-			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-			  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["img_name"])). " has been uploaded.";
-			} else {
-			  echo "Sorry, there was an error uploading your file.";
-			}
-		  }
-    }
-
-		// //check description
-		// if(empty($_POST['description'])){
-		// 	echo 'A description is required <br />';
-		// }  
 		
+    }
 		
 		
 ?>
@@ -113,11 +67,13 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 					<label>Enter Description/About *</label><br/><br/><br/>
 					<textarea id="textarea" class="materialize-textarea" name="description" value="<?php echo htmlspecialchars($description) ?>"></textarea>
 					<div class="red-text"><?php echo $errors['description']; ?></div><br/>
-					<div class="grey lighten-4 center border" enctype="multipart/form-data" >
+					<label>Enter Image Url *</label>
+					<input type="url" name="image" value="<?php echo htmlspecialchars($image) ?>">
+					<!-- <div class="grey lighten-4 center border" enctype="multipart/form-data" >
 						<span class="btn btn-file indigo">
-							<i class="material-icons right">upload</i>Upload Image<input type="file">
+							<i class="material-icons right">upload</i>Upload Image<input type="url" name="cover_image">
 						</span>
-				    </div><br/><br/>
+				    </div><br/><br/> -->
 					<div class="center">
 						<input type="submit" name="save" value="save" class="btn brand z-depth-0">
 					</div>

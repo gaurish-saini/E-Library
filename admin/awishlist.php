@@ -4,7 +4,7 @@
 include('C:\xampp\htdocs\eLibrary\templates\config\db_connect.php');
 include('..\session.php');
 // <!-- write a query for all books -->
-$sql = 'SELECT name, author, id FROM books';
+$sql = 'SELECT * FROM books';
 
 // <!-- make query and get result -->
 $result = mysqli_query($conn, $sql);
@@ -73,7 +73,7 @@ mysqli_close($conn);
 				<div class="col s4 md6">
 					<div class="card ">
 					<div class="card-image ">
-						<img src="..\templates\uploads\img1.jpg">
+						<img src="<?php echo htmlspecialchars($books['image']);?>">
 						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
                      </div>
 						<div class="card-content left-align">

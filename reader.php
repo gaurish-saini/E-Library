@@ -4,7 +4,7 @@
 include('config/db_connect.php');
 include('session.php');
 // <!-- write a query for all books -->
-$sql = 'SELECT name, author, id FROM books';
+$sql = 'SELECT * FROM books';
 
 // <!-- make query and get result -->
 $result = mysqli_query($conn, $sql);
@@ -67,7 +67,7 @@ mysqli_close($conn);
 					<div class="col s4 md6">
 						<div class="card">
 							<div class="card-image ">
-								<img src="templates/uploads/img1.jpg">
+								<img src="<?php echo htmlspecialchars($books['image']); ?>">
 								<a class="card-title white-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 							</div>
 							<div class="card-content left-align">
@@ -76,7 +76,7 @@ mysqli_close($conn);
 										<a class="brand-text" href="#" >READ ></a>
 										<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
 										<ul id='dropdown1' class='dropdown-content brand-text'>
-											<li><a class='brand-text' type="submit" name="issue" href="yourbook.php?id=<?php echo $books['id'] ?>">issue</a></li>
+											<li><a class='brand-text' type="submit" name="issue" href="ryourbook.php?id=<?php echo $books['id'] ?>">issue</a></li>
 											<li><a class='brand-text' type="submit" name="wishlist">add to wishlist</a></li>
 										</ul>
 								</div>

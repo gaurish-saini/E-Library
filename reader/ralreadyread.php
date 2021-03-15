@@ -3,7 +3,7 @@
 include('C:\xampp\htdocs\eLibrary\templates\config\db_connect.php');
 include('..\session.php');
 // <!-- write a query for all books -->
-$sql = 'SELECT name, author, id FROM books';
+$sql = 'SELECT * FROM books';
 
 // <!-- make query and get result -->
 $result = mysqli_query($conn, $sql);
@@ -59,10 +59,11 @@ mysqli_close($conn);
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
+			    <li><a class="waves-effect grey-text" href="../reader.php">All Books</a></li>
 				<li><a class="waves-effect grey-text" href="ralreadyread.php">Already Read</a></li>
 				<li><a class="waves-effect grey-text" href="rwishlist.php">Wishlist</a></li>
 			</li>
-			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="../ryourbook.php">Your Books</a></li>
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a href = "..\logout.php">Log Out</a></li>
  		</ul>
@@ -75,7 +76,7 @@ mysqli_close($conn);
 				<div class="col s4 md6">
 					<div class="card ">
 					<div class="card-image ">
-						<img src="..\templates\uploads\img1.jpg">
+						<img src="<?php echo htmlspecialchars($books['image']); ?>">
 						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
                      </div>
 						<div class="card-content left-align">
@@ -86,7 +87,7 @@ mysqli_close($conn);
                             <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
 
                             <ul id='dropdown1' class='dropdown-content brand-text'>
-                                <li><a class='brand-text' type="submit" action="index.php" name="remove">remove</a></li>
+                                <li><a class='brand-text' type="submit" action="ralreadyread.php" name="remove">remove</a></li>
                                 <!-- <li><a class='brand-text'href="#!"></a></li> -->
                             </ul>
 						</div>
