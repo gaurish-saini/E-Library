@@ -1,6 +1,6 @@
 <?php 
 
-include('templates\config\db_connect.php');
+include('..\config\db_connect.php');
 include('..\session.php');
 // <!-- write a query for all books -->
 $sql = 'SELECT * FROM books';
@@ -32,11 +32,11 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
 	
-<?php include('templates\style.php'); ?>
+<?php include('..\templates\style.php'); ?>
 	<div class="container">
 		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
 	</div>  
-<?php include('templates\script.php'); ?>
+<?php include('..\templates\script.php'); ?>
 	<nav class=" white z-depth-0">
 	<div class="container">
       			<a href="C:\xampp\htdocs\eLibrary\reader.php" class="brand-logo brand-text">E-Library</a>
@@ -47,10 +47,6 @@ mysqli_close($conn);
 	    <ul id="slide-out" class="sidenav">
 			<li>
 				<div class="user-view">
-				<!-- <div class="background">
-					<img src=".jpg">
-				</div> -->
-				<!-- <a href="#user"><img class="circle" src="../img/1611234086050.jpg"></a> -->
 				<a href="#name"><span class="indigo-text name">Hello</span></a>
 				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>
@@ -77,7 +73,7 @@ mysqli_close($conn);
 					<div class="card ">
 					<div class="card-image ">
 						<img src="<?php echo htmlspecialchars($books['image']); ?>">
-						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
+						<a class="card-title white-text"><?php echo htmlspecialchars($books['name']); ?></a>
                      </div>
 						<div class="card-content left-align">
 						<h6><?php echo htmlspecialchars($books['author']); ?></h6>

@@ -59,10 +59,6 @@ if(isset($_GET['id'])){
 	<ul id="slide-out" class="sidenav">
 			<li>
 				<div class="user-view">
-				<!-- <div class="background">
-					<img src=".jpg">
-				</div> -->
-				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
 				<a href="#name"><span class="indigo-text name">Hello</span></a>
 				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>
@@ -77,7 +73,7 @@ if(isset($_GET['id'])){
 			</li>
 			<li><a class="waves-effect brand-text" href="ayourbook.php">Your Books</a></li>
 			<li><div class="divider brand-text"></div></li></br>
-			<li><a href = "..\logout.php">Log Out</a></li>
+			<li><a href = "logout.php">Log Out</a></li>
  		</ul>
 <body class="grey lighten-4 ">
 	<div class="container grey lighten-4 col s12">

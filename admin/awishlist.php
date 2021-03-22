@@ -1,7 +1,7 @@
 <?php 
 
 
-include('templates\config\db_connect.php');
+include('..\config\db_connect.php');
 include('..\session.php');
 // <!-- write a query for all books -->
 $sql = 'SELECT * FROM books';
@@ -33,11 +33,11 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
 	
-<?php include('templates\style.php'); ?>
+<?php include('..\templates\style.php'); ?>
 	<div class="container">
 		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
 	</div>  
-<?php include('templates\script.php'); ?>
+<?php include('..\templates\script.php'); ?>
 	<nav class=" white z-depth-0">
 	<div class="container">
       			<a href="..\index.php" class="brand-logo brand-text">E-Library</a>
@@ -48,7 +48,6 @@ mysqli_close($conn);
 	    <ul id="slide-out" class="sidenav">
 			<li>
 				<div class="user-view">
-				<a href="#user"><img class="circle" src="../img/1611234086050.jpg"></a>
 				<a href="#name"><span class="indigo-text name">Hello</span></a>
 				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>
@@ -57,10 +56,13 @@ mysqli_close($conn);
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
+				<li><a class="waves-effect grey-text" href="../index.php">All Books</a></li>
 				<li><a class="waves-effect grey-text" href="aalreadyread.php">Already Read</a></li>
 				<li><a class="waves-effect grey-text" href="awishlist.php">Wishlist</a></li>
 			</li>
-			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
+			<li><a class="waves-effect brand-text" href="..\ayourbook.php">Your Books</a></li>
+			<li><div class="divider brand-text"></div></li></br>
+			<li><a href = "..\logout.php">Log Out</a></li>
  		</ul>
 
          <body class="grey lighten-4 ">
@@ -85,7 +87,6 @@ mysqli_close($conn);
 
                             <ul id='dropdown1' class='dropdown-content brand-text'>
                                 <li><a class='brand-text' type="submit" action="index.php" name="remove">remove</a></li>
-                                <!-- <li><a class='brand-text'href="#!"></a></li> -->
                             </ul>
 						</div>
 					</div>
