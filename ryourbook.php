@@ -62,7 +62,7 @@ if(isset($_GET['id'])){
 				<!-- <div class="background">
 					<img src=".jpg">
 				</div> -->
-				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
+				<!-- <a href="#user"><img class="circle" src="img/1611234086050.jpg"></a> -->
 				<a href="#name"><span class="indigo-text name">Hello</span></a>
 				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>

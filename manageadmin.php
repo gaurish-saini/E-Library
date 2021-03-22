@@ -64,7 +64,7 @@ if(isset($_POST['asignup'])){
 	<ul id="slide-out" class="sidenav">
 			<li>
 				<div class="user-view">
-				<a href="#user"><img class="circle" src="img/1611234086050.jpg"></a>
+				<!-- <a href="#user"><img class="circle" src="img/1611234086050.jpg"></a> -->
 				<a href="#name"><span class="indigo-text name">Hello</span></a>
 				<a href="#email"><span class="indigo-text email"><?php echo $login_session; ?></span></a>
 				<span class="indigo-text name">Dashboard</span>

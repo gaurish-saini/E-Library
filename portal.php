@@ -61,7 +61,7 @@ if(isset($_POST['alogin'])){
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST["password"]); 
       
-      $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword' and role='admin'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       
@@ -92,7 +92,7 @@ if(isset($_POST['rlogin'])){
             $myusername = mysqli_real_escape_string($conn,$_POST['username']);
             $mypassword = mysqli_real_escape_string($conn,$_POST["password"]); 
           
-          $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword'";
+          $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword' and role='reader'";
           $result = mysqli_query($conn,$sql);
           $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                   
