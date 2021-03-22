@@ -32,11 +32,11 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
 	
-<?php include('C:\xampp\htdocs\eLibrary\templates\style.php'); ?>
+<?php include('templates\style.php'); ?>
 	<div class="container">
 		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
 	</div>  
-<?php include('C:\xampp\htdocs\eLibrary\templates\script.php'); ?>
+<?php include('templates\script.php'); ?>
 	<nav class=" white z-depth-0">
 	<div class="container">
       			<a href="C:\xampp\htdocs\eLibrary\reader.php" class="brand-logo brand-text">E-Library</a>
