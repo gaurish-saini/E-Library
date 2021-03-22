@@ -1,6 +1,6 @@
 <?php 
 
-include('C:\xampp\htdocs\eLibrary\templates\config\db_connect.php');
+include('templates\config\db_connect.php');
 include('..\session.php');
 // <!-- write a query for all books -->
 $sql = 'SELECT * FROM books';

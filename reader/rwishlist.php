@@ -32,7 +32,7 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
 	
-<?php include('templates\style.php'); ?>
+<?php include('templates\config\db_connect.php'); ?>
 	<div class="container">
 		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
 	</div>  
