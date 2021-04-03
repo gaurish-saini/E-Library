@@ -83,21 +83,21 @@ if(isset($_GET['id'])){
 					<div class="col s4 md6">
 						<div class="card">
 							<div class="card-image ">
-								<img src="<?php echo htmlspecialchars($books['image']); ?>">
-								<a class="card-title white-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
+								<img class="bookImage" src="<?php echo htmlspecialchars($books['image']); ?>">							
 							</div>
 							<div class="card-content left-align">
+								<a class="card-title black-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
-								<div class="card-action">
-									<a class="brand-text" href="#" >READ ></a>
-                                    <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-                                    <ul id='dropdown1' class='dropdown-content brand-text' >
-                                    <form action="ayourbook.php"  method="POST">
-                                        <input type="hidden" name="id_to_delete" value="<?php echo $books['id'] ?>" >
-			   	                        <input type="submit" name="delete" value="Return" class="btn brand z-depth-0">
-                                    </form>                                   
-                                    </ul>
-								</div>
+							</div>
+							<div class="card-action left-align">
+								<a class="brand-text" href="#" >READ ></a>
+								<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+								<ul id='dropdown1' class='dropdown-content brand-text' >
+								<form action="ayourbook.php"  method="POST">
+									<input type="hidden" name="id_to_delete" value="<?php echo $books['id'] ?>" >
+									<input type="submit" name="delete" value="Return" class="btn brand z-depth-0">
+								</form>                                   
+								</ul>
 							</div>
 						</div>
 					</div>			   

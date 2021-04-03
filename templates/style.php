@@ -19,12 +19,23 @@
     height: 300px;
     position: relative;
     }
+    .card-title {
+    white-space: nowrap;
+    font-style: oblique;
+    font-weight: 400 !important;
+    }
+    .bookImage{
+      height: 350px !important;
+    }
     .author{
       padding: 0px;
     }
 	  .brand{
 	  	background: #d32f2f !important;
 	  }
+    .vert-color{
+      color:  #3f51b5 !important; 
+    }
   	.brand-text{
   		color: #d32f2f !important;
   	}
@@ -33,9 +44,9 @@
   		margin: 20px auto;
   		/* padding: 20px; */
   	} 
-    dropdown-icon{
+    .dropdown-icon{
       background-color: white;
-      color: #d32f2f !important;
+      color:  #3f51b5 !important;
     }
     
     .template{

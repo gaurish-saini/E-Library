@@ -69,16 +69,14 @@ mysqli_close($conn);
 	<div class="container grey lighten-4">
 	<div class="container">
 	<div class="row">
-
 			<?php foreach(array_reverse($books) as $books){ ?>
-			
 				<div class="col s4 md6">
 					<div class="card ">
 					<div class="card-image ">
-						<img src="<?php echo htmlspecialchars($books['image']);?>">
-						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
+						<img class="bookImage" src="<?php echo htmlspecialchars($books['image']);?>">
                      </div>
 						<div class="card-content left-align">
+						<a class="card-title black-text"><?php echo htmlspecialchars($books['name']); ?></a>
 						<h6><?php echo htmlspecialchars($books['author']); ?></h6>
 						</div>
 						<div class="card-action left-align">
@@ -91,9 +89,7 @@ mysqli_close($conn);
 						</div>
 					</div>
 				</div>
-			
 			<?php } ?>
-		
 	</div>
 </body>
 	<?php include('..\templates\footer.php'); ?>

@@ -76,20 +76,18 @@ mysqli_close($conn);
 			
 				<div class="col s4 md6">
 					<div class="card ">
-					<div class="card-image ">
-						<img src="<?php echo htmlspecialchars($books['image']); ?>">
-						<a class="card-title"><?php echo htmlspecialchars($books['name']); ?></a>
-                     </div>
+						<div class="card-image ">
+							<img class="bookImage" src="<?php echo htmlspecialchars($books['image']); ?>">
+						</div>
 						<div class="card-content left-align">
-						<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+							<a class="card-title black-text"><?php echo htmlspecialchars($books['name']); ?></a>
+							<h6><?php echo htmlspecialchars($books['author']); ?></h6>
 						</div>
 						<div class="card-action left-align">
 							<a class="brand-text" href="#" >READ ></a>
                             <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-
                             <ul id='dropdown1' class='dropdown-content brand-text'>
                                 <li><a class='brand-text' type="submit" action="index.php" name="remove">remove</a></li>
-                                <!-- <li><a class='brand-text'href="#!"></a></li> -->
                             </ul>
 						</div>
 					</div>

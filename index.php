@@ -75,22 +75,20 @@ mysqli_close($conn);
 					<div class="col s4 md6">
 						<div class="card">
 							<div class="card-image ">
-								<img src="<?php echo htmlspecialchars($books['image']); ?>">
-								<a class="card-title white-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
-								
+								<img class="bookImage" src="<?php echo htmlspecialchars($books['image']); ?>">
 							</div>
 							<div class="card-content">
-							<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+								<a class="card-title black-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
+								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+							</div>						
 								<div class="card-action">
-											<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-											<ul id='dropdown1' class='dropdown-content brand-text'>
-												<li><a class='brand-text' type="submit" name="issue" href="ayourbook.php?id=<?php echo $books['id'] ?>">Issue</a></li>
-												<li><a class='brand-text' type="submit" name="wishlist">Add to wishlist</a></li>
-											</ul>
+								<a class="brand-text"></a>
+									<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right vert-color" >more_vert</i></a>
+									<ul id='dropdown1' class='dropdown-content brand-text'>
+										<li><a class='brand-text' type="submit" name="issue" href="ayourbook.php?id=<?php echo $books['id'] ?>">Issue</a></li>
+										<li><a class='brand-text' type="submit" name="wishlist">Wishlist</a></li>
+									</ul>
 								</div>
-							</div>
-							
-
 						</div>
 					</div>			   
 				<?php } ?>
