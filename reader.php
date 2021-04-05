@@ -68,7 +68,7 @@ mysqli_close($conn);
 							<div class="card-content content-height">
 								<a class="card-title black-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 								<a class='brand-text' type="submit" name="issue" href="ryourbook.php?id=<?php echo $books['id'] ?>">Issue |</a>
-								<a class='brand-text' type="submit" name="wishlist" href="reader/rwishlist.php?id=<?php echo $books['id'] ?>"> Wishlist</a>
+								<a class='brand-text' type="submit" name="wishlist" href="../reader/rwishlist.php?id=<?php echo $books['id'] ?>"> Wishlist</a>
 								
 							</div>						
 							<div class="card-action action-height"><h6><?php echo htmlspecialchars($books['author']); ?></h6></div>
