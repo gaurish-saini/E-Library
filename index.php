@@ -83,7 +83,7 @@ mysqli_close($conn);
 								<a class='brand-text' type="submit" name="wishlist" href="admin/awishlist.php?id=<?php echo $books['id'] ?>"> Wishlist</a>
 								
 							</div>						
-							<div class="card-action"><?php echo htmlspecialchars($books['author']); ?></div>
+							<div class="card-action action-height"><?php echo htmlspecialchars($books['author']); ?></div>
 						</div>
 					</div>			    
 				<?php } ?>

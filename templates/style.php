@@ -20,8 +20,9 @@
     position: relative;
     }
     .card-title {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     font-style: oblique;
+    font-size: 17px !important;
     font-weight: 400 !important;
     }
     .content-height{
