@@ -24,6 +24,12 @@
     font-style: oblique;
     font-weight: 400 !important;
     }
+    .content-height{
+      height: 170px !important;
+    }
+    .action-height{
+      height: 70px !important;
+    }
     .bookImage{
       height: 350px !important;
     }

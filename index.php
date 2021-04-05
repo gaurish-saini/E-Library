@@ -77,13 +77,13 @@ mysqli_close($conn);
 							<div class="card-image ">
 								<img class="bookImage" src="<?php echo htmlspecialchars($books['image']); ?>">
 							</div>
-							<div class="card-content">
+							<div class="card-content content-height">
 								<a class="card-title black-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 								<a class='brand-text' type="submit" name="issue" href="ayourbook.php?id=<?php echo $books['id'] ?>">Issue |</a>
 								<a class='brand-text' type="submit" name="wishlist" href="admin/awishlist.php?id=<?php echo $books['id'] ?>"> Wishlist</a>
 								
 							</div>						
-							<div class="card-action"><h6><?php echo htmlspecialchars($books['author']); ?></h6></div>
+							<div class="card-action"><?php echo htmlspecialchars($books['author']); ?></div>
 						</div>
 					</div>			    
 				<?php } ?>
