@@ -134,7 +134,7 @@ if(isset($_POST['rlogin'])){
                 <div id="adminsignin" ></br></br></br>
                     <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
-                            <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
+                            <input type="text" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for="email">Username*</label>
                             <div class="red-text"><?php echo $errors['username']; ?></div><br/>
                             
@@ -153,7 +153,7 @@ if(isset($_POST['rlogin'])){
                 <div id="readersignin"></br></br></br>
                    <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
-                        <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
+                        <input type="text" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for="email">Username*</label>
                             <div class="red-text"><?php echo $errors['username']; ?></div><br/>
                         </div>
@@ -178,7 +178,7 @@ if(isset($_POST['rlogin'])){
                 <div id="reader">
                     <form action="portal.php" method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
-                            <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
+                            <input type="text" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for= "email">Create Username*</label>
                         </div>
                         <div class="input-field indigo-text text-darken-4 ">

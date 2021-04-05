@@ -20,7 +20,7 @@ $sql = 'SELECT * FROM books';
 // <!-- make query and get result -->
 $result = mysqli_query($conn, $sql);
 
-// <!-- fetch the ressulting rows as an array -->
+// <!-- fetch the resulting rows as an array -->
 $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // free result from memory 
@@ -57,7 +57,7 @@ mysqli_close($conn);
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
-				<li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
+				<!-- <li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li> -->
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="ayourbook.php">Your Books</a></li>
@@ -79,18 +79,13 @@ mysqli_close($conn);
 							</div>
 							<div class="card-content">
 								<a class="card-title black-text" href="detail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
-								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+								<a class='brand-text' type="submit" name="issue" href="ayourbook.php?id=<?php echo $books['id'] ?>">Issue |</a>
+								<a class='brand-text' type="submit" name="wishlist" href="admin/awishlist.php?id=<?php echo $books['id'] ?>"> Wishlist</a>
+								
 							</div>						
-								<div class="card-action">
-								<a class="brand-text"></a>
-									<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right vert-color" >more_vert</i></a>
-									<ul id='dropdown1' class='dropdown-content brand-text'>
-										<li><a class='brand-text' type="submit" name="issue" href="ayourbook.php?id=<?php echo $books['id'] ?>">Issue</a></li>
-										<li><a class='brand-text' type="submit" name="wishlist">Wishlist</a></li>
-									</ul>
-								</div>
+							<div class="card-action"><h6><?php echo htmlspecialchars($books['author']); ?></h6></div>
 						</div>
-					</div>			   
+					</div>			    
 				<?php } ?>
 				<div class="fixed-action-btn">
 					    <a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>

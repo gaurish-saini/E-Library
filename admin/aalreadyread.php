@@ -84,7 +84,7 @@ mysqli_close($conn);
 							<h6><?php echo htmlspecialchars($books['author']); ?></h6>
 						</div>
 						<div class="card-action left-align">
-							<a class="brand-text" href="#" >READ ></a>
+							<a class="brand-text" ></a>
                             <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
                             <ul id='dropdown1' class='dropdown-content brand-text'>
                                 <li><a class='brand-text' type="submit" action="index.php" name="remove">remove</a></li>

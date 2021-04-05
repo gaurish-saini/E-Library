@@ -1,32 +1,41 @@
 <?php 
 
 
-include('..\config\db_connect.php');
-include('..\session.php');
-// <!-- write a query for all books -->
-$sql = 'SELECT * FROM books';
+include('../config/db_connect.php');
+include('../session.php');
+$id= $books='';
+if(isset($_POST['delete'])){
 
-// <!-- make query and get result -->
-$result = mysqli_query($conn, $sql);
+    $id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
 
-// <!-- fetch the ressulting rows as an array -->
-$books = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $sql = "DELETE FROM has_book WHERE has_book.book_id = $id_to_delete";
 
-if(isset($_POST['alreadyread'])){
-	if(mysqli_query($conn, $sql)){
-		// success
-		header('Location: alreadyread.php');
-	} else {
-		echo 'query error: '. mysqli_error($conn);
-	}
+    if(mysqli_query($conn, $sql)){
+        header('Location: ../index.php');
+    } else {
+        echo 'query error: '. mysqli_error($conn);
+    }
+
 }
 
-// free result from memory 
-mysqli_free_result($result); 
+if(isset($_GET['id'])){
+		
+    // escape sql chars
+    $id = mysqli_real_escape_string($conn, $_GET["id"]);
 
-// close connection 
+    // make sql
+    $sql = "SELECT * FROM books WHERE id = $id";
 
-mysqli_close($conn);
+    // get the query result
+    $result = mysqli_query($conn, $sql);
+
+    // fetch result in array format
+    $books = mysqli_fetch_assoc($result);
+
+    mysqli_free_result($result);
+    mysqli_close($conn);
+
+}
 
 ?>
 
@@ -57,7 +66,7 @@ mysqli_close($conn);
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
 				<li><a class="waves-effect grey-text" href="../index.php">All Books</a></li>
-				<li><a class="waves-effect grey-text" href="aalreadyread.php">Already Read</a></li>
+				<!-- <li><a class="waves-effect grey-text" href="aalreadyread.php">Already Read</a></li> -->
 				<li><a class="waves-effect grey-text" href="awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="..\ayourbook.php">Your Books</a></li>
@@ -69,27 +78,36 @@ mysqli_close($conn);
 	<div class="container grey lighten-4">
 	<div class="container">
 	<div class="row">
-			<?php foreach(array_reverse($books) as $books){ ?>
-				<div class="col s4 md6">
-					<div class="card ">
-					<div class="card-image ">
-						<img class="bookImage" src="<?php echo htmlspecialchars($books['image']);?>">
-                     </div>
-						<div class="card-content left-align">
-						<a class="card-title black-text"><?php echo htmlspecialchars($books['name']); ?></a>
-						<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+			<div class="row">
+				<?php if($id): ?>	
+							<!-- <?php echo ($issue_book); ?> -->
+					<div class="col s4 md6">
+						<div class="card">
+							<div class="card-image ">
+								<img class="bookImage" src="<?php echo htmlspecialchars($books['image']); ?>">							
+							</div>
+							<div class="card-content left-align">
+								<a class="card-title black-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
+								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
+							</div>
+							<div class="card-action left-align">
+								<a class='brand-text' type="submit" name="issue" href="../ayourbook.php?id=<?php echo $books['id'] ?>">Issue</a>
+								<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+								<ul id='dropdown1' class='dropdown-content brand-text' >
+								<form action="awishlist.php"  method="POST">
+									<input type="hidden" name="id_to_delete" value="<?php echo $books['id'] ?>" >
+									<input type="submit" name="delete" value="Return" class="btn brand z-depth-0">
+								</form>                                   
+								</ul>
+							</div>
 						</div>
-						<div class="card-action left-align">
-							<a class="brand-text" href="#" >READ ></a>
-                            <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-
-                            <ul id='dropdown1' class='dropdown-content brand-text'>
-                                <li><a class='brand-text' type="submit" action="index.php" name="remove">remove</a></li>
-                            </ul>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
+					</div>			   
+				<?php else: ?>
+                <div class="center">
+                    <h6>No book added yet !</h6>
+                </div>
+                <?php endif ?>
+			</div>
 	</div>
 </body>
 	<?php include('..\templates\footer.php'); ?>

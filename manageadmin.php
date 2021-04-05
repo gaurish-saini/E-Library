@@ -73,7 +73,7 @@ if(isset($_POST['asignup'])){
 			<li><div class="divider brand-text"></div></li></br>
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
-				<li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
+				<!-- <li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li> -->
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
@@ -93,7 +93,7 @@ if(isset($_POST['asignup'])){
                     <form action="manageadmin.php" method="POST">
                     <label style="color: #ee6e73;">Manage Admins<label></label></label>
                         <div class="input-field indigo-text text-darken-4 ">
-                            <input type="email" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
+                            <input type="text" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                             <label for= "email">Create Username*</label>
 							<div class="red-text"><?php echo $errors['username']; ?></div><br/>
                         </div>

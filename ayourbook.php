@@ -2,7 +2,7 @@
 include('config/db_connect.php');
 include('session.php');
 
-$id='';
+$id= $books='';
 if(isset($_POST['delete'])){
 
     $id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
@@ -22,13 +22,19 @@ if(isset($_GET['id'])){
     // escape sql chars
     $id = mysqli_real_escape_string($conn, $_GET["id"]);
     // make sql
-    $occupied = "INSERT INTO has_book(book_id) VALUES('$id')";
+    $occupied = "INSERT INTO has_book(book_id,user_id) VALUES('$id','$login_session')";
     if(mysqli_query($conn, $occupied)){
 				// success
 			} else {
 				echo 'query error: '. mysqli_error($conn);
 			}
-    $sql = "SELECT * FROM books WHERE id = $id";
+
+	$occupied_book ="SELECT book_id FROM has_book WHERE user_id= '$login_session'";
+	$result_book = mysqli_query($conn, $occupied_book);
+	$issue_book =  mysqli_fetch_assoc($result_book);
+
+
+    $sql = "SELECT * FROM books WHERE id = $issue_book[book_id]";
     
     // get the query result
     $result = mysqli_query($conn, $sql);
@@ -68,7 +74,7 @@ if(isset($_GET['id'])){
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
                 <li><a class="waves-effect grey-text" href="index.php">All Books</a></li>
-				<li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
+				<!-- <li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li> -->
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="ayourbook.php">Your Books</a></li>
@@ -79,7 +85,8 @@ if(isset($_GET['id'])){
 	<div class="container grey lighten-4 col s12">
 		<div class="container">
 			<div class="row">
-				<?php if($id): ?>				
+				<?php if($books): ?>	
+							<!-- <?php echo ($issue_book); ?> -->
 					<div class="col s4 md6">
 						<div class="card">
 							<div class="card-image ">

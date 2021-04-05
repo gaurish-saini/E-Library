@@ -22,13 +22,19 @@ if(isset($_GET['id'])){
     // escape sql chars
     $id = mysqli_real_escape_string($conn, $_GET["id"]);
     // make sql
-    $occupied = "INSERT INTO has_book(book_id) VALUES('$id')";
+    $occupied = "INSERT INTO has_book(book_id,user_id) VALUES('$id','$login_session')";
     if(mysqli_query($conn, $occupied)){
 				// success
 			} else {
 				echo 'query error: '. mysqli_error($conn);
 			}
-    $sql = "SELECT * FROM books WHERE id = $id";
+
+	$occupied_book ="SELECT book_id FROM has_book WHERE user_id= '$login_session'";
+	$result_book = mysqli_query($conn, $occupied_book);
+	$issue_book =  mysqli_fetch_assoc($result_book);
+
+
+    $sql = "SELECT * FROM books WHERE id = $issue_book[book_id]";
     
     // get the query result
     $result = mysqli_query($conn, $sql);
@@ -72,7 +78,7 @@ if(isset($_GET['id'])){
 			<li><a class="subheader brand-text">Marked</a></li>
 			<li>
                 <li><a class="waves-effect grey-text" href="reader.php">All Books</a></li>
-				<li><a class="waves-effect grey-text" href="reader/ralreadyread.php">Already Read</a></li>
+				<!-- <li><a class="waves-effect grey-text" href="reader/ralreadyread.php">Already Read</a></li> -->
 				<li><a class="waves-effect grey-text" href="reader/rwishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="#!">Your Books</a></li>
@@ -88,20 +94,20 @@ if(isset($_GET['id'])){
 						<div class="card">
 							<div class="card-image ">
 								<img src="<?php echo htmlspecialchars($books['image']); ?>">
-								<a class="card-title white-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 							</div>
 							<div class="card-content left-align">
+								<a class="card-title black-text" href="rdetail.php?id=<?php echo $books['id'] ?>"><?php echo htmlspecialchars($books['name']); ?></a>
 								<h6><?php echo htmlspecialchars($books['author']); ?></h6>
-								<div class="card-action">
-									<a class="brand-text" href="#" >READ ></a>
-                                    <a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
-                                    <ul id='dropdown1' class='dropdown-content brand-text' >
-                                    <form action="reader.php"  method="POST">
-                                        <input type="hidden" name="id_to_delete" value="<?php echo $books['id'] ?>" >
-			   	                        <input type="submit" name="delete" value="Return" class="btn brand z-depth-0">
-                                    </form>                                   
-                                    </ul>
-								</div>
+							</div>
+							<div class="card-action left-align">
+								<a class="brand-text" href="#" >READ ></a>
+								<a class="dropdown-trigger right dropdown-icon" data-target='dropdown1' ><i class="material-icons right" >more_vert</i></a>
+								<ul id='dropdown1' class='dropdown-content brand-text' >
+								<form action="ryourbook.php"  method="POST">
+									<input type="hidden" name="id_to_delete" value="<?php echo $books['id'] ?>" >
+									<input type="submit" name="delete" value="Return" class="btn brand z-depth-0">
+								</form>                                   
+								</ul>
 							</div>
 						</div>
 					</div>			   
