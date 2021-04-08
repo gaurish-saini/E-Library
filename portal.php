@@ -9,6 +9,9 @@ $showError = false;
 $exists = false;   
 $errors = array('username'=>'','password'=>'');
 
+
+
+
 if(isset($_POST['rsignup'])) {
        
        $username = $_POST["username"];  
