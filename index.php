@@ -61,7 +61,7 @@ mysqli_close($conn);
 				<li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
 			</li>
 			<li><a class="waves-effect brand-text" href="ayourbook.php">Your Books</a></li>
-			<li><a class="waves-effect brand-text" href="manageadmin.php">Manage Admins</a></li>
+			<li><a class="waves-effect brand-text" href="admin\usermanagement.php">User Management</a></li>
             <li><div class="divider brand-text"></div></li></br>
 			<li><a href = "logout.php">Log Out</a></li>
 

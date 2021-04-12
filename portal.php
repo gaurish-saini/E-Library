@@ -121,7 +121,7 @@ if(isset($_POST['rlogin'])){
         <div class="row">  
             
             <div class="col s6 md6 center">
-            <label style= "color: #ee6e73 ";>Already a User? <label>Log In</label></label>
+                <label style= "color: #ee6e73 ";>Already a User? <label>Log In</label></label>
                 <!-- tabs -->
                 <ul class="tabs col s12 tab-color center">
                 <li class="tab col s6">

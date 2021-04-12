@@ -11,13 +11,16 @@
     #login-box{
       padding: 70px;
     }
-    .tab-color{
+    .tab-color {
       background-color: #f5f5f5 !important;
     }
     .image{
     display: block;
     height: 300px;
     position: relative;
+    }
+    .icon-margin{
+      margin-right: 30px !important;
     }
     .card-title {
     /* white-space: nowrap; */
@@ -40,6 +43,9 @@
 	  .brand{
 	  	background: #d32f2f !important;
 	  }
+    table.highlight>tbody>tr:hover {
+    background-color: rgba(63, 81, 181, 0.1) !important;
+}
     .vert-color{
       color:  #3f51b5 !important; 
     }
