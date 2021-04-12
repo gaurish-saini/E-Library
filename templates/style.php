@@ -43,6 +43,21 @@
 	  .brand{
 	  	background: #d32f2f !important;
 	  }
+
+    .portal-label{
+      color: #ee6e73;
+    }
+    #toast-container {
+    min-width: 10%;
+    right: 50% !important;
+    transform: translateX(50%) translateY(50%);
+}
+    .login-border{
+      border-radius: 10px;
+    }
+    .label-link{
+      color: #9e9e9e;
+    }
     table.highlight>tbody>tr:hover {
     background-color: rgba(63, 81, 181, 0.1) !important;
 }

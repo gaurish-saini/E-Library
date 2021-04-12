@@ -11,6 +11,8 @@
       $('.sidenav').sidenav();
       $('.dropdown-trigger').dropdown();
       $('.fixed-action-btn ').floatingActionButton();
+      $('.carousel').carousel();
+      $('.modal').modal();
     });
   //   document.addEventListener('DOMContentLoaded', function() {
   //   var elems = document.querySelectorAll('.fixed-action-btn');
