@@ -18,6 +18,10 @@
 	<?php 
         require __dir__.'/view/common/header.php';
         require __dir__.'/view/users/login.view.php';
+
+        if(isset($_GET['register=1'])):	
+		    require __dir__.'/'.'../../view/users/register.view.php';
+        endif;
         require __dir__.'/view/common/footer.php'; 
     ?>
 
