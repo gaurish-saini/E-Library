@@ -1,13 +1,12 @@
 <?php 
 require __dir__.'/'.'../../controllers/users/login.controller.php';
-// require __dir__.'/'.'../../controllers/users/register.controller.php';
 ?>
 
 <section class="container grey lighten-4 " id="login-box"></section>
     <div class="container col s12 md12">
           
         <div class="col s6 md6 center">
-            <form class="border" method="POST">
+            <form class="border" action="/login" method="POST">
                 <div class="input-field indigo-text text-darken-4 ">
                     <input type="text" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
                     <label for="email">Username*</label>
@@ -31,7 +30,7 @@ require __dir__.'/'.'../../controllers/users/login.controller.php';
                                 <?php endif ?>
                     <?php endif ?>            
                 </div></br>
-                <div><label class="portal-label">New Reader? <a href="../E-Library/index?register=1" class="label-link">Create a Account</a></label></br></div>
+                <div><label class="portal-label">New Reader? <a href="/index?register=1" class="label-link">Create a Account</a></label></br></div>
             </form>
         </div>
     </div>

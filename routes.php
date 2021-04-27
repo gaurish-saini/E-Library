@@ -1,6 +1,9 @@
 <?php
-$router->define([	
+$router->define([
+    ''=>'controllers/common/home.php',
+    'index.php'=>'controllers/common/home.php',
+	'index'=>'controllers/common/home.php',
+    'login'=>'controllers/users/login.controller.php',
 	'addbook'=>'controllers/books/addbook.php',
-	
 ]);
 ?>

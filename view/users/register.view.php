@@ -35,7 +35,7 @@ require __dir__.'/'.'../../controllers/users/register.controller.php';
                                         <?php endif ?>
                             <?php endif ?>   
                         </div></br>
-                        <div><label class="portal-label">Already a User? <a href="" class="label-link">Log In</a></label></br></div>
+                        <div><label class="portal-label">Already a User? <a href="/" class="label-link">Log In</a></label></br></div>
                     </form>
             </div>
     </div>
