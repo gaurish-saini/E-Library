@@ -5,7 +5,7 @@ require __dir__.'/'.'../../controllers/books/addbook.php';
 <section class="container grey-text">
     <h4 class="center">Enter a Tagline !</h4>
         <div class="col s6 md6">
-            <form class="grey lighten-4 " action="add.php" method="POST">    
+            <form class="grey lighten-4 " action="/addbook" method="POST">    
                 <label>Enter Book Name *</label>
                 <input type="text" name="name" value="<?php echo htmlspecialchars($name) ?>">
                 <div class="red-text"><?php echo $errors['name']; ?></div><br/>

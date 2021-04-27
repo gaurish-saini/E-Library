@@ -1,5 +1,5 @@
 <?php 
-    include('models\database\connection.php');
+    include('core\models\database\connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +16,16 @@
         ?>
     </head>
 	<?php 
+        require 'core/materialize.php';
         require __dir__.'/view/common/header.php';
+        require Router::load('routes.php')->direct(Request::uri());
         require __dir__.'/view/users/login.view.php';
-
         if(isset($_GET['register=1'])):	
 		    require __dir__.'/'.'../../view/users/register.view.php';
         endif;
         require __dir__.'/view/common/footer.php'; 
     ?>
-
+    
 </html> 
+<!-- <?php
+var_dump($_SERVER); ?> -->
