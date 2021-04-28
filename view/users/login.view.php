@@ -8,13 +8,16 @@ require __dir__.'/'.'../../controllers/users/login.controller.php';
         <div class="col s6 md6 center">
             <form class="border" method="POST">
                 <div class="input-field indigo-text text-darken-4 ">
-                    <input type="text" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
-                    <label for="email">Username*</label>
+                    <i class="material-icons prefix">email</i>
+                    <input id="icon_prefix" type="email" class="validate" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
+                    <label for="email">Enter Email*</label>
                 </div>
                 <div class="input-field indigo-text text-darken-4 ">
-                    <input type="password" value="<?php echo htmlspecialchars($password) ?>" id="password" name="password">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="icon_prefix" type="password" class="validate" value="<?php echo htmlspecialchars($password) ?>" id="password" name="password">
                     <label for="password">Password*</label>
-                </div>
+                    <div class="right"><a href="#" class="indigo-text">Forgot Password ?</a></div>
+                </div></br>
                 <div class="center">
                     <input type="submit" name="login" value="sign in" class="btn indigo-text tab-color z-depth-0 ">
                     <?php 
@@ -29,7 +32,8 @@ require __dir__.'/'.'../../controllers/users/login.controller.php';
                                 <script>M.toast({html: 'Password Required'})</script>
                                 <?php endif ?>
                     <?php endif ?>            
-                </div></br>
+                </div>
+                <div class="divider brand-text"></div>
                 <div><label class="portal-label">New Reader? <a href="/index?register=1" class="indigo-text">Create a Account</a></label></br></div>
             </form>
         </div>
