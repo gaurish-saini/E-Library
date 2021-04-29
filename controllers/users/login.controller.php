@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
-// $user = new Users;
+$user = new Users;
 
 if(isset($_POST['login'])){   
   if(!empty($_POST['password'] && $_POST['username'])) 
