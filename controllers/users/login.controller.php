@@ -1,7 +1,8 @@
 <?php 
-
-$username = $password = '';   
-$exists = false;   
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+// $user = new Users;
 
 if(isset($_POST['login'])){   
   if(!empty($_POST['password'] && $_POST['username'])) 
@@ -22,6 +23,8 @@ if(isset($_POST['login'])){
         if ($row['role'] =='admin')
         {
           $_SESSION['login_user'] = $myusername; 
+          
+          require __dir__.'/'.'../../Views/common/sidebar.php';
           // header('location: index.php');
           echo 'admin';
           session_start();
@@ -29,6 +32,7 @@ if(isset($_POST['login'])){
         if ($row['role'] =='reader')
         {
           $_SESSION['login_user'] = $myusername; 
+          require __dir__.'/'.'../../Views/common/sidebar.php';
           // header('location: reader.php');
           echo 'reader';
           session_start();

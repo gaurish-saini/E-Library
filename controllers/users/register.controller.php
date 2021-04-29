@@ -1,8 +1,9 @@
 <?php 
 
-$username = $password = $cpassword = '';    
-$exists = false;   
-$errors = array('username'=>'','password'=>'');
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+$user = new Users;
 
 if(isset($_POST['signup'])) {
        

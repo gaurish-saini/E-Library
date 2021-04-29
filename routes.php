@@ -4,6 +4,7 @@ $router->define([
     'index.php'=>'controllers/common/home.php',
 	'index'=>'controllers/common/home.php',
     'login'=>'controllers/users/login.controller.php',
+    'registration'=>'controllers/users/register.controller.php',
 	'addbook'=>'controllers/books/addbook.php',
 ]);
 ?>

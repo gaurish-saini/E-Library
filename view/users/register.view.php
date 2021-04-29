@@ -1,6 +1,3 @@
-<?php 
-require __dir__.'/'.'../../controllers/users/register.controller.php';
-?>
 <section class="container grey lighten-4 " id="login-box"></section>
     <div class="container col s12 md12">
             <div class="col s6 md6 center">
@@ -37,7 +34,7 @@ require __dir__.'/'.'../../controllers/users/register.controller.php';
                                         <script>M.toast({html: 'Confirm Password'})</script>
                                         <?php endif ?>
                             <?php endif ?>   
-                        </div>
+                        </div></br>
                         <div class="divider brand-text"></div>
                         <div><label class="portal-label">Already a User? <a href="/" class="indigo-text">Log In</a></label></br></div>
                     </form>
