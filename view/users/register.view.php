@@ -1,7 +1,7 @@
 <section class="container grey lighten-4 " id="login-box"></section>
     <div class="container col s12 md12">
             <div class="col s6 md6 center">
-                    <form class="border" method="POST">
+                    <form class="border" action="\registration"  method="POST">
                         <div class="input-field indigo-text text-darken-4 ">
                             <i class="material-icons prefix">email</i>
                             <input id="icon_prefix" type="email" class="validate" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">

@@ -4,6 +4,9 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 $user = new Users;
+if($user){
+    echo 'yes !';
+}
 
 if(isset($_POST['signup'])) {
        
