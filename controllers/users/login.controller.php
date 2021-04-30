@@ -1,44 +1,56 @@
-<?php 
+<?php
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
-$user = new Users;
+$user=new Users;
 
-if(isset($_POST['login'])){   
-  if(!empty($_POST['password'] && $_POST['username'])) 
-  {
-    if($_SERVER["REQUEST_METHOD"] == "POST") 
-    {
-      $myusername = mysqli_real_escape_string($conn,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($conn,$_POST["password"]); 
-      
-      $sql = "SELECT * FROM users WHERE username = '$myusername' and password = '$mypassword'";
-      $result = mysqli_query($conn,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      
-      $count = mysqli_num_rows($result);
-        
-      if($count == 1) 
-      {
-        if ($row['role'] =='admin')
-        {
-          $_SESSION['login_user'] = $myusername; 
-          
-          require __dir__.'/'.'../../Views/common/sidebar.php';
-          // header('location: index.php');
-          echo 'admin';
-          session_start();
-        }
-        if ($row['role'] =='reader')
-        {
-          $_SESSION['login_user'] = $myusername; 
-          require __dir__.'/'.'../../Views/common/sidebar.php';
-          // header('location: reader.php');
-          echo 'reader';
-          session_start();
-        } 
-      }
-    }
-  }
+if (isset($_SESSION['token']) and isset($_SESSION['loginid'])) {
+	$name=$_SESSION['loginid'];
+	$row=$user->fetchUser($name);
+	$type=$row['type'];    			
+	$uid=$row['uid'];
+	$name=$row['user_name'];
+	$email=$row['email_id'];
+	unset($_SESSION['token']);
+	unset($_SESSION['loginid']);
+	require __dir__.'/'.'../../controllers/common/setUserSession.php';
+	header('location:/');
 }
-?>        
+elseif(!isset($_SESSION['uid'])){
+	if(isset($_POST['emailid']) && $_POST['emailid']!='') {
+		$name=mysqli_escape_string($conn,$_POST['emailid']);
+		$_SESSION['name']=$name;
+		if(isset($_POST['password']) && $_POST['password']!=''){
+			$pass=mysqli_escape_string($conn,$_POST['password']);
+			$_SESSION['password']=$pass;
+			$row=$user->fetchUser($name);
+			$user->verify($row,$pass);
+		}
+		else
+			$user->flashError([NULL,'Please Enter Password'],'/');
+	}
+	else
+		$user->flashError(['Please Enter Email Address','Please Enter Password'],'/');
+}    
+
+if (isset($_SESSION['type'])){
+  if($_SESSION['type']=='inadmin')
+  {
+    $total_users=mysqli_num_rows($user->fetchUsers())-1;
+      echo 'admin';
+			 require __dir__.'/'.'../../view/common/sidebar.php';
+  }
+  elseif ($_SESSION['type']=='inreader'){
+    echo 'reader';
+    require __dir__.'/'.'../../view/common/sidebar.php';
+  }
+
+}
+			
+
+?>
+
+		
+		
+						
+    

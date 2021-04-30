@@ -21,9 +21,43 @@ class Users extends QueryBuilder{
 		$this->values=["'{$name}'","'{$emailid}'","'{$pass}'","'{$id}'","'0'"];
 		if(parent::insert($this->table,$this->names,$this->values)){
 
-			echo 'user registered !';
-			header('location:/login');
+			if($id!=NULL){
+				header('location:/login');
+			}
+			else{
+				// $lnk='http://3.7.5.192/verify?id='.$emailid.'&secret='.$pass;
+				// if(Mail::sendVerificationMail($lnk,$emailid,$name)){
+				// 	header("location:/splashmsg?msgtype=unverified");
+				// }
+				// else{
+				// 	$this->deleteUser($emailid);
+				// 	$this->flashError(['Internal Error, Try Again'],'/index?register=1');
+				// }	
+			}
 		}
+	}
+	public function verify($row,$pass){
+		if(isset($row)){
+			if(password_verify($pass, $row['password'])){
+				if($row['verified_id']=="0"){
+					session_destroy();
+					echo 'user';
+					// header('location:/splashmsg?msgtype=unverified');
+				}
+				else {
+					$type=$row['type'];    			
+					$uid=$row['uid'];
+					$name=$row['user_name'];
+					$email=$row['email_id'];
+					require __dir__.'/'.'../../controllers/common/setUserSession.php';
+					header('location:/login');
+				}
+			}
+			else
+				$this->flashError([NULL,'Invalid Password'],'/');
+		}
+		else	
+			$this->flashError(['Invalid Email Address','Invalid Password'],'/');
 	}
     public  function fetchUser($values){
 		$values=explode(',',$values);

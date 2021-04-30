@@ -1,3 +1,11 @@
+.label-margin {
+  margin-left: 44px !important;
+}
+
+.input-field {
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
 .label-btn {
   background: white;
 }

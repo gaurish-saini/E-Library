@@ -5,7 +5,7 @@ $router->define([
 	'index'=>'controllers/common/home.php',
     'login'=>'controllers/users/login.controller.php',
     'registration'=>'controllers/users/register.controller.php',
-    // 'registration'=>'view/users/register.view.php',
+    'splashmsg'=>'view/common/splashmsg.php',
 	'addbook'=>'controllers/books/addbook.php',
 ]);
 ?>

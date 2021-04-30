@@ -35,11 +35,11 @@ if(isset($_POST['rname']) && isset($_POST['remailid']) && isset($_POST['rpasswor
 
 	}
 	else{
-		$user->flashError(['Enter Full Name','Enter Email Address','Enter Password'],'/index?register=1');
+		$user->flashError(['Enter Name','Enter Email Address','Enter Password'],'/index?register=1');
 	}
 }
 else{
-	$user->flashError(['Enter Full Name','Enter Email Address','Enter Password'],'/index?register=1');
+	$user->flashError(['Name Required','Enter Email Address','Enter Password'],'/index?register=1');
 }
 
 //if post request

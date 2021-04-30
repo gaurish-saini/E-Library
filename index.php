@@ -24,5 +24,5 @@
         endif;
         require __dir__.'/view/common/footer.php';
     ?>
-    
+    <script type="text/javascript" src='resources/js/custom_js_functions.js'></script>
 </html>
