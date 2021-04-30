@@ -5,7 +5,7 @@
             <form class="border" action="/login" method="POST">
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">email</i>
-                    <input id="icon_prefix" type="email" class="validate" value="<?php echo htmlspecialchars($username) ?>" id="username" name="username">
+                    <input id="icon_prefix" type="email" class="validate" value="<?php echo htmlspecialchars($emailid) ?>" id="emailid" name="emailid">
                     <label for="email">Enter Email*</label>
                 </div>
                 <div class="input-field indigo-text text-darken-4 ">

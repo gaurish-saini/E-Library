@@ -1,8 +1,4 @@
 $(document).ready(function(){
-
-    //   $('.sidenav').sidenav();
-    //   $('.materialboxed').materialbox();
-    //   $('.parallax').parallax();
       $('.tabs').tabs();
       $('#tabs-swipe').tabs({ 'swipeable': true });
       $('.sidenav').sidenav();
@@ -11,4 +7,4 @@ $(document).ready(function(){
       $('.carousel').carousel();
       // $('.modal').modal();
       $('.modal-trigger').modal('open');
-    });
+});
