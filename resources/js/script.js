@@ -9,5 +9,6 @@ $(document).ready(function(){
       $('.dropdown-trigger').dropdown();
       $('.fixed-action-btn ').floatingActionButton();
       $('.carousel').carousel();
-      $('.modal').modal();
+      // $('.modal').modal();
+      $('.modal-trigger').modal('open');
     });

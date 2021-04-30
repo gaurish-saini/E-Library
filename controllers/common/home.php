@@ -1,6 +1,7 @@
 <?php 
 
-$username = $password = $cpassword = '';  
+// $username = $password = $cpassword = '';  
+$emailid=$password=$rname=$password1=NULL;
 $exists = false;   
 $errors = array('username'=>'','password'=>'');
     if (isset($_GET['register']))

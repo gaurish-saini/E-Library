@@ -14,6 +14,16 @@
                     <label for="password">Password*</label>
                     <div class="right"><a href="#" class="indigo-text">Forgot Password ?</a></div>
                 </div></br>
+                    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                        </div>
+                        <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>  -->
                 <div class="center">
                     <input type="submit" name="login" value="sign in" class="btn indigo-text tab-color z-depth-0 ">
                     <?php 
