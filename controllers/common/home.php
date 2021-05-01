@@ -32,7 +32,28 @@ if (session_status() == PHP_SESSION_NONE) {
 		$rname=$_SESSION['rname'];
 		unset($_SESSION['rname']);
 	}
+?>
+<div id="modal1" class="modal">
+    <form method="POST" onsubmit="return checkFieldEmail('resemailid')">
+        <div class="modal-content">
+            <h5 class="modal-heading">Reset Your Password <i class="right material-icons modal-close">close</i></h5></br>
+            <div class="input-field indigo-text text-darken-4 ">
+                <i class="material-icons prefix">email</i>
+                <input id="icon_prefix" type="email" class="validate" value="<?php echo htmlspecialchars($emailid) ?>" name="resemailid" id="resemailid">
+                <label for="email">Enter Email*</label>
+            </div>
+            <?php if($msg1): ?>
+            <small class="red-text left label-margin" id='errorresemailid'><?php echo $msg3; ?></small>
+            </br>
+            <?php endif ?>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-button"> <input type="submit" value="Get Password Reset Email" class="btn white-text indigo z-depth-0"></div>
+        </div>
+    </form>
+</div>
 
+<?php
 
     if (isset($_GET['register']))
 	require __dir__ .'/'.'../../view/users/register.view.php';

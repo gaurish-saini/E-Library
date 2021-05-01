@@ -1,3 +1,13 @@
+$(document).ready(function(){
+      $('.tabs').tabs();
+      $('#tabs-swipe').tabs({ 'swipeable': true });
+      $('.sidenav').sidenav();
+      $('.dropdown-trigger').dropdown();
+      $('.fixed-action-btn ').floatingActionButton();
+      $('.carousel').carousel();
+      $('.modal').modal();
+});
+
 function passwordMatch(id1,id2){
   var fieldId1=document.getElementById(id1);
   var fieldId2=document.getElementById(id2);

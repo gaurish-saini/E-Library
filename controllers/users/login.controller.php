@@ -41,8 +41,12 @@ if (isset($_SESSION['type'])){
 			 require __dir__.'/'.'../../view/common/sidebar.php';
   }
   elseif ($_SESSION['type']=='inreader'){
-    echo 'reader';
-    require __dir__.'/'.'../../view/common/sidebar.php';
+    // session_destroy();
+    echo 'reader'; ?>
+    <div>
+      <form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form></div>
+    
+    <?php
   }
 
 }

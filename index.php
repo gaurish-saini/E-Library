@@ -23,6 +23,7 @@
 		    // require __dir__.'/view/users/login.view.php'; 
         endif;
         require __dir__.'/view/common/footer.php';
+        require __dir__.'/'.'view/common/modals.view.php';
     ?>
     <script type="text/javascript" src='resources/js/custom_js_functions.js'></script>
 </html>

@@ -21,7 +21,7 @@
                 <small class="red-text left label-margin"><?php echo $msg2; ?></small>
                 </br>
                 <?php endif ?>
-                <label class="right"><a href="#" class="indigo-text">Forgot Password ?</a></label>
+                <label class="right"><a href="#modal1" class="indigo-text modal-trigger">Forgot Password ?</a></label>
                 </br>
                 <div class="center">
                     <input type="submit" name="login" value="sign in" class="btn indigo-text tab-color z-depth-0 ">          

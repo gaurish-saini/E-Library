@@ -39,9 +39,9 @@ class Users extends QueryBuilder{
 	public function verify($row,$pass){
 		if(isset($row)){
 			if(password_verify($pass, $row['password'])){
-				if($row['verified_id']=="0"){
-					session_destroy();
-					echo 'user';
+				if(!$row['verified_id']=="0"){
+					// session_destroy();
+					// echo 'user';
 					// header('location:/splashmsg?msgtype=unverified');
 				}
 				else {
