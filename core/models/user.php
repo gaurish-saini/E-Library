@@ -59,6 +59,13 @@ class Users extends QueryBuilder{
 		else	
 			$this->flashError(['Invalid Email Address','Invalid Password'],'/');
 	}
+	public function passwordUpdate($emailid,$password){
+		$password=password_hash($password, PASSWORD_DEFAULT);
+		if(!parent::update($this->table,['password'=>$password],'email_id',$emailid))	
+			$this->flashError(['Problem in Updation'],'/passwordreset');	
+		else
+			header('location:/');
+	}
     public  function fetchUser($values){
 		$values=explode(',',$values);
 		return parent::fetchOne($this->table,$this->names,$values);

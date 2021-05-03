@@ -18,5 +18,15 @@ class QueryBuilder{
 		else
 			return NULL;
 	}
+	public function update($table,$update,$check,$id){	
+		$str=',';
+		foreach ($update as $key => $value) {
+			$str=$str.$key."='{$value}',";
+		}
+		$str=trim($str,',');
+		$qry="UPDATE {$table} SET {$str} WHERE {$check}='{$id}'";
+		$result=mysqli_query($GLOBALS['conn'],$qry);
+		return ($result);
+	}
 }
 ?>	

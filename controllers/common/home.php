@@ -34,7 +34,7 @@ if (session_status() == PHP_SESSION_NONE) {
 	}
 ?>
 <div id="modal1" class="modal">
-    <form method="POST" onsubmit="return checkFieldEmail('resemailid')">
+    <form method="POST" action="send_reset_password_link" onsubmit="return checkFieldEmail('resemailid')">
         <div class="modal-content">
             <h5 class="modal-heading">Reset Your Password <i class="right material-icons modal-close">close</i></h5></br>
             <div class="input-field indigo-text text-darken-4 ">
