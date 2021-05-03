@@ -50,8 +50,7 @@ if (isset($_SESSION['type'])){
   }
 
 }
-			
-
+		
 ?>
 
 		
