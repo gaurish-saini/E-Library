@@ -33,8 +33,17 @@ if (session_status() == PHP_SESSION_NONE) {
 		unset($_SESSION['rname']);
 	}
 ?>
+<?php
+	$modal_status=NULL;
+	$resemail=NULL; 
+	if(isset($_SESSION['resemailid'])){
+		$resemail=$_SESSION['resemailid'];
+		unset($_SESSION['resemailid']);
+		// echo 'home';
+}
+?>
 <div id="modal1" class="modal">
-    <form method="POST" action="send_reset_password_link" onsubmit="return checkFieldEmail('resemailid')">
+    <form method="POST" action="/send_reset_password_link" >
         <div class="modal-content">
             <h5 class="modal-heading">Reset Your Password <i class="right material-icons modal-close">close</i></h5></br>
             <div class="input-field indigo-text text-darken-4 ">
@@ -42,7 +51,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <input id="icon_prefix" type="email" class="validate" value="<?php echo htmlspecialchars($emailid) ?>" name="resemailid" id="resemailid">
                 <label for="email">Enter Email*</label>
             </div>
-            <?php if($msg1): ?>
+            <?php if($msg3): ?>
             <small class="red-text left label-margin" id='errorresemailid'><?php echo $msg3; ?></small>
             </br>
             <?php endif ?>
