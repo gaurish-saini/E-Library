@@ -7,6 +7,11 @@ class QueryBuilder{
 		$result=mysqli_query($GLOBALS['conn'],$qry);
 		return ($GLOBALS['conn']->insert_id);
 	}	
+	public function delete($table,$name,$value){	
+		$qry="DELETE FROM {$table} WHERE {$name}= '{$value}'";
+		$result=mysqli_query($GLOBALS['conn'],$qry);
+		return ($result);
+	}
 
     public function fetchOne($table,$names,$values){
 		$names=implode(',',$names);

@@ -1,9 +1,6 @@
 <?php
 $user=new Users();
-$mailId=new Mail();
-// if($mailid){
-// 	var_dump('Mail bna');die();
-// }
+$forPasswordReset=new Mail();
 if(isset($_POST['resemailid'])){
 	$emailid=mysqli_escape_string($conn,$_POST['resemailid']);
 	session_start();
@@ -18,7 +15,7 @@ if(isset($_POST['resemailid'])){
 		$name=$row['user_name'];
 		$pass=$row['password'];
 		$lnk='http://e-library.test/passwordreset?id='.$emailid.'&secret='.$pass;
-		if($mailId->sendResetPasswordMail($lnk,$emailid,$name)){
+		if($forPasswordReset->sendResetPasswordMail($lnk,$emailid,$name)){
 			header("location:/splashmsg?msgtype=forgotpassword");
 		}
 		else{

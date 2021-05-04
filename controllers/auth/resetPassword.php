@@ -19,21 +19,12 @@ if(($_GET['id']&&$_GET['secret'])||($_SESSION['name']&&$_SESSION['secret'])){
 		$row=$user->fetchUser($emailid);
 		if($row['password']===$pass)
 			require __dir__.'/'.'../../view/users/changePassword.view.php';
-		else{
-header('location:/');
-			echo 'hey1';
-		}
-			
+		else
+			header('location:/');
 	}
-	else{
-header('location:/');
-		echo 'hey2';
-	}
-		
+	else
+		header('location:/');
 }
-else{
-header('location:/');
-	echo 'hey2';
-}
-	
+else
+	header('location:/');
 ?>

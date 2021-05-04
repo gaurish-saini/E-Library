@@ -6,7 +6,6 @@ RewriteCond %{REQUEST_FILENAME} !\.(jpg|js|css)$
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule addcat /Controllers/bookCategories/AddCategory.php [L,QSA]
 
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-d
