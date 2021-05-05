@@ -36,15 +36,23 @@ elseif(!isset($_SESSION['uid'])){
 if (isset($_SESSION['type'])){
   if($_SESSION['type']=='inadmin')
   {
-    $total_users=mysqli_num_rows($user->fetchUsers())-1;
-      echo 'admin';
-			 require __dir__.'/'.'../../view/common/sidebar.php';
+    // $total_users=mysqli_num_rows($user->fetchUsers())-1;
+      // echo 'admin'; ?>
+      <div class="container">
+		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
+	</div> 
+      <?php require __dir__.'/'.'../../view/common/sidebar.php';  ?> 
+			<div>
+      <form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
+    </div>
+      <?php
   }
   elseif ($_SESSION['type']=='inreader'){
     // session_destroy();
     echo 'reader'; ?>
     <div>
-      <form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form></div>
+      <form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
+    </div>
     
     <?php
   }
