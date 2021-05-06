@@ -88,6 +88,18 @@ function checkFieldName(id){
     return true;
   }  
 }
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#cover_image').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$("#book_cover").change(function() {
+  readURL(this);
+});
 function checkFieldEmail(id){
   var fieldId=document.getElementById(id);
   var errorId='error'+id;

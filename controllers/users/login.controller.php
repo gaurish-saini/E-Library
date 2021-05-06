@@ -38,13 +38,19 @@ if (isset($_SESSION['type'])){
   {
     // $total_users=mysqli_num_rows($user->fetchUsers())-1;
       // echo 'admin'; ?>
-      <div class="container">
+      <!-- <div class="container">
 		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
-	</div> 
-      <?php require __dir__.'/'.'../../view/common/sidebar.php';  ?> 
-			<div>
-      <form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
-    </div>
+	</div>  -->
+    <?php require __dir__.'/'.'../../view/common/sidebar.php';  ?> 
+	<div class="fixed-action-btn">
+					    <a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
+    					<ul>
+							<li class="fixed-action-btn horizontal FAB2">
+								<li><a href="edit.php" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
+								<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
+							</li>
+                        </ul>
+                </div>
       <?php
   }
   elseif ($_SESSION['type']=='inreader'){
