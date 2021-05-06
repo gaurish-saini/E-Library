@@ -44,7 +44,7 @@ else{
 			$target_file = $target_dir . $filename;
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-			// var_dump($_FILES);die;
+			var_dump(getimagesize($_FILES["book_cover"]["tmp_name"]));die;
 			$check = getimagesize($_FILES["book_cover"]["tmp_name"]);
 			if(($check == true)&&($_FILES["book_cover"]["size"] < 1048576)&&($imageFileType == "jpg")) {
 				if (move_uploaded_file($_FILES["book_cover"]["tmp_name"], $target_file)) {
@@ -67,15 +67,15 @@ else{
 	else{
 		$msg1=$msg2=$msg3=$book_name=$author_name=$book_edition=NULL;
 		if(isset($_SESSION['error1'])){
-			$msg1="<p class='red-text'>{$_SESSION['error1']}</p>";
+			$msg1="<p class='red-text book-form-label'>{$_SESSION['error1']}</p>";
 			unset($_SESSION['error1']);
 		}
 		if (isset($_SESSION['error2'])){
-			$msg2="<p class='red-text'>{$_SESSION['error2']}</p>";
+			$msg2="<p class='red-text book-form-label'>{$_SESSION['error2']}</p>";
 			unset($_SESSION['error2']);
 		}
 		if (isset($_SESSION['error3'])){
-			$msg3="<p class='red-text'>{$_SESSION['error3']}</p>";
+			$msg3="<p class='red-text book-form-label'>{$_SESSION['error3']}</p>";
 			unset($_SESSION['error3']);
 		}
 		if(isset($_SESSION['book_name'])){

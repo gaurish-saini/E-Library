@@ -8,32 +8,31 @@
                     <label for="email">Enter Book Name*</label>
                 </div>
                 <?php if($msg1): ?>
-                    <small class="red-text left label-margin" id='errorbook_name'><?php echo $msg1; ?></small></br>
+                    <small class="red-text left" id='errorbook_name'><?php echo $msg1; ?></small></br>
                 <?php endif ?>
-                </br>
+            
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">portrait</i>
                     <input id="icon_prefix" class="validate" type="text" id="author_name" name="author_name" onkeyup="checkFieldName('author_name')">
                     <label for="email">Enter Author Name*</label>
                 </div>
                 <?php if($msg2): ?>
-                    <small class="red-text left label-margin" id='errorauthor_name' ><?php echo $msg2; ?></small></br>
+                    <small class="red-text left" id='errorauthor_name' ><?php echo $msg2; ?></small></br>
                 <?php endif ?>
-                </br>
+                
                  <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">collections_bookmark</i>
                     <input id="icon_prefix" class="validate" type="text" id="book_edition" name="book_edition" onkeyup="checkFieldName('book_edition')">
                     <label for="email">Enter Book Edition *</label>
                 </div>
                 <?php if($msg3): ?>
-                   <small class="red-text left label-margin" id='errorbook_edition'><?php echo $msg3; ?></small></br>
+                   <small class="red-text left" id='errorbook_edition'><?php echo $msg3; ?></small></br>
                 <?php endif ?>
-                </br>
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">description</i>
                     <textarea id="textarea" class="materialize-textarea" name="description"></textarea>
                     <label for="email">Enter Description/About</label>
-                </div></br>  
+                </div>
                 <label>Book Cover*</label>
                 <div class="grey lighten-4 center border" enctype="multipart/form-data" >
 						<span class="btn btn-file indigo">
