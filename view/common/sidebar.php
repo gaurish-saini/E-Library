@@ -2,7 +2,7 @@
     <li>
         <div class="user-view">
         <a href="#name"><span class="indigo-text name">Hello</span></a>
-        <a href="#email"><span class="indigo-text email"><?php echo $username; ?></span></a>
+        <a href="#email"><span class="indigo-text email"><?php echo $_SESSION['username']; ?></span></a>
         <span class="indigo-text name">Dashboard</span>
         </div>
     </li>

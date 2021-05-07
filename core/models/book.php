@@ -30,21 +30,8 @@ class Books extends QueryBuilder{
 		$this->values=["'{$bookname}'","'{$authorname}'","'{$edition}'","'{$title}'"];
 		return (parent::insert($this->table,$this->names,$this->values));
 	}
-	public function enterCategories($bid,$categories){
-		$this->names=['bid','cid'];
-		foreach ($categories as $category) {
-			$this->values=["'{$bid}'","'{$category}'"];
-			parent::insert('has_category',$this->names,$this->values);
-		}
-	}
-	public function deleteAllCategories($bid){
-		parent::delete('has_category','bid',$bid);
-	}
 	public function deleteAllReaders($bid){
 		parent::delete('has_book','bid',$bid);
-	}
-	public function fetchCategories($bid){
-		return (parent::fetchList('has_category','bid',$bid));
 	}
 	public function updateBook($booknames,$bookvalues,$bid){
 		$i=0;

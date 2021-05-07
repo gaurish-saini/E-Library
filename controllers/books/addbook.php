@@ -44,7 +44,6 @@ else{
 			$target_file = $target_dir . $filename;
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-			var_dump(getimagesize($_FILES["book_cover"]["tmp_name"]));die;
 			$check = getimagesize($_FILES["book_cover"]["tmp_name"]);
 			if(($check == true)&&($_FILES["book_cover"]["size"] < 1048576)&&($imageFileType == "jpg")) {
 				if (move_uploaded_file($_FILES["book_cover"]["tmp_name"], $target_file)) {

@@ -34,25 +34,32 @@ elseif(!isset($_SESSION['uid'])){
 }    
 
 if (isset($_SESSION['type'])){
-  if($_SESSION['type']=='inadmin')
-  {
-    // $total_users=mysqli_num_rows($user->fetchUsers())-1;
-      // echo 'admin'; ?>
-      <!-- <div class="container">
-		<a href="#" data-target="slide-out" class="sidenav-trigger label-btn indigo-text z-depth-0 right"><i class="material-icons menu">menu</i></a>
-	</div>  -->
-    <?php require __dir__.'/'.'../../view/common/sidebar.php';  ?> 
-	<div class="fixed-action-btn">
-					    <a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
-    					<ul>
-							<li class="fixed-action-btn horizontal FAB2">
-								<li><a href="edit.php" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
-								<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
-							</li>
-                        </ul>
-                </div>
-      <?php
-  }
+			if($_SESSION['type']=='inadmin')
+			{
+				require __dir__.'/'.'../../view/common/sidebar.php'; ?>
+				<div class="fixed-action-btn">
+					<a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
+					<ul>
+						<li class="fixed-action-btn horizontal FAB2">
+							<li><a href="edit.php" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
+							<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
+						</li>
+					</ul>
+				</div>
+				<?php
+				if(!isset($_GET['view']))
+					{
+						echo 'At wrong place';
+					}
+				elseif($_GET['view']=='books')
+				{
+					// var_dump('here');die;
+					require __dir__.'/'.'../books/ListBooks.php';
+				}
+					
+				elseif($_GET['view']=='users')
+					require __dir__.'/'.'../users/ListAllUsers.php';
+				}
   elseif ($_SESSION['type']=='inreader'){
     // session_destroy();
     echo 'reader'; ?>
@@ -62,12 +69,5 @@ if (isset($_SESSION['type'])){
     
     <?php
   }
-
-}
-		
+}	
 ?>
-
-		
-		
-						
-    

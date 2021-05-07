@@ -1,3 +1,26 @@
+<!-- <?php
+var_dump('here2');die;
+?> -->
+<form accept="/" method="POST">
+        <?php
+        $ChangesAllowed=TRUE;
+        if(isset($bookIds)){
+          $limit=count($bookIds);
+          $ChangesAllowed=FALSE;
+        }
+        ?>
+        <div >
+          <label for='limit'>Showing&nbsp;</label> 
+          <select style="width:50px;" name='limit' onchange="this.form.submit()">
+            <?php 
+			var_dump('here2');die;
+            if($limit>3 && $ChangesAllowed)  echo "<option value='".(($limit-3)-($limit-3)%3)."'>".(($limit-3)-($limit-3)%3)."</option>";
+            echo "<option value='{$limit}' selected>$limit</option>";
+            if($limit<18 && $ChangesAllowed) echo "<option value='".(($limit+3)-($limit+3)%3)."'>".(($limit+3)-($limit+3)%3)."</option>"; 
+            if($limit<=12 && $ChangesAllowed) echo "<option value='".(($limit+12)-($limit+12)%3)."'>".(($limit+12)-($limit+12)%3)."</option>";
+            if($limit<=3 && $ChangesAllowed) echo "<option value='".(($limit+12)-($limit+12)%3)."'>".(($limit+12)-($limit+12)%3)."</option>";?>
+          </select> entries of <?=$total?></div>  
+        </form>
 <div class="container grey lighten-4 col s12">
 		<div class="container">
 			<div class="row">

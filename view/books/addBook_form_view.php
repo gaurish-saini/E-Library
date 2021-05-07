@@ -33,17 +33,19 @@
                     <textarea id="textarea" class="materialize-textarea" name="description"></textarea>
                     <label for="email">Enter Description/About</label>
                 </div>
-                <label>Book Cover*</label>
-                <div class="grey lighten-4 center border" enctype="multipart/form-data" >
-						<span class="btn btn-file indigo">
-							<i class="material-icons right">photo_album</i>Upload Image<input type="file" name="image" id="book_cover" accept="image/*" name="book_cover" onchange="checkFileInput('book_cover')">
-                        </span></br>
-                        <small class="grey-text">Size- Less Than 1MB.</small>
-                         <?php if($msg4): ?>
-                            <small class="red-text left label-margin" id='errorbook_cover'><?php echo $msg4; ?></small></br>
-                        <?php endif ?></br>
-				    </div><br/><br/>
-                <div class="center">
+                <div class="file-field input-field">
+                    <div class="btn grey ">
+                        <span>Upload Image<i class="material-icons left indigo-text text-darken-4">photo_album</i></span>
+                        <input type="file" id="book_cover" accept="image/*" name="book_cover" onchange="checkFileInput('book_cover')">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate grey-text" type="text" value="Book Cover (Max Size-1Mb)*">
+                    </div>
+                </div>
+                <?php if($msg4): ?>
+                    <small class="red-text left label-margin" id='errorbook_cover'><?php echo $msg4; ?></small></br>
+                <?php endif ?></br>
+                <div class="grey lighten-4 center border">
                     <button class="btn indigo waves-effect waves-light" type="submit" name="action">Publish Book
                     <i class="material-icons right">publish</i>
                 </div>
