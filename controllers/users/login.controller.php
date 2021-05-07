@@ -3,6 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 $user=new Users;
+$book=new Books;
 
 if (isset($_SESSION['token']) and isset($_SESSION['loginid'])) {
 	$name=$_SESSION['loginid'];
@@ -49,11 +50,10 @@ if (isset($_SESSION['type'])){
 				<?php
 				if(!isset($_GET['view']))
 					{
-						echo 'At wrong place';
+						require __dir__.'/'.'../books/ListBooks.php';
 					}
 				elseif($_GET['view']=='books')
 				{
-					// var_dump('here');die;
 					require __dir__.'/'.'../books/ListBooks.php';
 				}
 					

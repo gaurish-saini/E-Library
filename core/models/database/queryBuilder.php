@@ -12,7 +12,7 @@ class QueryBuilder{
 	}
 	public function fetchList($table,$name=1,$value=1){
 		$qry="SELECT * FROM {$table} WHERE {$name}={$value}";
-		$result=mysqli_query($GLOBALS['conn'],$qry);		
+		$result=mysqli_query($GLOBALS['conn'],$qry);	
 		return $result;
 	}
     public function insert($table,$names,$values){	

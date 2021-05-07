@@ -89,6 +89,9 @@ class Users extends QueryBuilder{
 		else
 			return TRUE;
 	}
+	public function fetchBooks($uid){
+		return (parent::fetchList('has_book','uid',$uid));
+	}
 	public function deleteUser($emailid){
 		return parent::delete($this->table,$this->names[1],$emailid);
 	}
