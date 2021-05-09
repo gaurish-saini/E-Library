@@ -12,5 +12,6 @@ $router->define([
     'registration'=>'controllers/users/register.controller.php',
     'splashmsg'=>'view/common/splashmsg.php',
 	'addbook'=>'controllers/books/addbook.php',
+    'editbook'=>'controllers/books/editbook.php',
 ]);
 ?>

@@ -9,7 +9,7 @@
     <li><div class="divider brand-text"></div></li></br>
     <li><a class="subheader brand-text">Marked</a></li>
     <li>
-        <!-- <li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li> -->
+        <li><a class="waves-effect grey-text" href="admin/aalreadyread.php">Already Read</a></li>
         <li><a class="waves-effect grey-text" href="admin/awishlist.php">Wishlist</a></li>
     </li>
     <li><a class="waves-effect brand-text" href="ayourbook.php">Your Books</a></li>

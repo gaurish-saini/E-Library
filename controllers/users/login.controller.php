@@ -42,7 +42,7 @@ if (isset($_SESSION['type'])){
 					<a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
 					<ul>
 						<li class="fixed-action-btn horizontal FAB2">
-							<li><a href="edit.php" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
+							<li><a href="/editbook" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
 							<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
 						</li>
 					</ul>
