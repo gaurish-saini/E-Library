@@ -30,7 +30,7 @@
                 <?php endif ?>
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="textarea" class="materialize-textarea" name="description"></textarea>
+                    <textarea id="textarea" class="materialize-textarea" class="validate" id="description" name="description" onkeyup="checkFieldName('description')"></textarea>
                     <label for="email">Enter Description/About</label>
                 </div>
                 <div class="file-field input-field">

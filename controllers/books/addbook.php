@@ -9,7 +9,7 @@ if($_SESSION['type']!='inadmin'){
 	header('location:/');
 }
 else{
-	if(isset($_POST['book_name']) and isset($_POST['author_name']) and isset($_POST['book_edition'])){
+	if(isset($_POST['book_name']) and isset($_POST['author_name']) and isset($_POST['book_edition']) and isset($_POST['description'])){
 		if($_POST['book_name']!=''){
 			$book_name=mysqli_escape_string($conn,$_POST['book_name']);
 			$_SESSION['book_name']=$book_name;	
@@ -31,13 +31,24 @@ else{
 		else{
 			$user->flashError([NULL,NULL,'Invalid Book Edition'],'/addbook');
 		}	
-		if(isset($book_name) && isset($author_name) && isset($book_edition)){
+		if($_POST['description']!=''){
+			// var_dump($_POST['description']);die;
+			$description=mysqli_escape_string($conn,$_POST['description']);
+			// var_dump($description);die;
+			$_SESSION['description']=$description;	
+		}
+		else{
+			$user->flashError([NULL,NULL,NULL,'Invalid Description'],'/addbook');
+		}
+		if(isset($book_name) && isset($author_name) && isset($book_edition) && isset($description)){
 			$book_name=mysqli_escape_string($conn,$_POST['book_name']);
 			$author_name=mysqli_escape_string($conn,$_POST['author_name']);
+			$description=mysqli_escape_string($conn,$_POST['description']);
+			// var_dump($description);die;
 			$edition=mysqli_escape_string($conn,$_POST['book_edition']);
 			$i=1;
 			$t=substr($book_name,0,5);
-			$i=substr($edition,0,5);
+			$i=substr($description,0,5);
 			$title=str_replace(' ','',$t).str_replace(' ', '', $i);		
 			$target_dir = __dir__.'/'.'../../resources/uploads/';   
 			$filename=$title.".jpg";      
@@ -47,7 +58,7 @@ else{
 			$check = getimagesize($_FILES["book_cover"]["tmp_name"]);
 			if(($check == true)&&($_FILES["book_cover"]["size"] < 1048576)&&($imageFileType == "jpg")) {
 				if (move_uploaded_file($_FILES["book_cover"]["tmp_name"], $target_file)) {
-					if($bid=$book->registerBook($book_name,$author_name,$edition,$title)){
+					if($bid=$book->registerBook($book_name,$author_name,$edition,$description,$title)){
 						header('location:/login?view=books');
 					}
 					else

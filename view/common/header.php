@@ -3,7 +3,7 @@
       <a href="/" class="brand-logo brand-text" >E-Library</a>
       <ul id="nav-mobile" class="right hide-on-small-and-down"></ul>
     </div>
-      <?php if((Request::uri()=='login')||(Request::uri()=='addbook')||(Request::uri()=='')):?>
+      <?php if((Request::uri()=='login')||(Request::uri()=='addbook')){?>
       <div class="container">
         <a href="#" ><i  data-target="slide-out" class="material-icons sidenav-trigger label-btn brand-text z-depth-0 right menu">menu</i></a>
       </div>
@@ -17,5 +17,5 @@
           </div>
         </form>
       </div>
-      <?php endif;?>
+      <?php }?>
   </nav>

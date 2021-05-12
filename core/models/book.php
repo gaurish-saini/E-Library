@@ -24,9 +24,9 @@ class Books extends QueryBuilder{
 		$this->deleteAllReaders($bid);
 		return parent::delete($this->table,'bid',$bid);
 	}
-	public function registerBook($bookname,$authorname,$edition,$title){
-		$this->names=['book_name','author_name','edition','cover_image_name'];
-		$this->values=["'{$bookname}'","'{$authorname}'","'{$edition}'","'{$title}'"];
+	public function registerBook($bookname,$authorname,$edition,$description,$title){
+		$this->names=['book_name','author_name','edition','description','cover_image_name'];
+		$this->values=["'{$bookname}'","'{$authorname}'","'{$edition}'","'{$description}'","'{$title}'"];
 		return (parent::insert($this->table,$this->names,$this->values));
 	}
 	public function updateBook($booknames,$bookvalues,$bid){

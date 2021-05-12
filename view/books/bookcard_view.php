@@ -5,7 +5,6 @@
 			<div class="col s12">
 				<?php $i=0;
 					while($row=mysqli_fetch_assoc($rows)):
-							if($row['bid']):
 								$i++;
 				?>
 								<div class="col s12 md6 l4">
@@ -28,9 +27,6 @@
 										
 									</div>
 								</div>
-							<?php 
-							endif;
-							?>
 					<?php  
 					endwhile;
 				if($i==0): ?>
