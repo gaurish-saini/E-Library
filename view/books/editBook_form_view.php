@@ -4,7 +4,7 @@
             <form class="grey lighten-4 " action="/editbook" method="POST" enctype="multipart/form-data" onsubmit="return (checkFieldName('book_name') && checkFieldName('author_name') && checkFieldName('edition')">
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">book</i>
-                    <input id="icon_prefix" class="validate" type="text" id="book_name" name="book_name" onkeyup="checkFieldName('book_name')">
+                    <input id="icon_prefix" class="validate" type="text" id="book_name" name="book_name" value="<?=$book_name?>" onkeyup="checkFieldName('book_name')">
                     <label for="email">Book Name</label>
                 </div>
                 <?php if($msg1): ?>
@@ -13,7 +13,7 @@
             
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">portrait</i>
-                    <input id="icon_prefix" class="validate" type="text" id="author_name" name="author_name" onkeyup="checkFieldName('author_name')">
+                    <input id="icon_prefix" class="validate" type="text" id="author_name" name="author_name" value="<?=$author_name?>" onkeyup="checkFieldName('author_name')">
                     <label for="email">Author Name</label>
                 </div>
                 <?php if($msg2): ?>
@@ -22,7 +22,7 @@
                 
                  <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">collections_bookmark</i>
-                    <input id="icon_prefix" class="validate" type="text" id="book_edition" name="book_edition" onkeyup="checkFieldName('book_edition')">
+                    <input id="icon_prefix" class="validate" type="text" id="book_edition" name="book_edition" value="<?=$edition?>" onkeyup="checkFieldName('book_edition')">
                     <label for="email">Edition</label>
                 </div>
                 <?php if($msg3): ?>

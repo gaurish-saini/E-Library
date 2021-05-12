@@ -94,8 +94,20 @@ else{
 			$edition=$_SESSION['edition'];
 			unset($_SESSION['edition']);
 		}
-        require __dir__.'/'.'../../view/common/sidebar.php'; 
-		require __dir__.'/'.'../../view/books/editBook_form_view.php';
+        if(isset($_GET['bid']) || isset($_POST['bid'])){
+			$bid=(isset($_GET['bid']))?$_GET['bid']:$_POST['bid'];
+			$rows=$book->fetchBook($bid);
+			$book_name=$rows['book_name'];
+			$author_name=$rows['author_name'];
+			$edition=$rows['edition'];
+			$cover=$rows['cover_image_name'];
+			require __dir__.'/'.'../../view/common/sidebar.php'; 
+		    require __dir__.'/'.'../../view/books/editBook_form_view.php';
+		}
+		elseif(!isset($_POST['book_name'])) {
+			header('location:/');
+		}
+       
 	}
 }
 ?>
