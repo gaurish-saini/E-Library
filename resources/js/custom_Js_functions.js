@@ -6,6 +6,7 @@ $(document).ready(function(){
       $('.fixed-action-btn ').floatingActionButton();
       $('.carousel').carousel();
       $('.modal').modal();
+      $('.tooltipped').tooltip();
 });
 
 function passwordMatch(id1,id2){

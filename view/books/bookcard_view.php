@@ -35,5 +35,22 @@
 			</div>
 		</div>
 	</div>
+	<?php 
+	if (!isset($bookIds) && $i!= 0) : ?>
+		<ul class="pagination center">
+			<?php
+				if (($offset - $limit) >= 0) :
+				$offset1 = $offset - $limit;
+				?>
+			<li class="waves-effect"><a href="/login?view=books&offset=<?= $offset1 ?>"><i class="material-icons">chevron_left</i></a></li>
+			<?php endif; ?>
+			<?php if (($offset + $limit) < $total) :
+			$offset2 = $offset + $limit;
+			?>
+			<li class="waves-effect"><a href="/login?view=books&offset=<?= $offset2 ?>"><i class="material-icons">chevron_right</i></a></li>
+			<?php endif; ?>
+		</ul>
+	<?php endif; ?>
 </div>
+
 <?php endif;?>

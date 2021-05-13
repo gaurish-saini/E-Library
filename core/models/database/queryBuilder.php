@@ -41,6 +41,16 @@ class QueryBuilder{
 		$result=mysqli_query($GLOBALS['conn'],$qry);		
 		return $result;
 	}		
+	public function fetchList3($table,$limit,$offset,$order,$q){
+		$limit+=1;
+		$limit=abs($limit);
+		$offset=abs($offset);
+		$qry="SELECT * FROM {$table} ";
+		$qry.=!empty($q)?"WHERE {$q}":'';
+		$qry.=" ORDER BY {$order} LIMIT {$offset},{$limit}";
+		$result=mysqli_query($GLOBALS['conn'],$qry);		
+		return $result;
+	}	
 	public function update($table,$update,$check,$id){	
 		$str=',';
 		foreach ($update as $key => $value) {
