@@ -22,8 +22,8 @@
                 
                  <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">collections_bookmark</i>
-                    <input id="icon_prefix" class="validate" type="text" id="book_edition" name="book_edition" onkeyup="checkFieldName('book_edition')">
-                    <label for="email">Enter Book Edition *</label>
+                    <input id="icon_prefix" class="validate" type="number" id="book_count" name="book_count" onkeyup="checkFieldName('book_count')">
+                    <label for="email">Enter Book Count *</label>
                 </div>
                 <?php if($msg3): ?>
                    <small class="red-text left" id='errorbook_edition'><?php echo $msg3; ?></small></br>

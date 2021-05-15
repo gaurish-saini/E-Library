@@ -1,3 +1,8 @@
+<script>
+  $(document).ready(function(){
+      $('.modal').modal();
+});
+</script>
 <?php if(($_SESSION['type']=='inreader')||($_SESSION['type']=='inadmin')):?>
 <div class="container grey lighten-4">
 	<div class="section" style="margin-top: 30px;">
@@ -7,26 +12,41 @@
 					while($row=mysqli_fetch_assoc($rows)):
 								$i++;
 				?>
-								<div class="col s12 md6 l4">
-									<div class="card">
-										<?php $fetch='../../resources/uploads/'.$row['cover_image_name'].".jpg";
-											$bid=$row['bid'];
-											$uid=$_SESSION['uid'];
-										?>
-										<div class="card-image waves-effect waves-block waves-light">
-											<a href="#bookDetail">
-												<img class="bookImage" <?="src='{$fetch}'";?> alt='Book Cover'>
-												<span class="card-title white-text"><?=$row['book_name'] ?></span>
-											</a>
-											
-										</div>
-										<!-- <div class="card-title black-text">
-											<?=$row['book_name'] ?>
-											<div class="grey-text"><?=$row['edition'] ?></div>
-										</div> -->
-										
-									</div>
-								</div>
+					<div class="col s12 md6 l4">
+						<div class="card">
+						<?php $fetch='../../resources/uploads/'.$row['cover_image_name'].".jpg";
+								$bid=$row['bid'];
+								$uid=$_SESSION['uid'];
+							?>
+							<div class="card-image waves-effect waves-block waves-light">
+								<a href='#bookDetail' class="modal-trigger" data-target="bookDetail<?php echo $bid; ?>">
+									<img class="bookImage" <?="src='{$fetch}'";?> alt='Book Cover'>
+									<span class="card-title white-text"><?=$row['book_name'] ?></span>
+								</a>
+							</div>
+						</div>
+						<div id="bookDetail<?php echo $bid; ?>"  class="modal modal-fixed-footer">
+							<div class="modal-content">
+							<h4>
+								<?=$row['book_name'] ?>
+								<i class="right material-icons modal-close">close</i>	
+							</h4>
+							<div style="display:flex;">
+								<img class="bookImage" <?="src='{$fetch}'";?> alt='Book Cover'>
+								<p class="label-margin"><?=$row['description'] ?></p>
+							</div>
+							</div>
+							<div class="modal-footer">
+								<span class="left modalSpan">
+									<i class="material-icons">edit</i>
+									<i class="material-icons">delete</i>
+								</span>
+								<a class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
+								<a <?= "href='/readbook?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Issue</a>
+							</div>
+						</div>	
+					</div>
+					
 					<?php  
 					endwhile;
 				if($i==0): ?>
@@ -52,5 +72,4 @@
 		</ul>
 	<?php endif; ?>
 </div>
-
 <?php endif;?>

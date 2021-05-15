@@ -32,6 +32,10 @@ html {
   bottom: 0 !important;
   width: 100% !important;
 }
+.modalSpan {
+  margin-top: 10px;
+  margin-left: 10px;
+}
 .searchBar {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -44,6 +48,9 @@ html {
   margin-left: 44px !important;
 }
 .modal {
+  width: 80% !important;
+}
+.modal-email {
   max-width: 550px !important;
 }
 .modal-heading {

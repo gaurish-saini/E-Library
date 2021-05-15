@@ -43,9 +43,9 @@ class Books extends QueryBuilder{
 		$this->deleteAllReaders($bid);
 		return parent::delete($this->table,'bid',$bid);
 	}
-	public function registerBook($bookname,$authorname,$edition,$description,$title){
-		$this->names=['book_name','author_name','edition','description','cover_image_name'];
-		$this->values=["'{$bookname}'","'{$authorname}'","'{$edition}'","'{$description}'","'{$title}'"];
+	public function registerBook($bookname,$authorname,$count,$description,$title){
+		$this->names=['book_name','author_name','book_count','description','cover_image_name'];
+		$this->values=["'{$bookname}'","'{$authorname}'","'{$count}'","'{$description}'","'{$title}'"];
 		return (parent::insert($this->table,$this->names,$this->values));
 	}
 	public function updateBook($booknames,$bookvalues,$bid){
@@ -56,6 +56,21 @@ class Books extends QueryBuilder{
 			$i++;
 		}
 		return (parent::update($this->table,$update,'bid',$bid));
+	}
+	public function updateBookCount($bid, $type="decrement") {
+		if ($type=='decrement') {
+			$book=$this->fetchBook($bid);
+			$count = $book['count']-1;
+			$booknames=['count'];
+			$bookvalues=[$count];
+			$this->updateBook($booknames,$bookvalues,$bid);
+		} elseif($type=="increment") {
+			$book=$this->fetchBook($bid);
+			$count = $book['count']+1;
+			$booknames=['count'];
+			$bookvalues=[$count];
+			$this->updateBook($booknames,$bookvalues,$bid);
+		}
 	}
 }
 ?>

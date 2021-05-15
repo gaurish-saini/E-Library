@@ -71,6 +71,23 @@ class Users extends QueryBuilder{
 		if(!parent::update($this->table,['verified_id'=>'1'],'email_id',$emailid))	
 			$this->flashError(['Problem in Verification'],'/');	
 	}
+	public function readBook($uid,$bid){
+		$this->names=['uid','bid', 'type'];
+		$this->values=["'{$uid}'","'{$bid}'", "'read_shelf'"];
+		$book = new Books();
+		$book->updateBookCount($bid);
+		parent::insert('has_book',$this->names,$this->values);	
+	}
+	public function readHistoryBook($uid,$bid){
+		$update=[ [ 'uid'  => "'{$uid}'",
+					'bid'  => "'{$bid}'",
+					'type' => "'history_read'"
+				],[
+						'type' => "history_read"
+					]
+				];
+		parent::updateOrCreate('has_book', $update);	
+	}
 	public function passwordUpdate($emailid,$password){
 		$password=password_hash($password, PASSWORD_DEFAULT);
 		if(!parent::update($this->table,['password'=>$password],'email_id',$emailid))	

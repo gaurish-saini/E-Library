@@ -42,7 +42,7 @@ if (session_status() == PHP_SESSION_NONE) {
 		// echo 'home';
 }
 ?>
-<div id="modal1" class="modal">
+<div id="modal1" class="modal modal-email">
     <form method="POST" action="/send_reset_password_link" >
         <div class="modal-content">
             <h5 class="modal-heading">Reset Your Password <i class="right material-icons modal-close">close</i></h5></br>

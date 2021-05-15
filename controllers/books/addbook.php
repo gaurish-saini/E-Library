@@ -9,7 +9,7 @@ if($_SESSION['type']!='inadmin'){
 	header('location:/');
 }
 else{
-	if(isset($_POST['book_name']) and isset($_POST['author_name']) and isset($_POST['book_edition']) and isset($_POST['description'])){
+	if(isset($_POST['book_name']) and isset($_POST['author_name']) and isset($_POST['book_count']) and isset($_POST['description'])){
 		if($_POST['book_name']!=''){
 			$book_name=mysqli_escape_string($conn,$_POST['book_name']);
 			$_SESSION['book_name']=$book_name;	
@@ -24,9 +24,9 @@ else{
 		else{
 			$user->flashError([NULL,'Invalid Author Name'],'/addbook');
 		}	
-		if($_POST['book_edition']!=''){
-			$book_edition=mysqli_escape_string($conn,$_POST['book_edition']);
-			$_SESSION['book_edition']=$book_edition;	
+		if($_POST['book_count']!=''){
+			$book_count=mysqli_escape_string($conn,$_POST['book_count']);
+			$_SESSION['book_count']=$book_count;	
 		}
 		else{
 			$user->flashError([NULL,NULL,'Invalid Book Edition'],'/addbook');
@@ -40,12 +40,12 @@ else{
 		else{
 			$user->flashError([NULL,NULL,NULL,'Invalid Description'],'/addbook');
 		}
-		if(isset($book_name) && isset($author_name) && isset($book_edition) && isset($description)){
+		if(isset($book_name) && isset($author_name) && isset($book_count) && isset($description)){
 			$book_name=mysqli_escape_string($conn,$_POST['book_name']);
 			$author_name=mysqli_escape_string($conn,$_POST['author_name']);
 			$description=mysqli_escape_string($conn,$_POST['description']);
 			// var_dump($description);die;
-			$edition=mysqli_escape_string($conn,$_POST['book_edition']);
+			$count=mysqli_escape_string($conn,$_POST['book_count']);
 			$i=1;
 			$t=substr($book_name,0,5);
 			$i=substr($description,0,5);
@@ -58,7 +58,7 @@ else{
 			$check = getimagesize($_FILES["book_cover"]["tmp_name"]);
 			if(($check == true)&&($_FILES["book_cover"]["size"] < 1048576)&&($imageFileType == "jpg")) {
 				if (move_uploaded_file($_FILES["book_cover"]["tmp_name"], $target_file)) {
-					if($bid=$book->registerBook($book_name,$author_name,$edition,$description,$title)){
+					if($bid=$book->registerBook($book_name,$author_name,$count,$description,$title)){
 						header('location:/login?view=books');
 					}
 					else
@@ -75,7 +75,7 @@ else{
 		}
 	}
 	else{
-		$msg1=$msg2=$msg3=$book_name=$author_name=$book_edition=NULL;
+		$msg1=$msg2=$msg3=$book_name=$author_name=$book_count=NULL;
 		if(isset($_SESSION['error1'])){
 			$msg1="<p class='red-text book-form-label'>{$_SESSION['error1']}</p>";
 			unset($_SESSION['error1']);
@@ -97,9 +97,9 @@ else{
 			$author_name=$_SESSION['author_name'];
 			unset($_SESSION['author_name']);
 		}
-		if(isset($_SESSION['book_edition'])){
-			$book_edition=$_SESSION['book_edition'];
-			unset($_SESSION['book_edition']);
+		if(isset($_SESSION['book_count'])){
+			$book_count=$_SESSION['book_count'];
+			unset($_SESSION['book_count']);
 		}
 		require __dir__.'/'.'../../view/common/sidebar.php'; 
 		require __dir__.'/'.'../../view/books/addBook_form_view.php';

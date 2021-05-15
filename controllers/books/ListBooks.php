@@ -19,5 +19,6 @@ if(isset($bookIds)){
 }
 $_SESSION['limit']=$limit;
 $limit=($limit>$total)?$total:$limit;
+require __dir__.'/'.'../../view/common/modals.view.php'; 
 require __dir__.'/'.'../../view/books/bookcard_view.php';
 ?>
