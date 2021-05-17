@@ -13,7 +13,7 @@
 								$i++;
 				?>
 					<div class="col s12 md6 l4">
-						<div class="card">
+						<div class="card tooltipped " data-position="right" data-tooltip="Available Copies: <?=$row['book_count'] ?>">
 						<?php $fetch='../../resources/uploads/'.$row['cover_image_name'].".jpg";
 								$bid=$row['bid'];
 								$uid=$_SESSION['uid'];

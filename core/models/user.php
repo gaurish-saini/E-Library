@@ -72,8 +72,8 @@ class Users extends QueryBuilder{
 			$this->flashError(['Problem in Verification'],'/');	
 	}
 	public function readBook($uid,$bid){
-		$this->names=['uid','bid', 'type'];
-		$this->values=["'{$uid}'","'{$bid}'", "'read_shelf'"];
+		$this->names=['uid','bid', 'status'];
+		$this->values=["'{$uid}'","'{$bid}'", "'issued'"];
 		$book = new Books();
 		$book->updateBookCount($bid);
 		parent::insert('has_book',$this->names,$this->values);	
@@ -81,9 +81,9 @@ class Users extends QueryBuilder{
 	public function readHistoryBook($uid,$bid){
 		$update=[ [ 'uid'  => "'{$uid}'",
 					'bid'  => "'{$bid}'",
-					'type' => "'history_read'"
+					'status' => "'history_read'"
 				],[
-						'type' => "history_read"
+						'status' => "history_read"
 					]
 				];
 		parent::updateOrCreate('has_book', $update);	

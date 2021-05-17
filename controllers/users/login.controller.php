@@ -35,7 +35,7 @@ elseif(!isset($_SESSION['uid'])){
 }    
 
 if (isset($_SESSION['type'])){
-			if($_SESSION['type']=='inadmin')
+			if($_SESSION['type']=='inadmin' && !isset($_GET['listbooks']))
 			{
 				require __dir__.'/'.'../../view/common/sidebar.php'; ?>
 				<div class="fixed-action-btn">
@@ -60,14 +60,41 @@ if (isset($_SESSION['type'])){
 				elseif($_GET['view']=='users')
 					require __dir__.'/'.'../users/ListAllUsers.php';
 				}
-  elseif ($_SESSION['type']=='inreader'){
-    // session_destroy();
-    echo 'reader'; ?>
-    <div>
-      <form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
-    </div>
-    
-    <?php
-  }
+
+				if (isset($_GET['listbooks']) && $_GET['listbooks'] == "issued") { ?>
+					<div >
+						<h4>Issued</h4>
+					</div>
+				<?php
+				// require __dir__ . '/' . '../books/UserBooks.php';
+				}
+				else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "wishlist") { ?>
+					<div>
+						<h4>Wishlist</h4>
+					</div>
+				<?php
+					// require __dir__ . '/' . '../books/UserFavBooks.php';
+				} else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "alreadyread") { ?>
+					<div>
+						<h4>Already Read</h4>
+					</div>
+				<?php
+					// require __dir__ . '/' . '../books/UserFinishedBooks.php';
+				}  else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "reading-history") { ?>
+					<div>
+						<h4>Reading History</h4>
+					</div>
+				<?php 
+				// require __dir__ . '/' . '../books/UserHistoryBooks.php';
+			}
+				elseif ($_SESSION['type']=='inreader'){
+					// session_destroy();
+					echo 'reader'; ?>
+					<div>
+					<form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
+					</div>
+					
+				<?php
+ 			 }
 }	
 ?>

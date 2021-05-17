@@ -51,6 +51,14 @@ class QueryBuilder{
 		$result=mysqli_query($GLOBALS['conn'],$qry);		
 		return $result;
 	}	
+	public function fetchOne1($table,$where){
+		$qry="SELECT * FROM {$table} WHERE {$where}";
+		$result=mysqli_query($GLOBALS['conn'],$qry);
+		if($result)
+			return (mysqli_fetch_assoc($result));
+		else
+			return NULL;
+	}
 	public function update($table,$update,$check,$id){	
 		$str=',';
 		foreach ($update as $key => $value) {
@@ -60,6 +68,24 @@ class QueryBuilder{
 		$qry="UPDATE {$table} SET {$str} WHERE {$check}='{$id}'";
 		$result=mysqli_query($GLOBALS['conn'],$qry);
 		return ($result);
+	}
+	public function updateOrCreate($table,$update){	
+		$str=',';
+		$str1='AND';
+		foreach ($update[1] as $key => $value) {
+			$str=$str.$key."='{$value}',";
+		}
+		$str=trim($str,',');
+		foreach ($update[0] as $key => $value) {
+			$str1=$str1.$key."={$value} AND ";
+		}
+		$str1=trim($str1,' AND ');
+		$result = self::fetchOne1($table,$str1);
+		if ( is_null( $result ) ) {
+			return self::insert($table, array_keys($update[0]), array_values($update[0]));
+		} 
+		$qry="UPDATE {$table} SET {$str} WHERE {$str1}";
+		return mysqli_query($GLOBALS['conn'],$qry);
 	}
 }
 ?>	
