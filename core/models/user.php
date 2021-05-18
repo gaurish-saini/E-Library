@@ -83,6 +83,22 @@ class Users extends QueryBuilder{
 		$book->updateBookCount($bid, "increment");
 		parent::delete2('has_book','uid',$uid,'bid',$bid, 'status', 'issued');	
 	}
+	public function likeBook($uid,$bid){
+		$this->names=['uid','bid', 'status'];
+		$this->values=["'{$uid}'","'{$bid}'", "'wishlist'"];
+		parent::insert('has_book',$this->names,$this->values);	
+	}
+	public function unlikeBook($uid,$bid){
+		parent::delete2('has_book','uid',$uid,'bid',$bid, 'status', 'wishlist');	
+	}
+	public function finishBook($uid,$bid){
+		$this->names=['uid','bid', 'status'];
+		$this->values=["'{$uid}'","'{$bid}'", "'alreadyread'"];
+		parent::insert('has_book',$this->names,$this->values);	
+	}
+	public function unfinishBook($uid,$bid){
+		parent::delete2('has_book','uid',$uid,'bid',$bid, 'status', 'alreadyread');	
+	}
 	public function readHistoryBook($uid,$bid){
 		$update=[ [ 'uid'  => "'{$uid}'",
 					'bid'  => "'{$bid}'",
@@ -100,9 +116,8 @@ class Users extends QueryBuilder{
 		else
 			header('location:/');
 	}
-    public  function fetchUser($values){
-		$values=explode(',',$values);
-		return parent::fetchOne($this->table,$this->names,$values);
+    public  function fetchUser($tablename){
+		return parent:: fetchList($tablename);
 	}
     public function freshUser($emailid){
 		$row=$this->fetchUser($emailid);

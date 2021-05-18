@@ -41,7 +41,8 @@
 									<i class="material-icons">edit</i>
 									<i class="material-icons">delete</i>
 								</span>
-								<a class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
+								<a <?= "href='/alreadyread?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Mark as Read</a>
+								<a <?= "href='/wishlist?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
 								<a <?= "href='/readbook?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Issue</a>
 							</div>
 						</div>	

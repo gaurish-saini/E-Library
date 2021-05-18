@@ -34,67 +34,53 @@ elseif(!isset($_SESSION['uid'])){
 		$user->flashError(['Please Enter Email Address','Please Enter Password'],'/');
 }    
 
-if (isset($_SESSION['type'])){
-			if($_SESSION['type']=='inadmin' && !isset($_GET['listbooks']))
+if (isset($_SESSION['type']))
+{
+	if($_SESSION['type']=='inadmin' && !isset($_GET['listbooks']))
+	{
+		require __dir__.'/'.'../../view/common/sidebar.php'; ?>
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
+			<ul>
+				<li class="fixed-action-btn horizontal FAB2">
+					<li><a href="/editbook" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
+					<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
+				</li>
+			</ul>
+		</div>
+		<?php
+		if(!isset($_GET['view']))
 			{
-				require __dir__.'/'.'../../view/common/sidebar.php'; ?>
-				<div class="fixed-action-btn">
-					<a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
-					<ul>
-						<li class="fixed-action-btn horizontal FAB2">
-							<li><a href="/editbook" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
-							<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
-						</li>
-					</ul>
-				</div>
-				<?php
-				if(!isset($_GET['view']))
-					{
-						require __dir__.'/'.'../books/ListBooks.php';
-					}
-				elseif($_GET['view']=='books')
-				{
-					require __dir__.'/'.'../books/ListBooks.php';
-				}
-					
-				elseif($_GET['view']=='users')
-					require __dir__.'/'.'../users/ListAllUsers.php';
-				}
-
-				if (isset($_GET['listbooks']) && $_GET['listbooks'] == "issued") { ?>
-					<div >
-						<h4>Your Books !</h4>
-					</div>
-				<?php
-				require __dir__ . '/' . '../users/userbooks.php';
-				}
-				else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "wishlist") { ?>
-					<div>
-						<h4>Wishlist</h4>
-					</div>
-				<?php
-					// require __dir__ . '/' . '../books/UserFavBooks.php';
-				} else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "alreadyread") { ?>
-					<div>
-						<h4>Already Read</h4>
-					</div>
-				<?php
-					// require __dir__ . '/' . '../books/UserFinishedBooks.php';
-				}  else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "reading-history") { ?>
-					<div>
-						<h4>Reading History</h4>
-					</div>
-				<?php 
-				// require __dir__ . '/' . '../books/UserHistoryBooks.php';
+				require __dir__.'/'.'../books/ListBooks.php';
 			}
-				elseif ($_SESSION['type']=='inreader'){
-					// session_destroy();
-					echo 'reader'; ?>
-					<div>
-					<form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
-					</div>
-					
-				<?php
- 			 }
+		elseif($_GET['view']=='books')
+		{
+			require __dir__.'/'.'../books/ListBooks.php';
+		}
+		elseif($_GET['view']=='users')
+			require __dir__.'/'.'../users/ListAllUsers.php';
+	}
+		if (isset($_GET['listbooks']) && $_GET['listbooks'] == "issued") { 
+		require __dir__ . '/' . '../users/userBooks.php';
+		}
+		else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "wishlist") { 
+			require __dir__ . '/' . '../users/userWishlist.php';
+		} 
+		else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "alreadyread") {
+			require __dir__ . '/' . '../users/userAlreadyRead.php';
+		}  
+		else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "reading-history") { 
+			require __dir__ . '/' . '../users/userReadingHistory.php';
+		}
+		elseif ($_SESSION['type']=='inreader')
+	{
+			// session_destroy();
+			echo 'reader'; ?>
+			<div>
+			<form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
+			</div>
+			
+		<?php
+	}
 }	
 ?>

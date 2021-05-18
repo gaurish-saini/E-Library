@@ -1,5 +1,11 @@
-<div class="container">
+<div class="container" style="margin-top: 30px;">
 	<table class="highlight responsive-table">
+		<?php $i=0;
+				$book = new Books;
+				while($bk=mysqli_fetch_assoc($readBook)):
+					$bid=$bk['bid'];
+					$row=$book->fetchBook($bid);
+			?>
         <thead>
           <tr>
               <th>S.No</th>
@@ -9,12 +15,6 @@
           </tr>
         </thead>
         <tbody>
-			<?php $i=0;
-				$book = new Books;
-				while($bk=mysqli_fetch_assoc($readBook)):
-					$bid=$bk['bid'];
-					$row=$book->fetchBook($bid);
-			?>
           <tr>
             <td><?=++$i?></td>
             <td><?=$row['book_name'] ?></td>
@@ -33,15 +33,16 @@
 		  <?php endwhile;?>
         </tbody>
     </table>
-	<?php
-	var_dump($i);die; ?>
-	<!-- <?php  if($i==0):
+	
+	<?php  if($i==0){
             if ($_GET['listbooks'] == "alreadyread")  { ?>
-				<h4>No books to list !</h4>
-        <?php   } else if ($_GET['listbooks'] == "wishlist") { ?>
-             <h4>Your Wishlist is empty !</h4>
-        <?php   } else if ($_GET['listbooks'] == "issue") { ?>
-              <h4>You haven't issued a book yet !</h4>
+				<h4 class="center">Oops..No books to list !</h4>
+        <?php   } 
+			if ($_GET['listbooks'] == "wishlist") { ?>
+             <h4 class="center">Your Wishlist is empty !</h4>
+        <?php   } 
+			if ($_GET['listbooks'] == "issued") { ?>
+              <h4 class="center">You haven't issued a book yet !</h4>
         <?php   }	
- 	 endif; ?> -->
+ 	 } ?>
 </div>

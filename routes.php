@@ -12,9 +12,9 @@ $router->define([
     'registration'=>'controllers/users/register.controller.php',
     'splashmsg'=>'view/common/splashmsg.php',
 	'addbook'=>'controllers/books/addbook.php',
-    'editbook'=>'controllers/books/editbook.php',
-    'readbook'=>'controllers/books/readbook.php',
-    'alreadyread'=>'Controllers/books/FinishBook.php',
-	'wishlist'=>'Controllers/books/LikeBook.php'
+    'editbook'=>'controllers/books/editBook.php',
+    'readbook'=>'controllers/books/readBook.php',
+    'alreadyread'=>'controllers/books/alreadyRead.php',
+	'wishlist'=>'controllers/books/wishlist.php'
 ]);
 ?>
