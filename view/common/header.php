@@ -8,7 +8,7 @@
         <a href="#" ><i  data-target="slide-out" class="material-icons sidenav-trigger label-btn brand-text z-depth-0 right menu">menu</i></a>
       </div>
       <?php }?>
-      <?php if(!isset($_GET['listbooks'])){?>
+      
       <div class="right" style="margin-top: 5px; margin-left:10px;">
       <form accept="/" method="GET" class="tooltipped searchBar" data-position="bottom" data-tooltip="Sort">
          <select class="form-control" name="books-sorting" onchange="this.form.submit()">
@@ -27,7 +27,7 @@
           </div>
         </form>
       </div>
-      <?php }?>
+      
   </nav>
 <script>
   $(document).ready(function(){
