@@ -78,6 +78,11 @@ class Users extends QueryBuilder{
 		$book->updateBookCount($bid);
 		parent::insert('has_book',$this->names,$this->values);	
 	}
+	public function unreadBook($uid,$bid){
+		$book = new Books();
+		$book->updateBookCount($bid, "increment");
+		parent::delete2('has_book','uid',$uid,'bid',$bid, 'status', 'issued');	
+	}
 	public function readHistoryBook($uid,$bid){
 		$update=[ [ 'uid'  => "'{$uid}'",
 					'bid'  => "'{$bid}'",
@@ -106,8 +111,9 @@ class Users extends QueryBuilder{
 		else
 			return TRUE;
 	}
-	public function fetchBooks($uid){
-		return (parent::fetchList('has_book','uid',$uid));
+	public function fetchBooks($uid, $type='issued'){
+		$check=" uid='".$uid."' AND status='".$type."'";
+		return (parent::fetchList1('has_book',$check));
 	}
 	public function deleteUser($emailid){
 		return parent::delete($this->table,$this->names[1],$emailid);

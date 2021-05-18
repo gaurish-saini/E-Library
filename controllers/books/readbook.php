@@ -14,8 +14,8 @@ if(isset($_SESSION['uid'])){
 	elseif(isset($_GET['dbid'])){
 		$bid=$_GET['dbid'];
 		$user->unreadBook($uid,$bid);
-		if(isset($_GET['listbooks']) && $_GET['listbooks'] == "shelf"){
-			header('location:/login?listbooks=shelf');
+		if(isset($_GET['listbooks']) && $_GET['listbooks'] == "issued"){
+			header('location:/login?listbooks=issued');
 		}
 		else
 			header('location:/login');

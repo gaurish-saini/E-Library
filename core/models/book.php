@@ -60,14 +60,14 @@ class Books extends QueryBuilder{
 	public function updateBookCount($bid, $type="decrement") {
 		if ($type=='decrement') {
 			$book=$this->fetchBook($bid);
-			$count = $book['count']-1;
-			$booknames=['count'];
+			$count = $book['book_count']-1;
+			$booknames=['book_count'];
 			$bookvalues=[$count];
 			$this->updateBook($booknames,$bookvalues,$bid);
 		} elseif($type=="increment") {
 			$book=$this->fetchBook($bid);
-			$count = $book['count']+1;
-			$booknames=['count'];
+			$count = $book['book_count']+1;
+			$booknames=['book_count'];
 			$bookvalues=[$count];
 			$this->updateBook($booknames,$bookvalues,$bid);
 		}

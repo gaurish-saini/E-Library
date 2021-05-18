@@ -63,10 +63,10 @@ if (isset($_SESSION['type'])){
 
 				if (isset($_GET['listbooks']) && $_GET['listbooks'] == "issued") { ?>
 					<div >
-						<h4>Issued</h4>
+						<h4>Your Books !</h4>
 					</div>
 				<?php
-				// require __dir__ . '/' . '../books/UserBooks.php';
+				require __dir__ . '/' . '../users/userbooks.php';
 				}
 				else if (isset($_GET['listbooks']) && $_GET['listbooks'] == "wishlist") { ?>
 					<div>

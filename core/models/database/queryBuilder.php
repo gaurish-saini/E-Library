@@ -27,7 +27,14 @@ class QueryBuilder{
 		$result=mysqli_query($GLOBALS['conn'],$qry);
 		return ($result);
 	}
-
+	public function delete2($table,$name1,$value1,$name2,$value2, $name3=null, $value3=null){
+		$qry="DELETE FROM {$table} WHERE {$name1}= '{$value1}' and {$name2}= '{$value2}'";
+		if ($name3 !=null && $value3 !=null) {
+			$qry.="and {$name3}= '{$value3}'";
+		}
+		$result=mysqli_query($GLOBALS['conn'],$qry);
+		return ($result);
+	}	
 	public function fetchList1($table,$whereClause){
 		$qry="SELECT * FROM {$table} WHERE {$whereClause}";
 		$result=mysqli_query($GLOBALS['conn'],$qry);		

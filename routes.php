@@ -14,5 +14,7 @@ $router->define([
 	'addbook'=>'controllers/books/addbook.php',
     'editbook'=>'controllers/books/editbook.php',
     'readbook'=>'controllers/books/readbook.php',
+    'alreadyread'=>'Controllers/books/FinishBook.php',
+	'wishlist'=>'Controllers/books/LikeBook.php'
 ]);
 ?>
