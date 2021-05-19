@@ -58,7 +58,7 @@
 	</div>
 	<?php 
 	if (!isset($bookIds) && $i!= 0) : ?>
-		<ul class="pagination center">
+		<ul class="pagination center" style="padding-bottom: 90px;">
 			<?php
 				if (($offset - $limit) >= 0) :
 				$offset1 = $offset - $limit;

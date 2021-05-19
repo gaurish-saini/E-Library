@@ -20,12 +20,13 @@
         require 'core/materialize.php';
         require __dir__.'/view/common/header.php';
         require Router::load('routes.php')->direct(Request::uri());
-        if((Request::uri()!='') && (Request::uri()!='index') && (Request::uri()!='index.php') && !(isset($_GET['register']))):	
-		    require __dir__.'/view/common/footer.php'; 
-        endif;
-        //  require __dir__.'/view/common/footer.php'; 
         require __dir__.'/'.'view/common/modals.view.php';
     ?>
     <script type="text/javascript" src='resources/js/custom_js_functions.js'></script>
     </body>
+    <?php 
+    if((Request::uri()!='') && (Request::uri()!='index') && (Request::uri()!='index.php') && !(isset($_GET['register']))):	
+		    require __dir__.'/view/common/footer.php'; 
+        endif; ?>
+    
 </html>

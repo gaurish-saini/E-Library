@@ -1,7 +1,4 @@
-<!-- <footer class="section">
-		<div class="center grey-text">&copy; Copyright 2021 ColoredCow</div>
-</footer> -->
-<footer >
+<footer style="margin-top: 30px;">
 	<div class="page-footer footer-copyright footer-position indigo lighten-3">
 	<div class="container">
 	© 2021 ColoredCow

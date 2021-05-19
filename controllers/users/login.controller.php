@@ -7,7 +7,7 @@ $book=new Books;
 
 if (isset($_SESSION['token']) and isset($_SESSION['loginid'])) {
 	$name=$_SESSION['loginid'];
-	$row=$user->fetchUser($name);
+	$row=$user->fetchUserAuth($name);
 	$type=$row['type'];    			
 	$uid=$row['uid'];
 	$name=$row['user_name'];
@@ -24,7 +24,7 @@ elseif(!isset($_SESSION['uid'])){
 		if(isset($_POST['password']) && $_POST['password']!=''){
 			$pass=mysqli_escape_string($conn,$_POST['password']);
 			$_SESSION['password']=$pass;
-			$row=$user->fetchUser($name);
+			$row=$user->fetchUserAuth($name);
 			$user->verify($row,$pass);
 		}
 		else
@@ -39,7 +39,7 @@ if (isset($_SESSION['type']))
 	if($_SESSION['type']=='inadmin' && !isset($_GET['listbooks']))
 	{
 		require __dir__.'/'.'../../view/common/sidebar.php'; ?>
-		<div class="fixed-action-btn">
+		<div class="fixed-action-btn"  style="z-index: 1001;">
 			<a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
 			<ul>
 				<li class="fixed-action-btn horizontal FAB2">
@@ -48,6 +48,8 @@ if (isset($_SESSION['type']))
 				</li>
 			</ul>
 		</div>
+		<a class="waves-effect waves-light btn social google">
+<i class="fa fa-google"></i> Sign in with Google</a>
 		<?php
 		if(!isset($_GET['view']))
 			{

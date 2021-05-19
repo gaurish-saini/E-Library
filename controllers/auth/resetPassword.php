@@ -16,7 +16,7 @@ if(($_GET['id']&&$_GET['secret'])||($_SESSION['name']&&$_SESSION['secret'])){
 	$emailid=(isset($_GET['id']))?mysqli_escape_string($conn,$_GET['id']):$_SESSION['name'];
 	$pass=(isset($_GET['secret']))?mysqli_escape_string($conn,$_GET['secret']):$_SESSION['secret'];
 	if(!$user->freshUser($emailid,$conn)){
-		$row=$user->fetchUser($emailid);
+		$row=$user->fetchUserAuth($emailid);
 		if($row['password']===$pass)
 			require __dir__.'/'.'../../view/users/changePassword.view.php';
 		else

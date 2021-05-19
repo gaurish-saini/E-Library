@@ -119,8 +119,12 @@ class Users extends QueryBuilder{
     public  function fetchUser($tablename){
 		return parent:: fetchList($tablename);
 	}
+	public  function fetchUserAuth($values){
+		$values=explode(',',$values);
+		return parent::fetchOne($this->table,$this->names,$values);
+	}
     public function freshUser($emailid){
-		$row=$this->fetchUser($emailid);
+		$row=$this->fetchUserAuth($emailid);
 		if(isset($row))
 			return FALSE;
 		else

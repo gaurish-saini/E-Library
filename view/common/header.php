@@ -1,3 +1,4 @@
+<header> 
 <nav class="white z-depth-0 " id="nav">
     <div class="container">
       <a href="/" class="brand-logo brand-text" >E-Library</a>
@@ -7,7 +8,7 @@
       <div class="container">
         <a href="#" ><i  data-target="slide-out" class="material-icons sidenav-trigger label-btn brand-text z-depth-0 right menu">menu</i></a>
       </div>
-      <?php }?>
+      
       
       <div class="right" style="margin-top: 5px; margin-left:10px;">
       <form accept="/" method="GET" class="tooltipped searchBar" data-position="bottom" data-tooltip="Sort">
@@ -27,8 +28,10 @@
           </div>
         </form>
       </div>
-      
+      <?php }?>
   </nav>
+</header>
+
 <script>
   $(document).ready(function(){
       $('.dropdown-trigger').dropdown();

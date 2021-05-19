@@ -11,7 +11,7 @@ if(isset($_POST['resemailid'])){
 	else{
 
 		// echo 'hey 2';
-		$row=$user->fetchUser($emailid);
+		$row=$user->fetchUserAuth($emailid);
 		$name=$row['user_name'];
 		$pass=$row['password'];
 		$lnk='http://e-library.test/passwordreset?id='.$emailid.'&secret='.$pass;
