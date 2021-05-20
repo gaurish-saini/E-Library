@@ -20,7 +20,7 @@ class Books extends QueryBuilder{
 	// public function fetchBooksLimit($limit,$offset){
 	// 	return parent::fetchList2($this->table,($limit-1),$offset);
 	// }
-	public function fetchBooksLimit($limit,$offset, $order=null, $q=''){
+	public function fetchBooksLimit($limit,$offset, $order=null, $search=''){
 		if (!is_null($order)) {
 			switch ($order) {
 				case 'a-z':
@@ -34,10 +34,10 @@ class Books extends QueryBuilder{
 					break;
 			}
 		}
-		if (!is_null($q) && !empty($q)) {
-			$q = "book_name LIKE '%{$q}%' OR author_name LIKE '%{$q}%'";
+		if (!is_null($search) && !empty($search)) {
+			$search = "book_name LIKE '%{$search}%' OR author_name LIKE '%{$search}%'";
 		}
-		return parent::fetchList3($this->table,($limit-1),$offset, $order, $q);
+		return parent::fetchList3($this->table,($limit-1),$offset, $order, $search);
 	}
 	public function deleteBook($bid){
 		$this->deleteAllReaders($bid);

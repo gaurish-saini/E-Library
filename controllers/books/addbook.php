@@ -44,7 +44,6 @@ else{
 			$book_name=mysqli_escape_string($conn,$_POST['book_name']);
 			$author_name=mysqli_escape_string($conn,$_POST['author_name']);
 			$description=mysqli_escape_string($conn,$_POST['description']);
-			// var_dump($description);die;
 			$count=mysqli_escape_string($conn,$_POST['book_count']);
 			$i=1;
 			$t=substr($book_name,0,5);

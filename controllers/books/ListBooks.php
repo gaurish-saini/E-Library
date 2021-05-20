@@ -1,6 +1,6 @@
 <?php
 $book = new Books();
-$q = '';
+$search = '';
 $books_sorting = 'latest';
 $bookIds=NULL;
 $limit=(isset($_POST['limit']))?mysqli_escape_string($conn,$_POST['limit']):6;
@@ -12,10 +12,10 @@ if(isset($bookIds)){
 	if(isset($_GET['books-sorting'])) {
 		$books_sorting = $_GET['books-sorting'];
 	}
-	if(isset($_GET['q']) && !empty($_GET['q']) ) {
-		$q = $_GET['q'];
+	if(isset($_GET['search']) && !empty($_GET['search']) ) {
+		$search = $_GET['search'];
 	}
-	$rows=$book->fetchBooksLimit($limit,$offset, $books_sorting, $q);
+	$rows=$book->fetchBooksLimit($limit,$offset, $books_sorting, $search);
 }
 $_SESSION['limit']=$limit;
 $limit=($limit>$total)?$total:$limit;

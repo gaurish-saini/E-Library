@@ -9,7 +9,7 @@
         <a href="#" ><i  data-target="slide-out" class="material-icons sidenav-trigger label-btn brand-text z-depth-0 right menu">menu</i></a>
       </div>
       
-      
+      <?php if((!isset($_GET['listbooks'])) && !(isset($_GET['view']) && $_GET['view'] == 'users') && (Request::uri() !=='addbook') ){?>
       <div class="right" style="margin-top: 5px; margin-left:10px;">
       <form accept="/" method="GET" class="tooltipped searchBar" data-position="bottom" data-tooltip="Sort">
          <select class="form-control" name="books-sorting" onchange="this.form.submit()">
@@ -20,22 +20,35 @@
       </form>
       </div>
       <div class="nav-wrapper right">
-        <form class="searchBar indigo lighten-4">
-          <div class="input-field">
-            <input id="search" type="search" required>
+        <form class="searchBar" accept="/" method="GET">
+          <div class="input-field white">
+            <input id="search" type="search" placeholder="Search" name="search" required>
             <label class="label-icon" for="search"><i class="material-icons indigo-text text-darken-4">search</i></label>
-            <i class="material-icons"><a href="/login" class="indigo-text text-darken-4">close</a></i>
           </div>
         </form>
       </div>
       <?php }?>
+      <?php }?>
   </nav>
 </header>
-
+<?php 
+if(isset($_GET['search'])){ ?>
+   <div class="container" style="margin-top: 30px;">
+    <div class="chip indigo-text indigo lighten-4">
+    <span>Keyword :</span>
+    <?=$_GET['search']?>
+    <i class="close material-icons"><a href="/login" class="indigo-text text-darken-4">close</a></i>
+    </div>
+   </div>
+   
+<?php
+}
+?>
 <script>
   $(document).ready(function(){
       $('.dropdown-trigger').dropdown();
       $('.tooltipped').tooltip();
       $('select').formSelect();
+      $('.chips').chips();
 });
 </script>

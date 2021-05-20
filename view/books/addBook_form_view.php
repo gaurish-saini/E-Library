@@ -1,5 +1,4 @@
-<section class="container grey-text">
-    <h4 class="center">Enter a Tagline !</h4>
+<section class="container grey-text"  style="margin-top: 80px;">
         <div class="col s6 md6">
             <form class="grey lighten-4 " action="/addbook" method="POST" enctype="multipart/form-data" onsubmit="return (checkFieldName('book_name') && checkFieldName('author_name') && checkFieldName('book_edition') && checkFileInput('book_cover'))">
                 <div class="input-field indigo-text text-darken-4 ">

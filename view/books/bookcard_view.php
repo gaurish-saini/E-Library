@@ -25,12 +25,13 @@
 								</a>
 							</div>
 						</div>
-						<div id="bookDetail<?php echo $bid; ?>"  class="modal modal-fixed-footer">
+						<div id="bookDetail<?php echo $bid; ?>"  class="modal modal-detail modal-fixed-footer">
 							<div class="modal-content">
 							<h4>
 								<?=$row['book_name'] ?>
 								<i class="right material-icons modal-close">close</i>	
 							</h4>
+							<h6><?=$row['author_name'] ?></h6></br>
 							<div style="display:flex;">
 								<img class="bookImage" <?="src='{$fetch}'";?> alt='Book Cover'>
 								<p class="label-margin"><?=$row['description'] ?></p>
@@ -38,14 +39,15 @@
 							</div>
 							<div class="modal-footer">
 								<span class="left modalSpan">
-									<i class="material-icons">edit</i>
+									<a <?= "href='/editbook?bid={$bid}'" ?>><i class="material-icons">edit</i></a>
 									<i class="material-icons">delete</i>
 								</span>
 								<a <?= "href='/alreadyread?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Mark as Read</a>
 								<a <?= "href='/wishlist?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
 								<a <?= "href='/readbook?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Issue</a>
 							</div>
-						</div>	
+						</div>
+						
 					</div>
 					
 					<?php  

@@ -40,16 +40,8 @@ if (isset($_SESSION['type']))
 	{
 		require __dir__.'/'.'../../view/common/sidebar.php'; ?>
 		<div class="fixed-action-btn"  style="z-index: 1001;">
-			<a class="btn-floating btn-large brand"><i class="large material-icons">more_vert</i></a>
-			<ul>
-				<li class="fixed-action-btn horizontal FAB2">
-					<li><a href="/editbook" class="btn-floating indigo"><i class="material-icons">edit</i></a></li>
-					<li><a href="/addbook" class="btn-floating indigo"><i class="material-icons">add</i></a></li>
-				</li>
-			</ul>
+			<a class="btn-floating btn-large brand indigo tooltipped"  data-position="left" data-tooltip="Add Book" href="/addbook"><i class="large material-icons">add</i></a>
 		</div>
-		<a class="waves-effect waves-light btn social google">
-<i class="fa fa-google"></i> Sign in with Google</a>
 		<?php
 		if(!isset($_GET['view']))
 			{
