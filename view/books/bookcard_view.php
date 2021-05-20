@@ -40,11 +40,23 @@
 							<div class="modal-footer">
 								<span class="left modalSpan">
 									<a <?= "href='/editbook?bid={$bid}'" ?>><i class="material-icons">edit</i></a>
-									<i class="material-icons">delete</i>
+									<a href='#deleteBook' data-target="deleteBook<?php echo $bid; ?>" class=" modal-trigger"><i class="material-icons">delete</i>
 								</span>
 								<a <?= "href='/alreadyread?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Mark as Read</a>
 								<a <?= "href='/wishlist?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
 								<a <?= "href='/readbook?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Issue</a>
+							</div>
+						</div>
+						<div id="deleteBook<?php echo $bid; ?>" class="modal modal-del">
+							<div class="modal-content">
+							<h6>Are you sure ?</h6>
+							<p>You want to delete "<?=$row['book_name'] ?>"</p>
+							</div>
+							<div class="modal-footer">
+								<form class="right searchBar" style="padding: 4px;" action="/delbook" method="POST">
+									<input type="submit" value="Agree" class="btn white-text indigo z-depth-0">
+									<input type="hidden" name="bid" value="<?=$bid?>">
+								</form>
 							</div>
 						</div>
 						

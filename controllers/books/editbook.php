@@ -32,7 +32,7 @@ else{
 				if($imageFileType != "jpg") {
 					 $user->flashError(['Upload File is not jpg Image '],'/login?books=1');
 				}
-				$deltitle=$_POST['book_cover'];
+				$deltitle=$_POST['cover_name'];
 				$delfilename=$deltitle.".jpg";      
 				$delfile_pointer = __dir__.'/'.'../../resources/uploads/'.$delfilename; 
 				unlink($delfile_pointer); 
@@ -44,6 +44,7 @@ else{
 				}
 			}
 			header('location:/login?view=books');		
+
 		}
         if(isset($_GET['bid']) || isset($_POST['bid'])){
 			$bid=(isset($_GET['bid']))?$_GET['bid']:$_POST['bid'];

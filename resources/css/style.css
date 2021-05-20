@@ -56,9 +56,8 @@ html {
 .modal-detail {
   width: 80% !important;
 }
-.moadal-edit {
-  max-width: 100% !important;
-  height: 60% !important;
+.modal-del {
+  max-width: 30% !important;
 }
 .modal-email {
   max-width: 550px !important;

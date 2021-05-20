@@ -72,5 +72,8 @@ class Books extends QueryBuilder{
 			$this->updateBook($booknames,$bookvalues,$bid);
 		}
 	}
+	public function deleteAllReaders($bid){
+		parent::delete('has_book','bid',$bid);
+	}
 }
 ?>

@@ -38,6 +38,7 @@
                         <input class="file-path validate grey-text" type="text" value="Book Cover (Max Size-1Mb)*">
                     </div>
                     <input type="hidden" name="bid"   value="<?=$bid?>">
+                    <input type="hidden" name="cover_name"   value="<?=$cover?>">
                 </div>
                 <div class="grey lighten-4 center border">
                     <button class="btn indigo waves-effect waves-light" type="submit" name="action">Publish Book
