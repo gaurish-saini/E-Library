@@ -53,6 +53,13 @@ html {
 .label-margin {
   margin-left: 44px !important;
 }
+.modal-adduser {
+  height: 90% !important;
+  width: 100% !important;
+}
+.form-adduser {
+  max-width: 100% !important;
+}
 .modal-detail {
   width: 80% !important;
 }

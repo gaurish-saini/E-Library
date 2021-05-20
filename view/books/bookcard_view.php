@@ -39,8 +39,8 @@
 							</div>
 							<div class="modal-footer">
 								<span class="left modalSpan">
-									<a <?= "href='/editbook?bid={$bid}'" ?>><i class="material-icons">edit</i></a>
-									<a href='#deleteBook' data-target="deleteBook<?php echo $bid; ?>" class=" modal-trigger"><i class="material-icons">delete</i>
+									<a <?= "href='/editbook?bid={$bid}'" ?>><i class="material-icons indigo-text">edit</i></a>
+									<a href='#deleteBook' data-target="deleteBook<?php echo $bid; ?>" class=" modal-trigger indigo-text"><i class="material-icons">delete</i>
 								</span>
 								<a <?= "href='/alreadyread?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Mark as Read</a>
 								<a <?= "href='/wishlist?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
