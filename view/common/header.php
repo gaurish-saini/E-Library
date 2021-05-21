@@ -4,12 +4,12 @@
       <a href="/" class="brand-logo brand-text" >E-Library</a>
       <ul id="nav-mobile" class="right hide-on-small-and-down"></ul>
     </div>
-      <?php if((Request::uri()=='login')||(Request::uri()=='addbook')){?>
+      <?php if((Request::uri()=='login')||(Request::uri()=='addbook') ||(Request::uri()=='addadmin')){?>
       <div class="container">
         <a href="#" ><i  data-target="slide-out" class="material-icons sidenav-trigger label-btn brand-text z-depth-0 right menu">menu</i></a>
       </div>
       
-      <?php if((!isset($_GET['listbooks'])) && !(isset($_GET['view']) && $_GET['view'] == 'users') && (Request::uri() !=='addbook') ){?>
+      <?php if((!isset($_GET['listbooks'])) && !(isset($_GET['view']) && $_GET['view'] == 'users') && (Request::uri() !=='addbook') && (Request::uri() !=='addadmin')){?>
       <div class="right" style="margin-top: 5px; margin-left:10px;">
       <form accept="/" method="GET" class="tooltipped searchBar" data-position="bottom" data-tooltip="Sort">
          <select class="form-control" name="books-sorting" onchange="this.form.submit()">

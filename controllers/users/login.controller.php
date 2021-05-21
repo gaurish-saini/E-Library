@@ -38,11 +38,14 @@ if (isset($_SESSION['type']))
 {
 	if($_SESSION['type']=='inadmin' && !isset($_GET['listbooks']))
 	{
-		require __dir__.'/'.'../../view/common/sidebar.php'; ?>
+		require __dir__.'/'.'../../view/common/sidebar.php'; 
+		if(!(isset($_GET['view']) && $_GET['view'] == 'users')){
+		?>
 		<div class="fixed-action-btn"  style="z-index: 1001;">
 			<a class="btn-floating btn-large brand indigo tooltipped"  data-position="left" data-tooltip="Add Book" href="/addbook"><i class="large material-icons">add</i></a>
 		</div>
 		<?php
+		}
 		if(!isset($_GET['view']))
 			{
 				require __dir__.'/'.'../books/ListBooks.php';
@@ -51,8 +54,13 @@ if (isset($_SESSION['type']))
 		{
 			require __dir__.'/'.'../books/ListBooks.php';
 		}
-		elseif($_GET['view']=='users')
-			require __dir__.'/'.'../users/ListAllUsers.php';
+		elseif($_GET['view']=='users'){
+			require __dir__.'/'.'../users/ListAllUsers.php';?>
+			<div class="fixed-action-btn"  style="z-index: 1001;">
+			<a class="btn-floating btn-large brand indigo tooltipped"  data-position="left" data-tooltip="Add Admin" href="/addadmin" ><i class="large material-icons">add</i></a>
+			</div>
+			<?php
+		}
 	}
 		if (isset($_GET['listbooks']) && $_GET['listbooks'] == "issued") { 
 		require __dir__ . '/' . '../users/userBooks.php';
