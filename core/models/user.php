@@ -143,5 +143,11 @@ class Users extends QueryBuilder{
 		$this->values=["'{$user_name}'","'{$email}'","'{$password}'","'1'" ,"'0'"];
 		return parent::insert($this->table,$this->names,$this->values);
 	}
+	public function deleteAllBooks($uid){
+		return parent::delete('has_book','uid',$uid);
+	}
+	public function deleteUserById($uid){
+		return parent::delete('users','uid',$uid);
+	}
 }
 ?>

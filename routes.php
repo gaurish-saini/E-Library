@@ -14,6 +14,7 @@ $router->define([
 	'addbook'=>'controllers/books/addbook.php',
     'delbook'=>'controllers/books/deleteBook.php',
     'addadmin'=>'controllers/users/addAdmin.php',
+    'delusr'=>'controllers/users/deleteUser.php',
     'editbook'=>'controllers/books/editBook.php',
     'readbook'=>'controllers/books/readBook.php',
     'alreadyread'=>'controllers/books/alreadyRead.php',

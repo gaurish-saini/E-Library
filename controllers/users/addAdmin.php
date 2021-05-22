@@ -20,7 +20,7 @@ if(isset($_POST['user_name']) and isset($_POST['email']) and isset($_POST['passw
 }
 else{
 // header('location:/');
-    $user->flashError(['Name Required','Enter Email Address','Enter Password'],'/addadmin');
+    // $user->flashError(['Name Required','Enter Email Address','Enter Password'],'/addadmin');
 
 }
 require __dir__.'/'.'../../view/common/sidebar.php'; 
