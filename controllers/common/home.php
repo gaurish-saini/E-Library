@@ -64,8 +64,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <?php
 
-    if (isset($_GET['register']))
-	require __dir__ .'/'.'../../view/users/register.view.php';
+    if (isset($_GET['register'])){
+		require __dir__ .'/'.'../../view/users/register.view.php';
+		require __dir__.'/'.'../../view/common/footer.php';
+	}
 	elseif ((Request::uri() == '') || (Request::uri() == 'index.php') || (Request::uri() == 'index')) {
         require __dir__.'/'.'../../view/users/login.view.php';
 		require __dir__.'/'.'../../view/common/footer.php';
