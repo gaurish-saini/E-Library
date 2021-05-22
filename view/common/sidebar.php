@@ -9,12 +9,14 @@
     <li><div class="divider brand-text"></div></li></br>
     <li><a class="subheader brand-text">Marked</a></li>
     <li>
-        <li><a class="waves-effect grey-text" href="login?listbooks=alreadyread">Already Read</a></li>
-        <li><a class="waves-effect grey-text" href="login?listbooks=wishlist">Wishlist</a></li>
+        <li><a class="waves-effect red-lighten" href="login?listbooks=alreadyread"> &nbsp &nbsp > Already Read</a></li>
+        <li><a class="waves-effect red-lighten" href="login?listbooks=wishlist"> &nbsp &nbsp > Wishlist</a></li>
     </li>
     <li><a class="waves-effect brand-text" href="login?listbooks=issued">Your Books</a></li>
     <li><a class="waves-effect brand-text" href="login?listbooks=reading-history">Reading History</a></li>
+    <?php  if($_SESSION['type']=='inadmin'){ ?>
     <li><a class="waves-effect brand-text" href="login?view=users">User Management</a></li>
+    <?php } ?>
     <li><div class="divider brand-text"></div></li></br>
     <li><a href="/logout">Log Out</a></li>
 </ul>

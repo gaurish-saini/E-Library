@@ -38,10 +38,12 @@
 							</div>
 							</div>
 							<div class="modal-footer">
-								<span class="left modalSpan">
-									<a <?= "href='/editbook?bid={$bid}'" ?>><i class="material-icons indigo-text">edit</i></a>
-									<a href='#deleteBook' data-target="deleteBook<?php echo $bid; ?>" class="modal-trigger indigo-text"><i class="material-icons">delete</i></a>
-								</span>
+								<?php if($_SESSION['type']=='inadmin'){ ?>
+									<span class="left modalSpan">
+										<a <?= "href='/editbook?bid={$bid}'" ?>><i class="material-icons indigo-text">edit</i></a>
+										<a href='#deleteBook' data-target="deleteBook<?php echo $bid; ?>" class="modal-trigger indigo-text"><i class="material-icons">delete</i></a>
+									</span>
+								<?php } ?>
 								<a <?= "href='/alreadyread?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Mark as Read</a>
 								<a <?= "href='/wishlist?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Add to Wishlist</a>
 								<a <?= "href='/readbook?bid={$bid}'" ?> class="modal-close waves-effect waves-indigo btn-flat">Issue</a>
