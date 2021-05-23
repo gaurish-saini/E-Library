@@ -1,11 +1,11 @@
 $(document).ready(function(){
       $('.tabs').tabs();
-      $('#tabs-swipe').tabs({ 'swipeable': true });
+      $('#tabs-swipe').tabs({ 'swipeable': false });
       $('.sidenav').sidenav();
       $('.dropdown-trigger').dropdown();
       $('.fixed-action-btn ').floatingActionButton();
       $('.carousel').carousel();
-      $('.modal').modal();
+      $('.modal').modal({'preventScrolling': true});
       $('.tooltipped').tooltip();
 });
 

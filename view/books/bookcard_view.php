@@ -13,7 +13,7 @@
 								$i++;
 				?>
 					<div class="col s12 md6 l4">
-						<div class="card tooltipped " data-position="right" data-tooltip="Available Copies: <?=$row['book_count'] ?>">
+						<div class="card tooltipped " data-position="right" data-tooltip="<?=$row['book_name'] ?> </br> Available Copies : <?=$row['book_count'] ?>">
 						<?php $fetch='../../resources/uploads/'.$row['cover_image_name'].".jpg";
 								$bid=$row['bid'];
 								$uid=$_SESSION['uid'];
@@ -21,7 +21,7 @@
 							<div class="card-image waves-effect waves-block waves-light">
 								<a href='#bookDetail' class="modal-trigger" data-target="bookDetail<?php echo $bid; ?>">
 									<img class="bookImage" <?="src='{$fetch}'";?> alt='Book Cover'>
-									<span class="card-title white-text"><?=$row['book_name'] ?></span>
+									<!-- <span class="card-title white-text"><?=$row['book_name'] ?></span> -->
 								</a>
 							</div>
 						</div>

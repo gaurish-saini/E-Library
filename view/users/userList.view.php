@@ -22,7 +22,7 @@
 						<th>S.No</th>
 						<th>Username</th>
 						<th>e-Mail</th>
-						<th></th>
+						<th class="center">#</th>
 					</tr>
 				</thead>
 				<tbody >
@@ -31,7 +31,7 @@
 						<td><?=++$index?></td>
 						<td><?=$admin['user_name']?></td>
 						<td><?=$admin['email_id']?></td>
-						<td class="center"><a href='#deleteUser' data-target="deleteUser<?php echo $admin['uid']; ?>" class="modal-trigger indigo-text"><i class="material-icons icon-margin">delete</i></a></td>
+						<td class="center"><a href='#deleteUser' data-target="deleteUser<?php echo $admin['uid']; ?>" class="modal-trigger indigo-text"><i class="material-icons center">delete</i></a></td>
 					</tr>
 					<div id="deleteUser<?php echo $admin['uid']; ?>" class="modal modal-del">
 						<div class="modal-content">
@@ -56,7 +56,7 @@
 						<th>S.No</th>
 						<th>Username</th>
 						<th>e-Mail</th>
-						<th></th>
+						<th class="center">#</th>
 					</tr>
 				</thead>
 				<tbody >
@@ -65,7 +65,7 @@
 						<td><?=++$index?></td>
 						<td><?=$reader['user_name']?></td>
 						<td><?=$reader['email_id']?></td>
-						<td class="center"><a href='#deleteUser' data-target="deleteUser<?php echo $reader['uid']; ?>" class="modal-trigger indigo-text"><i class="material-icons icon-margin">delete</i></a></td>
+						<td class="center"><a href='#deleteUser' data-target="deleteUser<?php echo $reader['uid']; ?>" class="modal-trigger indigo-text"><i class="material-icons center">delete</i></a></td>
 					</tr>
 					<div id="deleteUser<?php echo $reader['uid']; ?>" class="modal modal-del">
 						<div class="modal-content">
