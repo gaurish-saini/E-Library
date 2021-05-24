@@ -1,7 +1,9 @@
-<div class="">
-    <h4 class="center">Add Admin</h4>
+<div class="login-view">
     <form class="border" action="/addadmin"  method="POST" onsubmit="return (checkFieldName('user_name') && checkFieldEmail('email') && checkFieldPassword('password') && passwordMatch('password','password1'))">
-        <div class="input-field indigo-text text-darken-4 ">
+    <h5 class="center">Add Admin.</h5>
+            <div class="divider"></div>
+            </br>    
+    <div class="input-field indigo-text text-darken-4 ">
             <i class="material-icons prefix">person</i>
             <label for="email">Enter Full Name*</label>
             <input id="icon_prefix" type="text" class="validate" id="user_name" name="user_name" onkeyup="checkFieldName('user_name')" onblur="checkFieldName('user_name')">

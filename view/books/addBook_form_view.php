@@ -1,7 +1,10 @@
 <section class="container grey-text"  style="margin-top: 80px;">
         <div class="col s6 md6">
             <form class="grey lighten-4 " action="/addbook" method="POST" enctype="multipart/form-data" onsubmit="return (checkFieldName('book_name') && checkFieldName('author_name') && checkFieldName('book_edition') && checkFileInput('book_cover'))">
-                <div class="input-field indigo-text text-darken-4 ">
+             <h5 class="center">Add Book.</h5>
+            <div class="divider"></div>
+            </br>    
+            <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">book</i>
                     <input id="icon_prefix" class="validate" type="text" id="book_name" name="book_name" onkeyup="checkFieldName('book_name')">
                     <label for="email">Enter Book Name*</label>
