@@ -1,4 +1,7 @@
 <div class="container" style="margin-top: 30px; padding-bottom:60px;">
+  <?php if($i==0){?>
+  <h4 class="center">No reading history !</h4>
+  <?php } elseif($i !==0){?>
   <h4>READING HISTORY</h4>
    <ul class="collapsible expandable">
     <li>
@@ -146,5 +149,5 @@
       </div>
     </li>
   </ul>
+<?php }?>
 </div>
-<!-- <?= date('d/m/y',$bok['transaction_time']) ?> -->

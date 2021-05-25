@@ -36,13 +36,13 @@
 	
 	<?php  if($i==0){
             if ($_GET['listbooks'] == "alreadyread")  { ?>
-				<h4 class="center">Oops..No books to list !</h4>
+				<h5 class="center register-view">Oops..No books to list !</h5>
         <?php   } 
 			if ($_GET['listbooks'] == "wishlist") { ?>
-             <h4 class="center">Your Wishlist is empty !</h4>
+             <h5 class="center register-view">Your Wishlist is empty !</h5>
         <?php   } 
 			if ($_GET['listbooks'] == "issued") { ?>
-              <h4 class="center">You haven't issued a book yet !</h4>
+              <h5 class="center register-view">You haven't issued a book yet !</h5>
         <?php   }	
  	 } ?>
 </div>

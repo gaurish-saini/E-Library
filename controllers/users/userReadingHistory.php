@@ -3,75 +3,78 @@ $user = new Users();
 $uid=$_SESSION['uid'];
 $readBook=$user->fetchBooks($uid, 'history_read');
 $i=0;
-  $book = new Books;
+$book = new Books;
 
-  while($bok=mysqli_fetch_assoc($readBook)){ 
-      $bid=$bok['bid'];
-      $row=$book->fetchBook($bid);
-      $date= strtotime($bok['transaction_time']);
-      $month= date('m',$date);  
-      if($month=='01'){
+while($bok=mysqli_fetch_assoc($readBook)){
+    ++$i;
+    $bid=$bok['bid'];
+    $row=$book->fetchBook($bid);
+    $date= strtotime($bok['transaction_time']);
+    $month= date('m',$date); 
+
+    if($month=='01'){
         $jan_list[]=$row;
-      }else{
-          $jan_list= array();
-      }
-      if($month=='02'){
+    }else{
+        $jan_list= array();
+    }
+    if($month=='02'){
         $feb_list[]=$row;
-      } else{
+    } else{
         $feb_list=array();
-      }
-      if($month=='03'){
+    }
+    if($month=='03'){
         $mar_list[]=$row;
-      } else{
+    } else{
         $mar_list=array();
-      }
-      if($month=='04'){
+    }
+    if($month=='04'){
         $apr_list[]=$row;
-      } else{
+    } else{
         $apr_list=array();
-      }
-      if($month=='05'){
+    }
+    if($month=='05'){
         $may_list[]=$row;
-      } else{
+    } else{
         $may_list= array();
-      }
-      if($month=='06'){
+    }
+    if($month=='06'){
         $jun_list[]=$row;
-      } else{
+    } else{
         $jun_list=array();
-      }
-      if($month=='07'){
+    }
+    if($month=='07'){
         $jul_list[]=$row;
-      } else{
+    } else{
         $jul_list=array();
-      }
-      if($month=='08'){
+    }
+    if($month=='08'){
         $aug_list[]=$row;
-      } else{
+    } else{
         $aug_list=array();
-      }
-      if($month=='09'){
+    }
+    if($month=='09'){
         $sep_list[]=$row;
-      } else{
+    } else{
         $sep_list=array();
-      }
-      if($month=='10'){
+    }
+    if($month=='10'){
         $oct_list[]=$row;
-      } else{
+    } else{
         $oct_list=array();
-      }
-      if($month=='11'){
+    }
+    if($month=='11'){
         $nov_list[]=$row;
-      } else{
+    } else{
         $nov_list=array();
-      }
-      if($month=='12'){
+    }
+    if($month=='12'){
         $dec_list[]=$row;
-      }
-      else{
+    }
+    else{
         $dec_list=array();
-      }
-  }
+    }
+}
+  
 require __dir__.'/'.'../../view/common/sidebar.php';
 require __dir__.'/'.'../../view/books/readingHistory_view.php';
 ?>
