@@ -8,7 +8,6 @@ $i=0;
   while($bok=mysqli_fetch_assoc($readBook)){ 
       $bid=$bok['bid'];
       $row=$book->fetchBook($bid);
-      // var_dump($bok);die;
       $date= strtotime($bok['transaction_time']);
       $month= date('m',$date);  
       if($month=='01'){
