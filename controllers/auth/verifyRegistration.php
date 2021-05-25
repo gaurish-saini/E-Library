@@ -6,7 +6,7 @@ $db_values=$user->fetchUserAuth($emailid);
 $db_pass=$db_values['password'];
 if($pass===$db_pass){
 	$user->activate($emailid);
-	header('location:/');
+	header('location:/logout');
 }
 else
 	header('location:/splashmsg?msgtype=verificationfailed');

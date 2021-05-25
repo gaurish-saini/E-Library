@@ -11,7 +11,7 @@ if(isset($_POST['user_name']) and isset($_POST['email']) and isset($_POST['passw
 	$email=mysqli_escape_string($conn,$_POST['email']);
 	$password=mysqli_escape_string($conn,$_POST['password']);
 
-			if($uid=$user->createAdmin($user_name,$email,$password)){
+			if($uid=$user->createAdmin($user_name,$email,$password,NULL)){
 				header('location:/login?view=users');
 			}
 			else

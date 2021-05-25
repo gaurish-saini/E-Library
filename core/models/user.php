@@ -45,6 +45,28 @@ class Users extends QueryBuilder{
 			}
 		}
 	}
+	public function createAdmin($user_name,$email,$password,$id){
+		$pass=password_hash($password, PASSWORD_DEFAULT);
+		$this->names=['user_name','email_id','password','verified_id','type' ];
+		$this->values=["'{$user_name}'","'{$email}'","'{$password}'","'0'" ,"'0'"];
+		// return parent::insert($this->table,$this->names,$this->values);
+		if(parent::insert($this->table,$this->names,$this->values)){
+
+			if($id!=NULL){
+				header('location:/');
+			}
+			else{
+				$lnk='http://e-library.test/verify?id='.$email.'&secret='.$password;
+				if($this->sendVerificationMail($lnk,$email,$user_name)){
+					header("location:/splashmsg?msgtype=unverified");
+				}
+				else{
+					$this->deleteUser($email);
+					$this->flashError(['Internal Error, Try Again'],'/addadmin');
+				}	
+			}
+		}
+	}
 	public function verify($row,$pass){
 		if(isset($row)){
 			if(password_verify($pass, $row['password'])){
@@ -136,12 +158,6 @@ class Users extends QueryBuilder{
 	}
 	public function deleteUser($emailid){
 		return parent::delete($this->table,$this->names[1],$emailid);
-	}
-	public function createAdmin($user_name,$email,$password){
-		$pass=password_hash($password, PASSWORD_DEFAULT);
-		$this->names=['user_name','email_id','password','verified_id','type' ];
-		$this->values=["'{$user_name}'","'{$email}'","'{$password}'","'1'" ,"'0'"];
-		return parent::insert($this->table,$this->names,$this->values);
 	}
 	public function deleteAllBooks($uid){
 		return parent::delete('has_book','uid',$uid);
