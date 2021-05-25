@@ -9,6 +9,13 @@ $(document).ready(function(){
       $('.tooltipped').tooltip();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elem = document.querySelector('.collapsible.expandable');
+    var instance = M.Collapsible.init(elem, {
+      accordion: false
+    });
+  });
+
 function passwordMatch(id1,id2){
   var fieldId1=document.getElementById(id1);
   var fieldId2=document.getElementById(id2);

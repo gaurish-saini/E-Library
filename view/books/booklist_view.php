@@ -1,11 +1,5 @@
 <div class="container" style="margin-top: 30px;">
 	<table class="highlight responsive-table">
-		<?php $i=0;
-				$book = new Books;
-				while($bk=mysqli_fetch_assoc($readBook)):
-					$bid=$bk['bid'];
-					$row=$book->fetchBook($bid);
-			?>
         <thead>
           <tr>
               <th>S.No</th>
@@ -15,6 +9,12 @@
           </tr>
         </thead>
         <tbody>
+          <?php $i=0;
+				$book = new Books;
+				while($bk=mysqli_fetch_assoc($readBook)):
+					$bid=$bk['bid'];
+					$row=$book->fetchBook($bid);
+			  ?>
           <tr>
             <td><?=++$i?></td>
             <td><?=$row['book_name'] ?></td>
