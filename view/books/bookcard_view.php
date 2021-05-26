@@ -5,7 +5,7 @@
 </script>
 <?php if(($_SESSION['type']=='inreader')||($_SESSION['type']=='inadmin')):?>
 <div class="container grey lighten-4">
-	<div class="section" style="margin-top: 30px;">
+	<div class="section book-section">
 		<div class="row">
 			<div class="col s12">
 				<?php $i=0;

@@ -17,9 +17,6 @@ class Books extends QueryBuilder{
 		else
 			return TRUE;
 	}
-	// public function fetchBooksLimit($limit,$offset){
-	// 	return parent::fetchList2($this->table,($limit-1),$offset);
-	// }
 	public function fetchBooksLimit($limit,$offset, $order=null, $search=''){
 		if (!is_null($order)) {
 			switch ($order) {

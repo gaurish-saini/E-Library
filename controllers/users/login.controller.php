@@ -41,7 +41,7 @@ if (isset($_SESSION['type']))
 		require __dir__.'/'.'../../view/common/sidebar.php'; 
 		if(!(isset($_GET['view']) && $_GET['view'] == 'users')){
 		?>
-		<div class="fixed-action-btn"  style="z-index: 1001;">
+		<div class="fixed-action-btn add">
 			<a class="btn-floating btn-large brand indigo tooltipped"  data-position="left" data-tooltip="Add Book" href="/addbook"><i class="large material-icons">add</i></a>
 		</div>
 		<?php
@@ -56,7 +56,7 @@ if (isset($_SESSION['type']))
 		}
 		elseif($_GET['view']=='users'){
 			require __dir__.'/'.'../users/ListAllUsers.php';?>
-			<div class="fixed-action-btn"  style="z-index: 1001;">
+			<div class="fixed-action-btn add">
 			<a class="btn-floating btn-large brand indigo tooltipped"  data-position="left" data-tooltip="Add Admin" href="/addadmin" ><i class="large material-icons">add</i></a>
 			</div>
 			<?php
