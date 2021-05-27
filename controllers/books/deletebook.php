@@ -6,9 +6,7 @@ if($_SESSION['type']!='inadmin')
 	header("location:/");
 
 $book = new Books();
-// var_dump('here');die;
 if(isset($_POST['bid'])){
-    // var_dump($_POST['bid']);die;
 	$bid=$_POST['bid'];
 	$row=$book->fetchBook($bid);
 	if($book->deleteBook($bid)){

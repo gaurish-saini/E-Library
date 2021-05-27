@@ -61,9 +61,7 @@
 								</form>
 							</div>
 						</div>
-						
 					</div>
-					
 					<?php  
 					endwhile;
 				if($i==0): ?>

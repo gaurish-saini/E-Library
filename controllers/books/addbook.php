@@ -32,9 +32,7 @@ else{
 			$user->flashError([NULL,NULL,'Invalid Book Edition'],'/addbook');
 		}	
 		if($_POST['description']!=''){
-			// var_dump($_POST['description']);die;
 			$description=mysqli_escape_string($conn,$_POST['description']);
-			// var_dump($description);die;
 			$_SESSION['description']=$description;	
 		}
 		else{

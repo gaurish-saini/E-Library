@@ -9,8 +9,6 @@ if(isset($_POST['resemailid'])){
 		$user->flashError([NULL,NULL,'Email Address Not Registered'],'/');
 	}
 	else{
-
-		// echo 'hey 2';
 		$row=$user->fetchUserAuth($emailid);
 		$name=$row['user_name'];
 		$pass=$row['password'];

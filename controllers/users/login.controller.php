@@ -78,12 +78,6 @@ if (isset($_SESSION['type']))
 	{
 			require __dir__.'/'.'../../view/common/sidebar.php'; 
 			require __dir__ . '/' . '../books/ListBooks.php';
-			?>
-			<!-- <div>
-			<form action="/logout"><input type="submit" value="Logout" class="btn indigo-text tab-color z-depth-0"></form>
-			</div> -->
-			
-		<?php
 	}
 }	
 ?>

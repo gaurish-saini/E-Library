@@ -20,8 +20,6 @@
                 <div class="input-field indigo-text text-darken-4 ">
                     <i class="material-icons prefix">description</i>
                     <input class="validate" type="text" id="description" name="description" value="<?=$description?>">
-                    <!-- <textarea type="text" id="textarea" class="materialize-textarea validate" id="description" name="description" value="<?=$description?>"></textarea> -->
-                    <!-- <?php var_dump($description); ?> -->
                     <label class="active">Edit Description/About</label>
                 </div>
                 <div class=""><?php $fetch='../../resources/uploads/'.$cover.".jpg";?>

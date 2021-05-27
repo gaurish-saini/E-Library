@@ -41,16 +41,4 @@ if(isset($_POST['rname']) && isset($_POST['remailid']) && isset($_POST['rpasswor
 else{
 	$user->flashError(['Name Required','Enter Email Address','Enter Password'],'/index?register=1');
 }
-
-//if post request
-    // then
-    // form submission validation
-    // if not valid
-        // set error variable in session 
-        // return to same screen
-    // else
-        // process form Request
-        // redirect to further view
-// else
-    // redirect to view
 ?>

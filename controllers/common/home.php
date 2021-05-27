@@ -39,7 +39,6 @@ if (session_status() == PHP_SESSION_NONE) {
 	if(isset($_SESSION['resemailid'])){
 		$resemail=$_SESSION['resemailid'];
 		unset($_SESSION['resemailid']);
-		// echo 'home';
 }
 ?>
 <div id="modal1" class="modal modal-email">

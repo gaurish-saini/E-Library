@@ -16,7 +16,6 @@
 			<input type="hidden" name='emailid' value="<?=$emailid?>">
 			<label for="password">Confirm Password*</label>
 		</div>
-		
 		<small class="red-text left label-margin" id="errorpassword1"></small>
 		</br>
 		<div class="center">
