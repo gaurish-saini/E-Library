@@ -49,7 +49,6 @@ class Users extends QueryBuilder{
 		$pass=password_hash($password, PASSWORD_DEFAULT);
 		$this->names=['user_name','email_id','password','verified_id','type' ];
 		$this->values=["'{$user_name}'","'{$email}'","'{$password}'","'0'" ,"'0'"];
-		// return parent::insert($this->table,$this->names,$this->values);
 		if(parent::insert($this->table,$this->names,$this->values)){
 
 			if($id!=NULL){
@@ -71,8 +70,14 @@ class Users extends QueryBuilder{
 		if(isset($row)){
 			if(password_verify($pass, $row['password'])){
 				if($row['verified_id']=="0"){
-					session_destroy();
-					header('location:/splashmsg?msgtype=unverified');
+					$email=$row['email_id'];
+					$name=$row['user_name'];
+					$password=$row['password'];
+					$lnk='http://e-library.test/verify?id='.$email.'&secret='.$password;
+					if($this->sendVerificationMail($lnk,$email,$name)){
+						session_destroy();
+						header('location:/splashmsg?msgtype=unverified');
+					}
 				}
 				else {
 					$type=$row['type'];    			
