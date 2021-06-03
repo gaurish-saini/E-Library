@@ -12,7 +12,7 @@ if(isset($_POST['resemailid'])){
 		$row=$user->fetchUserAuth($emailid);
 		$name=$row['user_name'];
 		$pass=$row['password'];
-		$lnk='http://e-library.test/passwordreset?id='.$emailid.'&secret='.$pass;
+		$lnk='http://3.108.24.124/passwordreset?id='.$emailid.'&secret='.$pass;
 		if($forPasswordReset->sendResetPasswordMail($lnk,$emailid,$name)){
 			header("location:/splashmsg?msgtype=forgotpassword");
 		}
