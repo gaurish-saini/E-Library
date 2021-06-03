@@ -22,7 +22,7 @@
 		    require __dir__.'/view/common/footer.php'; 
         endif;
     ?>
-    <link type="text/javascript" href="resources/js/script.js">
-    <script type="text/javascript" src='resources/js/custom_js_functions.js'></script>
+    <!-- <link type="text/javascript" href="resources/js/script.js"> -->
+    <script type="text/javascript" src='resources/js/custom_Js_functions.js'></script>
     </body>
 </html>
