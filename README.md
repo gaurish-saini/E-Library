@@ -14,7 +14,7 @@ you can check out database schema here:
 https://docs.google.com/presentation/d/16XqP2lk1Gyvdt1f6mbsiQ0uC2vn-3Xrlqaici_hID5I/edit?usp=sharing
 
 
-As a developer I tried to implement following Design Pattern while implementation :
+As a developer I tried to build the application on following Design Pattern(MVC):
 
 https://docs.google.com/document/d/1Jx2LKeaS5jF0IJl20CTlfI-iZ1ER8pDMwA5pmp3D6yw/edit?usp=sharing
 
