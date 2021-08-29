@@ -11,5 +11,3 @@ The process of building the application involved various steps of SDLC:
 * As a developer I tried to build the application on a particular [Design Pattern](https://docs.google.com/document/d/1Jx2LKeaS5jF0IJl20CTlfI-iZ1ER8pDMwA5pmp3D6yw/edit?usp=sharing).
 
 * Moving onto DevOps after development, the application was depolyed on AWS [here](http://3.108.24.124/).
-***********
-This was the introductory project assigned to me for web-development by ColoredCow.
