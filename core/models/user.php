@@ -34,7 +34,7 @@ class Users extends QueryBuilder{
 				header('location:/login');
 			}
 			else{
-				$lnk='http://3.108.24.124//verify?id='.$emailid.'&secret='.$pass;
+				$lnk='http://65.0.94.238/verify?id='.$emailid.'&secret='.$pass;
 				if($this->sendVerificationMail($lnk,$emailid,$name)){
 					header("location:/splashmsg?msgtype=unverified");
 				}
@@ -55,7 +55,7 @@ class Users extends QueryBuilder{
 				header('location:/');
 			}
 			else{
-				$lnk='http://3.108.24.124/verify?id='.$email.'&secret='.$password;
+				$lnk='http://65.0.94.238/verify?id='.$email.'&secret='.$password;
 				if($this->sendVerificationMail($lnk,$email,$user_name)){
 					header("location:/splashmsg?msgtype=unverified");
 				}
@@ -73,7 +73,7 @@ class Users extends QueryBuilder{
 					$email=$row['email_id'];
 					$name=$row['user_name'];
 					$password=$row['password'];
-					$lnk='http://3.108.24.124/verify?id='.$email.'&secret='.$password;
+					$lnk='http://65.0.94.238/verify?id='.$email.'&secret='.$password;
 					if($this->sendVerificationMail($lnk,$email,$name)){
 						session_destroy();
 						header('location:/splashmsg?msgtype=unverified');
